@@ -1,24 +1,29 @@
-# README
+# ACH2006 - Engenharia de Sistemas de Informação I
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Primeira Execução:
+Excluir e criar o entrypoint.sh com o seguinte conteúdo: 
+```
+#!/bin/bash
+set -e
 
-Things you may want to cover:
+# Remove a potentially pre-existing server.pid for Rails.
+rm -f /myapp/tmp/pids/server.pid
 
-* Ruby version
+# Then exec the container's main process (what's set as CMD in the Dockerfile).
+exec "$@"
+```
+E executar os seguintes comandos em um terminal
+```
+$ docker-compose build
+$ docker-compose up
+```
+e em outro enquanto o container está rodando
+```
+docker-compose run web rake db:create
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Após primeira execução: 
+Apenas executar 
+```
+$ docker-compose up
+```
