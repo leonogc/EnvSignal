@@ -18,3 +18,17 @@ Apenas executar
 ```
 $ docker-compose up
 ```
+
+Integrantes do grupo:
+* Vitor Hugo Brasiliense da Rosa
+   * 11270890 | vitorhugobr@usp.br
+* Michelly Rodrigues da Silva
+   * 11270607 | michelly.rds@usp.br
+* Leonardo Nogueira Cordeiro
+   * 11270927 | leonogueirac@usp.br 
+* Mateus Alex dos Santos Luna
+   * 11207964 | theew@usp.br
+* Pedro Gabriel Santana 
+   * 11270948 | pedro.gs@usp.br
+* Lucas Imamura Alves
+   * 11208221 | lucas_alves@usp.br
