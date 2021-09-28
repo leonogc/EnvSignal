@@ -40,7 +40,7 @@ jobs:
         app: envsignal-staging
         api_key: $HEROKU_AUTH_TOKEN
     - stage: test staging
-      script: 'curl https://envsignal.herokuapp.com/
+      script: 'curl https://envsignal.herokuapp.com/'
     - stage: deploy to production
       script: skip
       deploy:

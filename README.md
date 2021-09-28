@@ -31,7 +31,7 @@ Integrantes do grupo:
    * 11270927 | leonogueirac@usp.br 
 * Mateus Alex dos Santos Luna
    * 11207964 | theew@usp.br
-* Pedro Gabriel Santana 
+* Pedro Gabriel dos Anjos Santana 
    * 11270948 | pedro.gs@usp.br
 * Lucas Imamura Alves
    * 11208221 | lucas_alves@usp.br
