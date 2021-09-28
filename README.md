@@ -11,17 +11,20 @@ E executar os seguintes comandos em um terminal
 $ docker-compose build
 $ docker-compose up
 ```
-e em outro enquanto o container está rodando
+Criar o banco de dados da aplicação dentro do container (o container deve estar rodando paralelamente no terminal):
 ```
-docker-compose run web rake db:create
+$ docker-compose run web rake db:create
 ```
 
 ## Após primeira execução: 
-Apenas executar 
+Para subir a aplicação:
 ```
 $ docker-compose up
 ```
-
+Para encerrar a aplicação:
+```
+$ docker-compose down
+```
 Integrantes do grupo:
 * Vitor Hugo Brasiliense da Rosa
    * 11270890 | vitorhugobr@usp.br

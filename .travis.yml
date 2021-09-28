@@ -8,14 +8,15 @@ services:
 before_install:
   - gem install bundler
 
-stages:
-  - compile
-  - test
-  - name: deploy
-    if: branch = main
+script:
+  - bundle exec rake rspec
+  - bundle exec rake cucumber
 
-# tests:
-# specify tests
+# stages:
+#   - compile
+#   - test
+#   - name: deploy
+#     if: branch = main
 
 # before_script:
   # - bundle install --jobs=3 --retry=3
@@ -23,28 +24,22 @@ stages:
   # - bundle exec rake db:create
   # - bundle exec rake db:schema:load
 
-# script:
-#   - bundle exec rake test
-#   - bundle exec rake test:system
-
-jobs:
-  include:
-    - stage: unit tests
-      script: "Running unit tests (1)"
-    - stage: unit tests
-      script: "Running unit tests (2)"
-    - stage: deploy to staging
-      script: skip
-      deploy: &heroku
-        provider: heroku
-        app: envsignal-staging
-        api_key: $HEROKU_AUTH_TOKEN
-    - stage: test staging
-      script: 'curl https://envsignal.herokuapp.com/'
-    - stage: deploy to production
-      script: skip
-      deploy:
-        <<: *heroku
-        app: envsignal-production
-    - stage: test production
-      script: 'curl https://envsignal.herokuapp.com/'
+# jobs:
+#   include:
+#     - stage: unit tests
+#       script: bundle exec rake test
+#     - stage: deploy to staging
+#       script: skip
+#       deploy: &heroku
+#         provider: heroku
+#         app: envsignal-staging
+#         api_key: $HEROKU_AUTH_TOKEN
+#     - stage: test staging
+#       script: 'curl https://envsignal.herokuapp.com/'
+#     - stage: deploy to production
+#       script: skip
+#       deploy:
+#         <<: *heroku
+#         app: envsignal-production
+#     - stage: test production
+#       script: 'curl https://envsignal.herokuapp.com/'
