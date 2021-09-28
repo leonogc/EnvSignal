@@ -28,13 +28,13 @@ jobs:
       script:
         - bundle exec rake rspec
         - bundle exec rake cucumber
-    - stage: deploy to staging
-      script: skip
-      deploy: &heroku
-        provider: heroku
-        app: envsignal-staging
-        api_key: $HEROKU_AUTH_TOKEN
-    - stage: test staging
-      script: 'curl https://envsignal.herokuapp.com/'
-    - stage: deploy to production
-      script: skip
+    # - stage: deploy to staging
+    #   script: skip
+    #   deploy: &heroku
+    #     provider: heroku
+    #     app: envsignal-staging
+    #     api_key: $HEROKU_AUTH_TOKEN
+    # - stage: test staging
+    #   script: 'curl https://envsignal.herokuapp.com/'
+    # - stage: deploy to production
+    #   script: skip
