@@ -1,7 +1,7 @@
 # ACH2006 - Engenharia de Sistemas de Informação I
 
-[![Build Status](https://app.travis-ci.com/leonogc/EP-ESI.svg?branch=main)](https://app.travis-ci.com/leonogc/EP-ESI)
-[![Maintainability](https://api.codeclimate.com/v1/badges/9eac319feb492213e279/maintainability)](https://codeclimate.com/github/leonogc/EP-ESI/maintainability)
+[![Build Status](https://app.travis-ci.com/leonogc/EnvSignal.svg?branch=main)](https://app.travis-ci.com/leonogc/EnvSignal)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d080250fcabaeb94e89f/maintainability)](https://codeclimate.com/github/leonogc/EnvSignal/maintainability)
 
 ## Primeira Execução:
 Mudar de EOF Sequence de CRLF para LF do arquivo entrypoint.sh
