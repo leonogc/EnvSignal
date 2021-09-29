@@ -11,6 +11,10 @@ before_install:
   - bundle install --quiet --jobs 4
   - bundle install --path vendor/cache
 
+before_script:
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
+
 stages:
   - compile
   - test
