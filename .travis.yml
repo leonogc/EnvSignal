@@ -12,6 +12,7 @@ stages:
     if: branch = main
 
 before_script:
+  - bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java
   - bundle config set deployment 'true'
 
 jobs:
