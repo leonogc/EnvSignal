@@ -1,7 +1,11 @@
-# ACH2006 - Engenharia de Sistemas de Informação I
+# EnvSignal
 
 [![Build Status](https://app.travis-ci.com/leonogc/EnvSignal.svg?branch=main)](https://app.travis-ci.com/leonogc/EnvSignal)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d080250fcabaeb94e89f/maintainability)](https://codeclimate.com/github/leonogc/EnvSignal/maintainability)
+
+## Descrição:
+
+EnvSignal é um projeto desenvolvido durante a matéria <b>ACH2006 - Engenharia de Sistemas de Informação I</b> que tem como objetivo a criação de uma plataforma que possibilite seus usuários a indicar e se informar sobre lugares que estejam prejudicando o meio ambiente, além de informar as instituições responsáveis.
 
 ## Primeira Execução:
 Mudar de EOF Sequence de CRLF para LF do arquivo entrypoint.sh
