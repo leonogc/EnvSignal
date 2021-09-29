@@ -6,8 +6,8 @@ services:
   - postgresql
 
 before_install:
-  - bundle config --local deployment true
-  
+  - bundle config set deployment 'true'
+
 stages:
   - compile
   - test
