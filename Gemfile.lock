@@ -64,6 +64,10 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     bindex (0.8.1)
     bootsnap (1.9.1)
       msgpack (~> 1.0)
@@ -203,17 +207,16 @@ GEM
       method_source
       rake (>= 0.13)
       thor (~> 1.0)
-    rainbow (3.0.0)
     rake (13.0.6)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    react_on_rails (11.1.4)
-      addressable
+    react-rails (2.6.1)
+      babel-transpiler (>= 0.7.0)
       connection_pool
-      execjs (~> 2.5)
-      rails (>= 3.2)
-      rainbow (~> 3.0)
+      execjs
+      railties (>= 3.2)
+      tilt
     regexp_parser (2.1.1)
     rexml (3.2.5)
     rspec-core (3.10.1)
@@ -300,7 +303,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 6.1.4.1)
-  react_on_rails (= 11.1.4)
+  react-rails (~> 2.6, >= 2.6.1)
   rspec-rails (>= 3.7)
   sass-rails (~> 5.0)
   selenium-webdriver

@@ -8,7 +8,7 @@ RUN echo 'deb http://dl.yarnpkg.com/debian/ stable main' > /etc/apt/sources.list
 
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
       build-essential libpq-dev curl
-RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
+RUN apt-get install -y nodejs
 RUN apt-get update && apt-get install -y --no-install-recommends nodejs yarn -f
 
 WORKDIR /myapp
