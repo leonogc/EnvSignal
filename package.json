@@ -1,5 +1,8 @@
 {
   "name": "myapp",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine": "^3.9.0"
+  }
 }
