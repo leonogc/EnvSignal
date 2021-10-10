@@ -1,21 +1,22 @@
 Dado('que estou na página de login') do
-    visit '/users/login'
+    visit 'login'
   end
   
   Quando('preencho o campo {string} com {string}') do |string, string2|
-    pending # Write code here that turns the phrase above into concrete actions
+    fill_in string, :with  => string2 
   end
   
   Quando('clico em Login') do
-    pending # Write code here that turns the phrase above into concrete actions
+    click_on 'Fazer login'
+    user1 = User.new(name: "Rogerio Satrah Ka",username: "rogerio_satrah", email: "rogerio_satrah1@gmail.com",birth_date: Date.parse("17/10/1990"),password: "senhasecretaK").save
   end
   
   Então('devo logar na minha conta') do
-    pending # Write code here that turns the phrase above into concrete actions
+    expect(session[:user_id]).to eq(user1.id)
   end
   
   Então('deverei ver a página home') do
-    pending # Write code here that turns the phrase above into concrete actions
+    expect(page).to have_current_path(@root)
   end
   
   Quando('a senha do usuário está incorreta') do

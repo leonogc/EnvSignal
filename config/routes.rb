@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  resources: users
+  get 'sessions/new'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'sign_out'  => 'sessions#destroy'
+  resources :users
   root to: 'pages#home'
 end
