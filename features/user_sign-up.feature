@@ -135,6 +135,6 @@ Quando preencho o campo "Username" com "rogerio_satrah"
 Quando preencho o campo "Email" com "rogerio_satrah@gmail.com"
 Quando preencho o campo "Confirm Email" com "rogerio_satrah@gmail.com"
 Quando preencho o campo "Password" com "senhasecretaK"
-Quando preencho o campo "Confirm Password" com "senhasecretaK"
+Quando preencho o campo "Confirm Password" com "senhasecreta"
 E clico em create
 Então deverei ver a mensagem de erro "Senha e Confirmar Senha não correspondem!"

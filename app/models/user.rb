@@ -3,8 +3,10 @@ class User < ApplicationRecord
     validates :birth_date, presence: {message: "É obrigatório informar a data de nascimento!"}
     validates :username, presence: {message: "É obrigatório informar o nome de usuário!"}
     validate :dateCheck
-    validates :email, presence: {message: "É obrigatório informar o email!"},format: { with: URI::MailTo::EMAIL_REGEXP, message: "Formato de Email Inválido!"}
-    validates :password, presence: {message: "É obrigatório informar a senha!"}
+    validates :email, confirmation: true, presence: {message: "É obrigatório informar o email!"},format: { with: URI::MailTo::EMAIL_REGEXP, message: "Formato de Email Inválido!"}
+    validates :password, confirmation: true, presence: {message: "É obrigatório informar a senha!"}
+    validates :password, confirmation: { case_sensitive: true, message: "Senha e Confirmar Senha não correspondem!"}
+    validates :email, confirmation: { case_sensitive: true, message: "Email e Confirmar Email não correspondem!"}
     validate :usernameAvailableCheck
 
     def dateCheck()
