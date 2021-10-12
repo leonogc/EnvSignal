@@ -7,6 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-markers.create!([
-    { "type": "Water Leak", "latitude": "-23.4823919", "longitude": "-46.5026385", "obs": "Muita água!", "upvotes": 10, "downvotes": 2, "verified": true},
-    ])
+Markers.create!([
+    { "type": "Water Leak", "latitude": "-23.4823919", "longitude": "-46.5026385", "obs": "Muita água!", "upvotes": 10, "downvotes": 2, "verified": true}
+])
