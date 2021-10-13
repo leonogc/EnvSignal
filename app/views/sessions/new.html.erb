@@ -1,15 +1,26 @@
-<h1>Sessions#new</h1>
+<h1>Login</h1>
+
+<% if @user_validate.errors.any? %>
+<div id="error_explanation">    
+    <ul>
+        <% @user_validate.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
 
 <%= form_for :session, url: login_path do |form| %>
     <div class="field">
         <%= form.label :username %> <br />
-        <%= form.text_field :username %>
+        <%= form.text_field :username, autofocus: true %>
     </div>
     <div class="field">
         <%= form.label :password %> <br />
         <%= form.password_field :password, autocomplete: "off" %>
-    </div>
+    </div> 
+    <p>New user? <%= link_to "Sign up now!", new_user_path %></p>
     <div class="actions">
-        <%= form.submit 'Fazer login' %>
+        <%= form.submit 'Login' %>
     </div>
 <% end %>

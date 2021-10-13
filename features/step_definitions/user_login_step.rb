@@ -7,7 +7,7 @@ Dado('que estou na página de login') do
   end
   
   Quando('clico em Login') do
-    click_on 'Fazer login'
+    click_on 'Login'
     user1 = User.new(name: "Rogerio Satrah Ka",username: "rogerio_satrah", email: "rogerio_satrah1@gmail.com",birth_date: Date.parse("17/10/1990"),password: "senhasecretaK").save
   end
   
@@ -24,7 +24,7 @@ Dado('que estou na página de login') do
   end
   
   Então('deverei ver a mensagem de erro {string}') do |string|
-    pending # Write code here that turns the phrase above into concrete actions
+    expect(page).to have_content(string)
   end
   
   Quando('o username não existe') do

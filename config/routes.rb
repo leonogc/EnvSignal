@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   delete 'sign_out'  => 'sessions#destroy'
   resources :users
   root to: 'pages#home'
+  resources :users
+  get "/users/login" => "users#show"
 end
