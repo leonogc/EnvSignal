@@ -19,7 +19,7 @@ Então('ele deve ter sido salvo no banco de dados') do
 end
 
 Então('deverei ser redirecionado para a página de login') do
-    expect(page).to have_current_path("login")
+    expect(page).to have_current_path("/login")
 end
 
 Quando('deixo o campo {string} vazio') do |string|

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    validates :login_user, presence: {message: "Username or Password not entered"}, on: :login_account
-    validates :login_pwd, presence: {message: "Username or Password not entered"}, on: :login_account
+    validates :username, presence: {message: "Username or Password not entered"}, on: :login_account
+    validates :password, presence: {message: "Username or Password not entered"}, on: :login_account
     
     has_secure_password
     validates :name, presence: {message: "É obrigatório informar o nome!"}
@@ -19,6 +19,10 @@ class User < ApplicationRecord
 
     def usernameAvailableCheck()
         errors.add(:username, 'Nome de usuário não está disponível!') if User.find_by username: self.username
+    end
+
+    def usernameNotFound()
+        errors.add(:username, 'Incorrect username or password not found!')
     end
 
 end

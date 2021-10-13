@@ -1,9 +1,9 @@
 <h1>Login</h1>
 
-<% if @user_validate.errors.any? %>
+<% if @user && @user.errors.any? %>
 <div id="error_explanation">    
     <ul>
-        <% @user_validate.errors.full_messages.each do |msg| %>
+        <% @user.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
         <% end %>
     </ul>
