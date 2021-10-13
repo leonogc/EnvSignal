@@ -13,11 +13,11 @@ start:
 
 .PHONY: db
 db:
-	@docker-compose up envsignal_db_1
+	@docker start envsignal_db_1
 
 .PHONY: start-bash
 start-bash:
-	@docker-compose exec envsignal_web_1 bash
+	@docker exec -it envsignal_web_1 bash
 
 
 .PHONY: stop
