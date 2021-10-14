@@ -7,7 +7,7 @@
 
 EnvSignal é um projeto desenvolvido durante a matéria <b>ACH2006 - Engenharia de Sistemas de Informação I</b> que tem como objetivo a criação de uma plataforma que possibilite seus usuários a indicar e se informar sobre lugares que estejam prejudicando o meio ambiente, além de informar as instituições responsáveis.
 
-## Pivotal Tracker: https://www.pivotaltracker.com/n/projects/2534235
+# Pivotal Tracker: https://www.pivotaltracker.com/n/projects/2534235
 
 ### Disponível em: [Heroku](https://envsignal.herokuapp.com/)
 
