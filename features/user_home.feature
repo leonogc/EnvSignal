@@ -5,16 +5,21 @@ Como Usuário
 Para que eu possa localizar os desastres próximos a mim e sinalizar outros desastres
 Eu quero poder interagir com a home da aplicação
 
-Cenário: Ver desastre
+Cenário: Ver Mapa
 Dado que estou na página home
-Quando eu clico e seguro no mapa no pin de um desastre
-Então deve mostrar as informações desse desastre
+Quando a página é carregada
+Então o mapa deve ser exibido
 
 Cenário: Adicionar desastre
 Dado que estou na página home
-Quando eu clico e seguro no mapa
+Quando eu clico e seguro no mapa por 1 segundo
 E seleciono o tipo do desastre
 Então deve começar o processo de adição do desastre
+
+Cenário: Ver desastre
+Dado que estou na página home
+Quando eu clico e seguro no mapa no pin de um desastre por 1 segundo
+Então deve mostrar as informações desse desastre
 
 Cenário: Confimar desastre
 Dado que estou na página home
