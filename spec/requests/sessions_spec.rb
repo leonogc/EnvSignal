@@ -8,4 +8,13 @@ RSpec.describe "Sessions", type: :request do
     end
   end
 
+  describe "POST /new" do
+    it "checks the fields" do
+    end
+    it "searches for the user" do
+    end
+    it "authenticates the user" do 
+    end
+  end
+
 end

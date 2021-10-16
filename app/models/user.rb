@@ -21,10 +21,6 @@ class User < ApplicationRecord
         errors.add(:username, 'Nome de usuário não está disponível!') if User.find_by username: self.username
     end
 
-    def usernameNotFound()
-        errors.add(:username, 'Incorrect username or password not found!')
-    end
-
 end
 
 # numericality: {less_than: (Date.today - 18.years), message: "É obrigatório ser maior de idade para usar a plataforma!"}

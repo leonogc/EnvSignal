@@ -8,7 +8,7 @@ Dado('que estou na página de login') do
   end
   
   Então('devo logar na minha conta') do
-    expect(session[:user_id]).to eq(user1.id)
+    expect(session[:user_id]).to eql(user1.id)
   end
   
   Então('deverei ver a página home') do
@@ -16,7 +16,7 @@ Dado('que estou na página de login') do
   end
   
   Quando('a senha do usuário está incorreta') do
-    expect(@user).to respond_to(authenticate).with(1).arguments
+    pending
   end
   
   Quando('o username não existe') do
