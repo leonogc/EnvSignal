@@ -5,17 +5,17 @@
 
 ## Descrição:
 
-EnvSignal é um projeto desenvolvido durante a matéria <b>ACH2006 - Engenharia de Sistemas de Informação I</b> que tem como objetivo a criação de uma plataforma que possibilite seus usuários a indicar e se informar sobre lugares que estejam prejudicando o meio ambiente, além de informar as instituições responsáveis.
+EnvSignal é um projeto desenvolvido durante a matéria **ACH2006 - Engenharia de Sistemas de Informação I** que tem como objetivo a criação de uma plataforma que possibilite seus usuários a indicar e se informar sobre lugares que estejam prejudicando o meio ambiente, além de informar as instituições responsáveis, além de indicar desastres ambientais acontecendo.
 
-### Disponível em: [Heroku](https://envsignal.herokuapp.com/)
+### [Heroku](https://envsignal.herokuapp.com/) | [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2534235)
 
 ## Primeira Execução:
 Mudar de EOF Sequence de CRLF para LF do arquivo entrypoint.sh
 
 E executar os seguintes comandos em um terminal
 ```
-$ docker-compose build
-$ docker-compose up
+$ make setup
+$ make start
 ```
 Criar o banco de dados da aplicação dentro do container (o container deve estar rodando paralelamente no terminal):
 ```
@@ -25,11 +25,11 @@ $ docker-compose run web rake db:create
 ## Após primeira execução: 
 Para subir a aplicação:
 ```
-$ docker-compose up
+$ make start
 ```
 Para encerrar a aplicação:
 ```
-$ docker-compose down
+$ make stop
 ```
 Integrantes do grupo:
 * Vitor Hugo Brasiliense da Rosa
