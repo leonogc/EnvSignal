@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_12_205609) do
+ActiveRecord::Schema.define(version: 2021_10_16_143110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,12 +20,13 @@ ActiveRecord::Schema.define(version: 2021_10_12_205609) do
     t.decimal "latitude"
     t.decimal "longitude"
     t.string "obs"
-    t.string "created_by"
+    t.bigint "user_id", null: false
     t.integer "upvotes"
     t.integer "downvotes"
     t.boolean "verified"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_markers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +39,5 @@ ActiveRecord::Schema.define(version: 2021_10_12_205609) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "markers", "users"
 end

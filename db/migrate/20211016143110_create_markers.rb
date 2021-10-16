@@ -5,7 +5,7 @@ class CreateMarkers < ActiveRecord::Migration[6.1]
       t.decimal :latitude
       t.decimal :longitude
       t.string :obs
-      t.string :created_by
+      t.references :user, null: false, foreign_key: true
       t.integer :upvotes
       t.integer :downvotes
       t.boolean :verified
