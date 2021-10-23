@@ -1,29 +1,27 @@
 language: ruby
 rvm:
-  - 2.7.4
-
+- 2.7.4
 services:
-  - postgresql
-
+- postgresql
 before_install:
-  - bundle config set deployment 'true'
-  - bundle config --local deployment true
-  - bundle install --quiet --jobs 4
-  - bundle install --path vendor/cache
-
+- bundle config set deployment 'true'
+- bundle config --local deployment true
+- bundle install --quiet --jobs 4
+- bundle install --path vendor/cache
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - RAILS_ENV=test bundle exec rails db:migrate --trace
-
+- psql -c 'create database travis_ci_test;' -U postgres
+- RAILS_ENV=test bundle exec rails db:migrate --trace
 stages:
-  - compile
-  - test
-  - name: deploy
-    if: branch = main
-
+- compile
+- test
+- name: deploy
+  if: branch = main
 jobs:
   include:
-    - stage: tests
-      script:
-        - bundle exec rake spec
-        - bundle exec rake cucumber
+  - stage: tests
+    script:
+    - bundle exec rake spec
+    - bundle exec rake cucumber
+env:
+  global:
+    secure: LNQWv+iHS5N1QkI8H//LXu+gZEtKyLn1you4MP8cm385jwSu02vBrWJWRSKLTmQtLS8hKhI95iUGNTKEGm6PozDkA7MYPPMFGzP0MkjDx2+vZcQrPQIVCDDWBPpxT35bjzhpLV3xeU4aKEUvcH3R8Jv5zzqTGsXMGdxyljFRzhwcIsdTKAuVZgA00OyFZXw/Syd5zrxVMzHQNNAdF2xaumTwFFhM51cZmO/MEfVvw6UyOJxh2iPXrXFIc22kLw80Hbx/3E8g1gn7QPQ7XQH6D0DamD80BwdJE6JKhv1wRN4SZ9xLT78IFRHUd0i0un/Rv+Wg4o4+WZ7j6gTSoDsb1xEnBSU9Y730YtEi3meX/rTfj1ehkcjd5XKRm6tez5baxX1RULUoFc5LLK7dptg9b3rXyVT4TzyxmxYE1XUYXWgVdcIO2kI4OGKX6W97vWBiopPQn8oL/YxE66JUH50OiYK1YP4vQXRbJncUHVv49HaYwpT1cQfLLu7RlUQfD0XakjnWdraKPypVcz1pg/rIr5EKDj66hpcdy7ubTMthwxRDgGgAm0fC/bBT5LGZXOBugJGKdm97LDxYf7dpKCNOQfpVX3nwV6NAsRdjncyf+8iv3HviiyWgSOXSRwgRmr4Yeh07R7bJfkXJHfzBrpcHqONnnTg3iM/0jNcMDluA7FA=
