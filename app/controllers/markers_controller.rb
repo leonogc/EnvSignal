@@ -64,6 +64,6 @@ class MarkersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def marker_params
-      params.require(:marker).permit(:type, :latitude, :longitude, :obs, :user_id, :upvotes, :downvotes, :verified)
+      params.require(:marker).permit(:disaster_type, :latitude, :longitude, :obs, :user_id, :upvotes, :downvotes, :verified)
     end
 end

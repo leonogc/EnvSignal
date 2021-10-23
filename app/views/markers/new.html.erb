@@ -1,5 +1,37 @@
+<%= form_with(model: @marker) do |form| %>
 <h1>New Marker</h1>
+<%= form.label :latitude %>
+<%= form.select :disaster_type, 
+[['Vazamento de Água', 'vazamento'], 
+['Incêndio', 'incendio'],
+['Despejo Irregular de Esgoto', 'esgoto'], 
+['Descarte Irregular de Lixo', 'lixo']] %>
 
-<%= render 'form', marker: @marker %>
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :obs %>
+    <%= form.text_field :obs %>
+  </div>
+
+  <%= form.hidden_field :user_id, value: 1 %>
+  <%= form.hidden_field :upvotes, value: 0 %>
+  <%= form.hidden_field :downvotes, value: 0 %>
+  <%= form.hidden_field :verified, value: false %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Back', markers_path %>
+<%= javascript_include_tag "markers" %>

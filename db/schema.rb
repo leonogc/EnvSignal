@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_16_143110) do
+ActiveRecord::Schema.define(version: 2021_10_23_141116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "markers", force: :cascade do |t|
-    t.string "type"
+    t.string "disaster_type"
     t.decimal "latitude"
     t.decimal "longitude"
     t.string "obs"
     t.bigint "user_id", null: false
-    t.integer "upvotes"
-    t.integer "downvotes"
-    t.boolean "verified"
+    t.integer "upvotes", default: 0
+    t.integer "downvotes", default: 0
+    t.boolean "verified", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_markers_on_user_id"

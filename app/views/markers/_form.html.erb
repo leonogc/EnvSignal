@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type %>
-  </div>
+ <select name=:disaster_type id="disaster_type">
+    <option value="vazamento">Vazamento de Água</option>
+    <option value="incendio">Incêndio</option>
+    <option value="esgoto">Despejo Irregular de Esgoto</option>
+    <option value="lixo">Descarte Irregular de Lixo</option>
+  </select>
 
   <div class="field">
     <%= form.label :latitude %>

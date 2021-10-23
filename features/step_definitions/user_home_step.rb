@@ -3,8 +3,8 @@ Dado('que estou na página home') do
 end
 
 Quando('a página é carregada') do
-  expect(URI.parse('https://maps.googleapis.com/maps/api/js?key=') # Write code here that turns the phrase above into concrete actions
-  # request pro google maps
+#   expect(URI.parse('https://maps.googleapis.com/maps/api/js?key=') # Write code here that turns the phrase above into concrete actions
+#   # request pro google maps
 end
 
 Então('o mapa deve ser exibido') do

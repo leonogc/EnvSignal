@@ -36,4 +36,4 @@ migrate:
 .PHONY: tests
 tests:
 	@docker-compose run web rake cucumber
-	@docker-compose run web rake rspec
+	@docker-compose run web rails spec
