@@ -11,5 +11,19 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe SessionsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "helps with login verifications" do
+    before :each do
+      @u = double('user1', :id => 1)
+    end
+    it "verifies current user" do
+
+    end
+    context "already logged" do
+      it "block acess to login" do
+      end
+      it "answer that you're logged in" do
+      end
+      
+    end
+  end
 end

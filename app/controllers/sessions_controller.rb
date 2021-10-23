@@ -1,9 +1,11 @@
 class SessionsController < ApplicationController
+  before_action :block_access, except: [:destroy]
+  before_action :authorize, except: [:new, :create, :show]
+
   def new
 
   end
 
-  before_action :block_access, except: [:destroy]
   def create
     if !params[:session][:username] or params[:session][:username] == '' or !params[:session][:password] or params[:session][:password] == ''
       flash.alert = 'Username or Password not entered'
@@ -25,11 +27,16 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    redirect_to @login
+    redirect_to '/login'
   end
 
   def sign_in (user)
     session[:user_id] = @user.id
+  end
+
+  def sign_out
+    session.delete(:user_id)
+    @current_user = nil
   end
 
 end
