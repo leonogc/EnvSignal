@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-    validates :username, presence: {message: "Username or Password not entered"}, on: :login_account
-    validates :password, presence: {message: "Username or Password not entered"}, on: :login_account
     
     has_secure_password
     validates :name, presence: {message: "É obrigatório informar o nome!"}
