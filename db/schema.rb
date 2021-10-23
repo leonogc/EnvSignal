@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_10_23_141116) do
     t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
   add_foreign_key "markers", "users"
