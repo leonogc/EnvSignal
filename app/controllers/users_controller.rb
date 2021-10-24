@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authorize, except: [:new, :create, :show]
+    before_action :authorize, except: [:new, :create]
     def new
         @user = User.new
     end
@@ -16,6 +16,15 @@ class UsersController < ApplicationController
     end
 
     def show
+        @user = User.find_by(id: session[:user_id])
+    end
+
+    def edit
+
+    end
+
+    def update
+
     end
 
     private

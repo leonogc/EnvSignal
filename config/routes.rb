@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   delete 'sign_out'  => 'sessions#destroy'
   resources :users
   root to: 'pages#home'
-  get "/users/login" => "users#show"
+  get 'profile' => 'users#show'
+  get 'edit' => 'users#edit'
+  post 'update' => 'users#update'
 end
