@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :users
   root to: 'pages#home'
   get 'profile' => 'users#show'
-  get 'edit' => 'users#edit'
+  post 'edit' => 'users#edit'
   post 'update' => 'users#update'
 end

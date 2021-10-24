@@ -1,0 +1,23 @@
+<h1> Editar Dados </h1>
+
+<%= form_with model: @user, url: 'update', local: true do |form| %>
+    <p>
+        <%= form.label :name %><br />
+        <%= form.text_field :name %>
+    </p>
+    <p>
+        <%= form.label :birth_date, "Birth Date" %><br />
+        <%= form.date_field :birth_date %>
+    </p>
+    <p>
+        <%= form.label :username %><br />
+        <%= form.text_field :username %>
+    </p>
+    <p>
+        <%= form.label :email %><br />
+        <%= form.email_field :email %>
+    </p>
+    <p>
+        <%= form.submit 'update'%>
+    </p>
+<% end %>

@@ -7,4 +7,11 @@ class ApplicationController < ActionController::Base
             redirect_to login_path
         end
     end
+
+    def correct_user?
+        @user = User.find(params[:id])
+        unless current_user == @user
+            redirect_to 'profile'
+        end
+    end
 end

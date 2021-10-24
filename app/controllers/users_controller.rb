@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
     before_action :authorize, except: [:new, :create]
+    before_action :correct_user, only: [:show, :edit, :update]
+
     def new
         @user = User.new
     end
@@ -20,11 +22,16 @@ class UsersController < ApplicationController
     end
 
     def edit
-
+        @user = User.find(params[:id])
     end
-
+    
     def update
-
+        @user = User.find(params[:id])
+        if @user.update_attributes(user_params)
+            redirect_to 'profile'
+        else
+            render action: :edit
+        end
     end
 
     private

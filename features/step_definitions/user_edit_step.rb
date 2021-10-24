@@ -11,7 +11,7 @@ Dado('que não estou logado') do
     visit 'login'
 end
 
-Quando('clico em Profile e clico em Edit') do
+Quando('acesso a tela de edição de perfil') do
     visit 'edit'
 end
 
