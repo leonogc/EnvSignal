@@ -3,12 +3,14 @@ Dado('que estou na página home') do
 end
 
 Quando('a página é carregada') do
-  uri = URI.parse('https://maps.googleapis.com/maps/api/js?key='+Rails.application.credentials.google_maps_api_key) # Write code here that turns the phrase above into concrete actions
+  uri = URI.parse('https://maps.googleapis.com/maps/api/js?key='+Rails.application.credentials.google_maps_api_key)
   response = Net::HTTP.get_response(uri)
 end
 
 Então('o mapa deve ser exibido') do
-  expect(response).to be_an_instance_of(Net::HTTPSuccess)
+  uri = URI.parse('https://maps.googleapis.com/maps/api/js?key='+Rails.application.credentials.google_maps_api_key)
+  response = Net::HTTP.get_response(uri)
+  expect(response).to be_kind_of(Net::HTTPSuccess)
 end
 
 Quando('eu clico e seguro no mapa por {int} segundo') do |int|
