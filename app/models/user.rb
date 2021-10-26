@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    
+    has_secure_password
     validates :name, presence: {message: "É obrigatório informar o nome!"}
     validates :birth_date, presence: {message: "É obrigatório informar a data de nascimento!"}
     validates :username, presence: {message: "É obrigatório informar o nome de usuário!"}

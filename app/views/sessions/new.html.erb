@@ -1,0 +1,22 @@
+<h1>Login</h1>
+
+<% flash.each do |type, msg| %>
+<div id="error_explanation">    
+    <%= msg %>
+</div>
+<% end %>
+
+<%= form_for :session, url: login_path do |form| %>
+    <div class="field">
+        <%= form.label :username %> <br />
+        <%= form.text_field :username, autofocus: true %>
+    </div>
+    <div class="field">
+        <%= form.label :password %> <br />
+        <%= form.password_field :password, autocomplete: "off" %>
+    </div> 
+    <p>New user? <%= link_to "Sign up now!", new_user_path %></p>
+    <div class="actions">
+        <%= form.submit 'Login' %>
+    </div>
+<% end %>
