@@ -24,10 +24,9 @@ Quando('tento acessar a tela de edição') do
 end
 
 Então('deverei ver a mensagem {string}') do |string|
-    expect(page).to have_current_path('/profile')
-    #expect(page).to have_content(string)
+    expect(page).to have_content(string)
 end
 
-Então('ver o campo {string} preenchido com {string}') do |string, string2|
-    expect(page).to have_content(string2)
+Então('ver o campo atualizado com {string}') do |string|
+    expect(page).to have_content(string)
 end

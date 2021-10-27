@@ -27,10 +27,9 @@ class UsersController < ApplicationController
     
     def update
         @user = User.find_by(id: session[:user_id])
-        # params[:user][:each] do |key, value|
-        #     @user[key] = value
-        # end
+        
         if @user.update(edit_params)
+            flash.alert = 'Profile updated!'
             redirect_to '/profile'
         else
             render action: :edit
