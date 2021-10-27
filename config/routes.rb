@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   get 'profile' => 'users#show'
   get 'edit' => 'users#edit'
   patch 'edit' => 'users#update'
+
+  get "authorities/login" => 'authorities#new'
+  post "authorities/login" => 'authorities#create'
+  get "authorities" => 'authorities#index'
+  delete '/authorities/sign_out' => 'authorities#destroy'
 end

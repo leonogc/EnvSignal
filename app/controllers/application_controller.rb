@@ -15,6 +15,12 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def authority_authorize
+        unless authority_logged_in?
+            redirect_to '/authorities/login'
+        end
+    end
+  
     def block_access
         if logged_in?
           redirect_to '/profile'
