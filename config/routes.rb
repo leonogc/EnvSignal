@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :users
   root to: 'pages#home'
   get "/users/login" => "users#show"
+  get "authorities/login" => 'authorities#new'
+  post "authorities/login" => 'authorities#create'
+  get "authorities" => 'authorities#index'
+  delete '/authorities/sign_out' => 'authorities#destroy'
 end

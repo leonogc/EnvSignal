@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
             redirect_to login_path
         end
     end
+
+    def authority_authorize
+        unless authority_logged_in?
+            redirect_to '/authorities/login'
+        end
+    end
 end
