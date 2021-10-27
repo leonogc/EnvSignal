@@ -90,8 +90,8 @@ function createAllMarkers(mapObject) {
     var icon = {
       url: imgUrl, 
       scaledSize: new google.maps.Size(58, 50), 
-      origin: new google.maps.Point(0,0), 
-      anchor: new google.maps.Point(0, 0)
+      origin: new google.maps.Point(0, 0), 
+      anchor: new google.maps.Point(29, 25)
   };
 
     let marker = new google.maps.Marker({
