@@ -7,6 +7,7 @@ RSpec.describe "Users", type: :request do
       expect(response).to have_http_status(:success)
     end
   end
+
   describe "GET /profile" do
     context "logged in" do
       before :each do
@@ -55,5 +56,6 @@ RSpec.describe "Users", type: :request do
       patch "/edit", params: { user: { name: "NOOOO" } }
       expect(response).to redirect_to('/profile')
     end
+    
   end
 end

@@ -9,11 +9,11 @@ Cenário: Editar dados do usuário com sucesso
 Dado que estou logado no meu perfil
 Quando acesso a tela de edição de perfil
 Quando preencho o campo "Name" com "Rogerio Satrah Kas"
-Quando preencho o campo "Birth Date" com "17/10/1991"
+Quando preencho o campo "Birth Date" com "1991-10-17"
 E clico em Save
 Então deverei ver a mensagem "Profile updated!"
 E ver o campo atualizado com "Rogerio Satrah Kas"
-E ver o campo atualizado com "17/10/1991" 
+E ver o campo atualizado com "1991-10-17" 
 
 Cenário: Editar dados do usuário com erro - sem nome
 Dado que estou logado no meu perfil
