@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-    before_action :authorize, except: [:new, :create, :show]
+    before_action :authorize, except: [:new, :create]
+    before_action :block_access, except: [:show, :edit, :update]
+
     def new
         @user = User.new
     end
@@ -16,6 +18,22 @@ class UsersController < ApplicationController
     end
 
     def show
+        @user = User.find_by(id: session[:user_id])
+    end
+
+    def edit
+        @user = User.find_by(id: session[:user_id])
+    end
+    
+    def update
+        @user = User.find_by(id: session[:user_id])
+        
+        if @user.update(edit_params)
+            flash.alert = 'Profile updated!'
+            redirect_to '/profile'
+        else
+            render action: :edit
+        end
     end
 
     private
@@ -23,4 +41,8 @@ class UsersController < ApplicationController
         params.require(:users).permit(:name, :email, :birth_date, :username, :password, :password_confirmation, :email_confirmation)
     end
 
+    private
+    def edit_params
+        params.require(:user).permit(:name, :email, :birth_date)
+    end
 end
