@@ -14,11 +14,3 @@ Dado('que estou na página de login') do
   Então('deverei ver a página home') do
     expect(page).to have_current_path('/')
   end
-  
-  Quando('a senha do usuário está incorreta') do
-    pending
-  end
-  
-  Quando('o username não existe') do
-    pending # Write code here that turns the phrase above into concrete actions
-  end
