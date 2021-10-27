@@ -2,23 +2,24 @@ require 'rails_helper'
 
 RSpec.describe "markers/index", type: :view do
   before(:each) do
+    @u = double('user1', :id => 1, :username => "rogerio_satrah", :password => "senhasecretaK")
     assign(:markers, [
       Marker.create!(
-        type: "Type",
+        disaster_type: "Type",
         latitude: "9.99",
         longitude: "9.99",
         obs: "Obs",
-        user: nil,
+        user: @u,
         upvotes: 2,
         downvotes: 3,
         verified: false
       ),
       Marker.create!(
-        type: "Type",
+        disaster_type: "Type",
         latitude: "9.99",
         longitude: "9.99",
         obs: "Obs",
-        user: nil,
+        user: @u,
         upvotes: 2,
         downvotes: 3,
         verified: false

@@ -2,12 +2,13 @@ require 'rails_helper'
 
 RSpec.describe "markers/new", type: :view do
   before(:each) do
+    @u = double('user1', :id => 1, :username => "rogerio_satrah", :password => "senhasecretaK")
     assign(:marker, Marker.new(
-      type: "",
+      disaster_type: "",
       latitude: "9.99",
       longitude: "9.99",
       obs: "MyString",
-      user: nil,
+      user: @u,
       upvotes: 1,
       downvotes: 1,
       verified: false
@@ -19,7 +20,7 @@ RSpec.describe "markers/new", type: :view do
 
     assert_select "form[action=?][method=?]", markers_path, "post" do
 
-      assert_select "input[name=?]", "marker[type]"
+      assert_select "input[name=?]", "marker[disaster_type]"
 
       assert_select "input[name=?]", "marker[latitude]"
 

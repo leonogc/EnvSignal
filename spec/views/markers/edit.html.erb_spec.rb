@@ -2,12 +2,13 @@ require 'rails_helper'
 
 RSpec.describe "markers/edit", type: :view do
   before(:each) do
+    @u = double('user1', :id => 1, :username => "rogerio_satrah", :password => "senhasecretaK")
     @marker = assign(:marker, Marker.create!(
       type: "",
       latitude: "9.99",
       longitude: "9.99",
       obs: "MyString",
-      user: nil,
+      user: @u,
       upvotes: 1,
       downvotes: 1,
       verified: false
