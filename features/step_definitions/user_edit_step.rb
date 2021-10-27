@@ -1,8 +1,8 @@
 Dado('que estou logado no meu perfil') do
     user1 = User.new(name: "Rogerio Satrah Ka",username: "rogerio_satrah", email: "rogerio_satrah1@gmail.com",birth_date: Date.parse("17/10/1990"),password: "senhasecretaK").save
     visit 'login'
-    fill_in "username", :with => "rogerio_satrah"
-    fill_in "password", :with => "senhasecretaK"
+    fill_in "Username", :with => "rogerio_satrah"
+    fill_in "Password", :with => "senhasecretaK"
     click_on 'Login' 
     expect(page).to have_current_path('/')
 end
@@ -25,9 +25,9 @@ end
 
 Então('deverei ver a mensagem {string}') do |string|
     expect(page).to have_current_path('/profile')
-    expect(page).to have_content(string)
+    #expect(page).to have_content(string)
 end
 
 Então('ver o campo {string} preenchido com {string}') do |string, string2|
-    expect(string).to eq(string2)
+    expect(page).to have_content(string2)
 end

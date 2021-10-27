@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :authorize, except: [:new, :create]
-    before_action :correct_user, only: [:show, :edit, :update]
+    before_action :block_access, except: [:show, :edit, :update]
 
     def new
         @user = User.new
@@ -22,13 +22,16 @@ class UsersController < ApplicationController
     end
 
     def edit
-        @user = User.find(params[:id])
+        @user = User.find_by(id: session[:user_id])
     end
     
     def update
-        @user = User.find(params[:id])
-        if @user.update_attributes(user_params)
-            redirect_to 'profile'
+        @user = User.find_by(id: session[:user_id])
+        # params[:user][:each] do |key, value|
+        #     @user[key] = value
+        # end
+        if @user.update(edit_params)
+            redirect_to '/profile'
         else
             render action: :edit
         end
@@ -39,4 +42,8 @@ class UsersController < ApplicationController
         params.require(:users).permit(:name, :email, :birth_date, :username, :password, :password_confirmation, :email_confirmation)
     end
 
+    private
+    def edit_params
+        params.require(:user).permit(:name, :email, :birth_date)
+    end
 end

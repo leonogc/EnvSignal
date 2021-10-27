@@ -39,18 +39,4 @@ class SessionsController < ApplicationController
     @current_user = nil
   end
 
-  def block_access
-    if logged_in?
-      redirect_to users_path
-    end
-  end
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
-  end
-
-  def logged_in?
-    !current_user.nil?
-  end
-
 end

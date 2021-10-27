@@ -10,34 +10,32 @@ Dado que estou logado no meu perfil
 Quando acesso a tela de edição de perfil
 Quando preencho o campo "Name" com "Rogerio Satrah Kas"
 Quando preencho o campo "Birth Date" com "17/10/1991"
-Quando preencho o campo "Username" com "rogerio_satrah_kas"
 E clico em Save
-Então deverei ver a mensagem "Profile updated"
+# Então deverei ver a mensagem "Profile updated"
 #Talvez tirar esse trecho e checar o banco
-E ver o campo "Name" preenchido com "Rogerio Satrah Kas"
-E ver o campo "Birth Date" preenchido com "17/10/1991"
-E ver o campo "Username" preenchido com "rogerio_satrah_kas" 
+Então ver o campo "Name" preenchido com "Rogerio Satrah Kas"
+E ver o campo "Birth Date" preenchido com "17/10/1991" 
 
 Cenário: Editar dados do usuário com erro - sem nome
 Dado que estou logado no meu perfil
 Quando acesso a tela de edição de perfil
 Quando deixo o campo "Name" vazio
 E clico em Save
-Então deverei ver a mensagem de erro "User name not set"
+Então deverei ver a mensagem de erro "É obrigatório informar o nome!"
 
 Cenário: Editar dados do usuário com erro - sem data de aniversário
 Dado que estou logado no meu perfil
 Quando acesso a tela de edição de perfil
 Quando deixo o campo "Birth Date" vazio
 E clico em Save
-Então deverei ver a mensagem de erro "User birth date not set"
+Então deverei ver a mensagem de erro "É obrigatório informar a data de nascimento!"
 
 Cenário: Editar dados do usuário com erro - sem email
 Dado que estou logado no meu perfil
 Quando acesso a tela de edição de perfil
 Quando deixo o campo "Email" vazio
 E clico em Save
-Então deverei ver a mensagem de erro "User email not set"
+Então deverei ver a mensagem de erro "É obrigatório informar o email!"
 
 Cenário: Editar dados do usuário com erro - usuário não logado
 Dado que não estou logado
