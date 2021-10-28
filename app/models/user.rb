@@ -3,11 +3,11 @@ class User < ApplicationRecord
     has_secure_password
     validates :name, presence: {message: "É obrigatório informar o nome!"}
     validates :birth_date, presence: {message: "É obrigatório informar a data de nascimento!"}
-    validates :username, presence: {message: "É obrigatório informar o nome de usuário!"}
+    validates :username, presence: {message: "É obrigatório informar o nome de usuário!"}, uniqueness: {message: "Nome de usuário não está disponível!"}
     validate :dateCheck
     validates :email, confirmation: { case_sensitive: true, message: "Email e Confirmar Email não correspondem!"}, presence: {message: "É obrigatório informar o email!"},format: { with: URI::MailTo::EMAIL_REGEXP, message: "Formato de Email Inválido!"}
-    validates :password, confirmation: { case_sensitive: true, message: "Senha e Confirmar Senha não correspondem!"}, presence: {message: "É obrigatório informar a senha!"}
-    validate :usernameAvailableCheck
+    validates :password, confirmation: { case_sensitive: true, message: "Senha e Confirmar Senha não correspondem!"}, presence: {message: "É obrigatório informar a senha!"}, on: :create
+    #validate :usernameAvailableCheck
 
     def dateCheck()
         if self.birth_date
@@ -15,8 +15,12 @@ class User < ApplicationRecord
           end
     end
 
-    def usernameAvailableCheck()
-        errors.add(:username, 'Nome de usuário não está disponível!') if User.find_by username: self.username
+    def usernameAvailableCheck
+        if User.find_by username: self.username
+            if ( User.find_by(username: self.username).id != self.id )
+                errors.add(:username, 'Nome de usuário não está disponível!') 
+            end
+        end
     end
 
 end

@@ -1,6 +1,6 @@
 class Marker < ApplicationRecord
     belongs_to :user
-    # validates :type, presence: {message: "É necessário informar o tipo de desastre corrente!"}
+    # validates :disaster_type, presence: {message: "É necessário informar o tipo de desastre corrente!"}
     # validates :latitude, :length: {minimum:-90, maximum:90}, presence: {message: "Latitude inválida!"}
     # validates :longitude, :length: {minimum:-180, maximum:180}, presence: {message: "Longitude inválida!"}
     # validates :created_by

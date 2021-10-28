@@ -1,6 +1,7 @@
 class MarkersController < ApplicationController
   before_action :set_marker, only: %i[ show edit update destroy ]
-
+  before_action :authorize
+  
   # GET /markers or /markers.json
   def index
     @markers = Marker.all
