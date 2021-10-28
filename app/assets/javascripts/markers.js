@@ -4,8 +4,8 @@
  });
 
 function setParams() {
-  const latInput = document.getElementById("marker_latitude");
-  const lngInput = document.getElementById("marker_longitude");
+  const latInput = document.getElementById("markers_latitude");
+  const lngInput = document.getElementById("markers_longitude");
 
   const urlParams = new URLSearchParams(window.location.search);
 
