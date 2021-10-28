@@ -1,0 +1,15 @@
+<% provide :head_tags do %>
+  <script>
+  document.addEventListener("DOMContentLoaded", function(){
+    initMap(-23.4823919, -46.5026385)
+    });
+    </script>
+    <div id="data">
+      <%=
+      require 'json'
+      @markers.to_json %>
+    <% end %>
+    </div>
+<div id="map"></div>
+
+<%= javascript_include_tag "homes" %>

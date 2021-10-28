@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<%= puts(@marker) %>
+<p>
+  <strong>Disaster_type:</strong>
+  <%= @marker.disaster_type %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @marker.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @marker.longitude %>
+</p>
+
+<p>
+  <strong>Obs:</strong>
+  <%= @marker.obs %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @marker.user_id %>
+</p>
+
+<p>
+  <strong>Upvotes:</strong>
+  <%= @marker.upvotes %>
+</p>
+
+<p>
+  <strong>Downvotes:</strong>
+  <%= @marker.downvotes %>
+</p>
+
+<p>
+  <strong>Verified:</strong>
+  <%= @marker.verified %>
+</p>
+
+<%= link_to 'Edit', edit_marker_path(@marker) %> |
+<%= link_to 'Back', root_path, method: 'get' %>

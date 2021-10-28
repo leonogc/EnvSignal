@@ -1,0 +1,59 @@
+<%= form_with(model: marker) do |form| %>
+  <% if marker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(marker.errors.count, "error") %> prohibited this marker from being saved:</h2>
+
+      <ul>
+        <% marker.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <select name=:disaster_type id="disaster_type">
+    <option value="vazamento">Vazamento de Água</option>
+    <option value="incendio">Incêndio</option>
+    <option value="esgoto">Despejo Irregular de Esgoto</option>
+    <option value="lixo">Descarte Irregular de Lixo</option>
+  </select>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :obs %>
+    <%= form.text_field :obs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :upvotes %>
+    <%= form.number_field :upvotes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :downvotes %>
+    <%= form.number_field :downvotes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :verified %>
+    <%= form.check_box :verified %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

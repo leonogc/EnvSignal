@@ -23,6 +23,20 @@ ActiveRecord::Schema.define(version: 2021_10_27_000732) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "markers", force: :cascade do |t|
+    t.string "disaster_type"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.string "obs"
+    t.bigint "user_id", null: false
+    t.integer "upvotes", default: 0
+    t.integer "downvotes", default: 0
+    t.boolean "verified", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_markers_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -34,4 +48,5 @@ ActiveRecord::Schema.define(version: 2021_10_27_000732) do
     t.string "password_digest"
   end
 
+  add_foreign_key "markers", "users"
 end

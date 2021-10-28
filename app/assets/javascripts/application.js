@@ -13,10 +13,3 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require react
-//= require react_ujs
-//= require components
-//= require_tree .
-var componentRequireContext = require.context("components", true);
-var ReactRailsUJS = require("react_ujs");
-ReactRailsUJS.useContext(componentRequireContext);

@@ -32,3 +32,8 @@ clean:
 .PHONY: migrate
 migrate:
 	@docker-compose run web rails db:migrate
+	
+.PHONY: tests
+tests:
+	@docker-compose run web rake cucumber
+	@docker-compose run web rails spec
