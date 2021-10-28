@@ -9,8 +9,3 @@ Cenário: Carregamento do Mapa bem sucedido
 Dado que estou na página home
 Quando a página é carregada
 Então o mapa deve ser exibido
-
-Cenário: Carregamento do Mapa falha
-Dado que estou na página home
-Quando a página é carregada
-Então o mapa deve falhar em ser exibido

@@ -1,30 +1,44 @@
-<%= form_with(model: @marker) do |form| %>
+<% if @marker.errors.any? %>
+<div id="error_explanation">
+    <h2>
+        <% @marker.errors.count%> erro(s) impedindo o cadastro
+    </h2>
+    
+    <ul>
+        <% @marker.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<%= form_with scope: :markers, url: markers_path, local: true do |form| %>
 <h1>New Marker</h1>
-<%= form.label :latitude %>
+<%= form.label :disaster_type %>
 <%= form.select :disaster_type, 
 [['Vazamento de Água', 'vazamento'], 
 ['Incêndio', 'incendio'],
 ['Despejo Irregular de Esgoto', 'esgoto'], 
 ['Descarte Irregular de Lixo', 'lixo']] %>
 
-  <div class="field">
+  <p>
     <%= form.label :latitude %>
     <%= form.text_field :latitude %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p>
     <%= form.label :longitude %>
     <%= form.text_field :longitude %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p>
     <%= form.label :obs %>
     <%= form.text_field :obs %>
-  </div>
+  </p>
 
-  <div class="actions">
+  <p>
     <%= form.submit 'Create'%>
-  </div>
+  </p>
 <% end %>
 
 

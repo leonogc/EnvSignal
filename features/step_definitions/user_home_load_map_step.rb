@@ -12,7 +12,3 @@ Então('o mapa deve ser exibido') do
   response = Net::HTTP.get_response(uri)
   expect(response).to be_kind_of(Net::HTTPSuccess)
 end
-
-Então('o mapa deve falhar em ser exibido') do
-  pending # Write code here that turns the phrase above into concrete actions
-end
