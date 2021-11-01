@@ -4,7 +4,7 @@ Dado('que estou logado no meu perfil') do
     fill_in "Username", :with => "rogerio_satrah"
     fill_in "Password", :with => "senhasecretaK"
     click_on 'Login' 
-    expect(page).to have_current_path('/')
+    expect(page).to have_current_path('/index/user')
 end
 
 Dado('que não estou logado') do
@@ -12,7 +12,7 @@ Dado('que não estou logado') do
 end
 
 Quando('acesso a tela de edição de perfil') do
-    visit 'edit'
+    visit '/users/edit'
 end
 
 Quando('clico em Save') do
@@ -20,7 +20,7 @@ Quando('clico em Save') do
 end
 
 Quando('tento acessar a tela de edição') do
-    visit 'edit'
+    visit '/users/edit'
 end
 
 Então('deverei ver a mensagem {string}') do |string|

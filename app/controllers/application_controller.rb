@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   
     def block_access
         if logged_in?
-          redirect_to '/profile'
+          redirect_to '/users/profile'
         end
     end
 end

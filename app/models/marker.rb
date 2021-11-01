@@ -19,5 +19,5 @@ class Marker < ApplicationRecord
          end
      end
 
-
+    #scope :costs_more_than, ->(amount) { where('price > ?', amount) }
 end

@@ -12,5 +12,5 @@ Dado('que estou na página de login') do
   end
   
   Então('deverei ver a página home') do
-    expect(page).to have_current_path('/')
+    expect(page).to have_current_path('/index/user')
   end
