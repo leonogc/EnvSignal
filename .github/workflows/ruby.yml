@@ -32,7 +32,7 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       env: 
-        DATABASE_URL: postgres://postres:@localhost:5432/test
+        DATABASE_URL: postgres://postgres:@localhost:5432/test
         RAILS_ENV: test
       run: |
         bundle exec rails db:prepare
