@@ -11,6 +11,7 @@ development:
   database: myapp_development
 
 test:
-  adapter: postgresql
-  database: travis_ci_test
+  <<: *default
+  password: <%= ENV['POSTGRES_PASSWORD'] || 'password' %>
+  database: envsignal_test
 
