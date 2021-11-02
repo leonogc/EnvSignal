@@ -12,6 +12,8 @@ development:
 
 test:
   <<: *default
+  host: <%= ENV['POSTGRES_HOST'] || 'db' %>
+  username: <%= ENV['POSTGRES_USERNAME'] || 'postgres' %>
   password: <%= ENV['POSTGRES_PASSWORD'] || 'password' %>
   database: envsignal_test
 
