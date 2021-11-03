@@ -43,6 +43,7 @@ jobs:
         bundle exec rails db:prepare
         bundle exec rake
   coverage:
+    runs-on: ubuntu-latest
     steps:
     - name: Test & publish code coverage
       uses: paambaati/codeclimate-action@v3.0.0
