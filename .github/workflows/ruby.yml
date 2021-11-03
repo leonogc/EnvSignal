@@ -44,7 +44,7 @@ jobs:
         bundle exec rake
   coverage:
     steps:
-    - needs: [ test ]
+      needs: [ test ]
     - name: Test & publish code coverage
       uses: paambaati/codeclimate-action@v3.0.0
       env:
