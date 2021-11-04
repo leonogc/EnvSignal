@@ -16,7 +16,7 @@ RSpec.describe "Users", type: :request do
         allow_any_instance_of(UsersController).to receive(:session).and_return({user_id: 1})
       end
       it "returns http success" do
-        get "users/profile"
+        get "/users/profile"
         expect(response).to have_http_status(:success)
       end
     end
