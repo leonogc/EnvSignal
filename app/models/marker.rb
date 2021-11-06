@@ -19,5 +19,6 @@ class Marker < ApplicationRecord
          end
      end
 
-    #scope :costs_more_than, ->(amount) { where('price > ?', amount) }
+    scope :general, ->(userId) { where('user_id != ?', userId) }
+    scope :own_user, ->(userId) { where('user_id = ?', userId) }
 end

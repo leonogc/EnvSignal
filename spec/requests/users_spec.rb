@@ -8,7 +8,7 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "GET users/profile" do
+  describe "GET /users/profile" do
     context "logged in" do
       before :each do
         @user = double("user1", name: "Rogerio", birth_date: "1000-10-10", username: "roger", email: "r@mail.com")
@@ -16,13 +16,13 @@ RSpec.describe "Users", type: :request do
         allow_any_instance_of(UsersController).to receive(:session).and_return({user_id: 1})
       end
       it "returns http success" do
-        get "users/profile"
+        get "/users/profile"
         expect(response).to have_http_status(:success)
       end
     end
   end
 
-  describe "GET users/edit" do
+  describe "GET /users/edit" do
     before :each do
       @modelName = double("MName")
       allow(@modelName).to receive(:param_key).and_return("User")

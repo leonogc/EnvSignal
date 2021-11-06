@@ -7,7 +7,7 @@ class HomesController < ApplicationController
   end
   
   def user
-    @markers = Marker.all
-    
+    @markers = Marker.general(session[:user_id])
+    @markers_own_user = Marker.own_user(session[:user_id])
   end
 end

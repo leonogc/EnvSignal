@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'spec_helper'
 
 RSpec.describe Marker, type: :model do
-  describe "registro usuário" do
+  describe "registro marker" do
 
     before :all do
       user3 = User.new(name: "Roge",username: "roge", email: "roge@gmail.com",birth_date: Date.parse("17/11/1990"),password: "senhasecretaK").save
