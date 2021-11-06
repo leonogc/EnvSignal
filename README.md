@@ -1,5 +1,6 @@
 # EnvSignal
 
+[![Github Actions Build](https://github.com/leonogc/EnvSignal/actions/workflows/ruby.yml/badge.svg)](https://github.com/leonogc/EnvSignal/actions/workflows/ruby.yml)
 [![Build Status](https://app.travis-ci.com/leonogc/EnvSignal.svg?branch=main)](https://app.travis-ci.com/leonogc/EnvSignal)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d080250fcabaeb94e89f/maintainability)](https://codeclimate.com/github/leonogc/EnvSignal/maintainability)
 
