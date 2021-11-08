@@ -61,32 +61,40 @@ function initMap() {
     mouseCoords = mapsMouseEvent.latLng.toJSON();
   });
 
-  createAllMarkers(mapObject);
+  let generalData = document.getElementById("data");
+  createAllMarkers(mapObject, generalData, false);
+
+  let userData = document.getElementById("data_self");
+  createAllMarkers(mapObject, userData, true);
+
   setUpMouseHold();
 }
 
-function createAllMarkers(mapObject) {
-  let data = document.getElementById("data");
-  if(data) {
-    data = JSON.parse(data.innerHTML);
+function createAllMarkers(mapObject, dataDiv, fromUser) {
+  console.log(dataDiv);
+  if(dataDiv) {
+    dataDiv = JSON.parse(dataDiv.innerHTML);
   }
-  data.forEach((markerData) => {
+  dataDiv.forEach((markerData) => {
+    console.log(markerData);
     let imgUrl = "/";
     switch(markerData.disaster_type) {
       case "esgoto":
-        imgUrl += "sewer.png";
+        imgUrl += `sewer`;
         break;
       case "incendio":
-        imgUrl += "fire.png";
+        imgUrl += "fire";
         break;
       case "vazamento":
-        imgUrl += "leak.png";
+        imgUrl += "leak";
         break;
       case "lixo":
-        imgUrl += "trash.png";
+        imgUrl += "trash";
         break;
     }
 
+    imgUrl += `${fromUser ? "_user" : ""}.png`;
+    console.log(imgUrl);
     var icon = {
       url: imgUrl, 
       scaledSize: new google.maps.Size(58, 50), 

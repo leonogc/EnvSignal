@@ -19,5 +19,6 @@ class Marker < ApplicationRecord
          end
      end
 
-
+    scope :general, ->(userId) { where('user_id != ?', userId) }
+    scope :own_user, ->(userId) { where('user_id = ?', userId) }
 end

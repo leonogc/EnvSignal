@@ -10,7 +10,7 @@ RSpec.describe "Sessions", type: :request do
       it "block access to login" do
         allow_any_instance_of(SessionsController).to receive(:logged_in?).and_return(true)
         get "/login"
-        expect(response).to redirect_to('/profile')
+        expect(response).to redirect_to('/users/profile')
       end
     end
   end
