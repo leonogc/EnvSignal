@@ -47,4 +47,13 @@ class AuthoritiesController < ApplicationController
     def authority_logged_in?
         !current_authority.nil?
     end
+
+    def list_disasters
+        @markers = Marker.all
+    end
+
+    def setLocation
+        session[:latitude] = params[:latitude]
+        session[:longitude] = params[:longitude]
+    end
 end

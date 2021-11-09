@@ -47,6 +47,20 @@ function initMap() {
     }
   )
 
+  var data = "latitude=" + position.lat + ",longitude=" + position.lng;
+
+  $.ajax({
+    url: '/authorities/setLocation',
+    data: data,
+    type: 'post'
+  })
+  .done(function(response) {
+    console.log("Success to set location!");
+  })
+  .fail(function(error) {
+    console.log("Failed to set location!");
+  });
+
   let infoWindow = new google.maps.InfoWindow({
     content: "Click the map to get Lat/Lng!",
     position: LatLng,

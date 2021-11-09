@@ -59,5 +59,25 @@ RSpec.describe "Authorities", type: :request do
     end
 
   end
+  describe "GET authorities/list" do
+    before :each do
+      @a = double('authority1', :id => 1, :identifier => 193, :password => 'SenhaDosBombeirosTeste', :name => 'Corpo de Bombeiros')
+      @params = {identifier: 193, password: 'SenhaDosBombeirosTeste'}
 
+      allow_any_instance_of(AuthoritiesController).to receive(:authority_block_access)
+      allow(@a).to receive(:authenticate).with('SenhaDosBombeirosTeste') {@a}
+      
+      expect(Authority).to receive(:find_by).with({:identifier=> '193'}).and_return(@a)
+      post '/authorities/login', params: @params
+      expect(Authority).to receive(:find_by).with({:id=> 1}).and_return(@a)
+    end
+    it 'returns HTTP Success' do
+      get '/authorities/list'
+      expect(response).to have_http_status(:success)
+    end
+    it 'setting sessions' do
+      get root
+      expect(session).to include(:latitude)
+      expect(session).to include(:longitude)
+  end
 end
