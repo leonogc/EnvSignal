@@ -6,6 +6,10 @@ Before('@oneAuthorityBefore') do
     authority1 = Authority.new(identifier: 193, name: "Corpo de Bombeiros", password: "SenhaDosBombeirosTeste").save
 end
 
+Before('@oneAdminBefore') do
+    admin1 = Admin.new(username: 'admin', password: "admin123").save
+end
+
 Before('@someMarkersBefore') do 
     user1 = User.new(name: "Rogerio Satrah Ka",username: "rogerio_satrah", email: "rogerio_satrah1@gmail.com",birth_date: Date.parse("17/10/1990"),password: "senhasecretaK").save
 
