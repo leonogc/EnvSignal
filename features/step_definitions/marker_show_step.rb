@@ -12,7 +12,7 @@ Dado('que estou logado na tela de home') do
 end
 
 Dado('que eu criei markers com meu usuário') do 
-  marker1 = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, upvotes: 0, downvotes: 0, verified: false).save
+  marker1 = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false).save
 end
 
 Dado('que sou um usuário') do
