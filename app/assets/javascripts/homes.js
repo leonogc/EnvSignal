@@ -3,6 +3,7 @@ let creating = false;
 let timerInterval;
 let mapRef;
 let mapObject;
+let markersArray = [];
 
 function initMap() {
   mapRef = document.getElementById("map");
@@ -71,12 +72,10 @@ function initMap() {
 }
 
 function createAllMarkers(mapObject, dataDiv, fromUser) {
-  console.log(dataDiv);
   if(dataDiv) {
     dataDiv = JSON.parse(dataDiv.innerHTML);
   }
   dataDiv.forEach((markerData) => {
-    console.log(markerData);
     let imgUrl = "/";
     switch(markerData.disaster_type) {
       case "esgoto":
@@ -94,7 +93,6 @@ function createAllMarkers(mapObject, dataDiv, fromUser) {
     }
 
     imgUrl += `${fromUser ? "_user" : ""}.png`;
-    console.log(imgUrl);
     var icon = {
       url: imgUrl, 
       scaledSize: new google.maps.Size(58, 50), 
@@ -102,12 +100,15 @@ function createAllMarkers(mapObject, dataDiv, fromUser) {
       anchor: new google.maps.Point(29, 25)
   };
 
-    let marker = new google.maps.Marker({
+  let marker = new google.maps.Marker({
       position: { lat: parseFloat(markerData.latitude), lng: parseFloat(markerData.longitude) },
       icon: icon,
       map: mapObject,
     });
-    marker.setMap(mapObject);
+
+  google.maps.event.addListener(marker, 'click', () => window.location.assign(window.location.origin + `/markers/${markerData.id}`))
+
+  marker.setMap(mapObject);
   })  
 }
 
