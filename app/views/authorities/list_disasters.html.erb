@@ -1,5 +1,16 @@
 <h1>Disaster List</h1>
-<p id="coord"></p>
+
+<div id="coord_indication">
+  <% if session[:latitude] == -23.4823919 && session[:longitude] == -46.5004498 %>
+    <h2>
+        Localização da EACH sendo utilizada
+    </h2>
+  <% else %>
+    <h2>
+      Localização pessoal sendo utilizada
+    </h2>
+  <% end %>
+</div>
 
 <table>
   <thead>
@@ -22,7 +33,7 @@
         <td><%= marker.disaster_type %></td>
         <td><%= marker.obs %></td>
         <td><%= marker.user_id %></td>
-        <td><script>calculateDistance(<%= marker.latitude %>, <%= marker.longitude %>, <%= session[:latitude] %>, <%= session[:longitude] %>);</script> Km</td>
+        <td><%= calculateDistance(marker.latitude, marker.longitude, session[:latitude], session[:longitude]) %> Km</td>
         <td><%= marker.upvotes %></td>
         <td><%= marker.downvotes %></td>
         <td><%= link_to 'Show', marker %></td>
