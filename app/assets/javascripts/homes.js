@@ -62,16 +62,22 @@ function initMap() {
     mouseCoords = mapsMouseEvent.latLng.toJSON();
   });
 
-  let generalData = document.getElementById("data");
-  createAllMarkers(mapObject, generalData, false);
+
 
   let userData = document.getElementById("data_self");
-  createAllMarkers(mapObject, userData, true);
+  createAllMarkers(mapObject, userData, "user");
+
+  let pendingData = document.getElementById("data_pending");
+  createAllMarkers(mapObject, pendingData, "pending");
+
+  let verifiedData = document.getElementById("data_verified");
+  createAllMarkers(mapObject, verifiedData, "verified");
+
 
   setUpMouseHold();
 }
 
-function createAllMarkers(mapObject, dataDiv, fromUser) {
+function createAllMarkers(mapObject, dataDiv, markerType) {
   if(dataDiv) {
     dataDiv = JSON.parse(dataDiv.innerHTML);
   }
@@ -92,12 +98,12 @@ function createAllMarkers(mapObject, dataDiv, fromUser) {
         break;
     }
 
-    imgUrl += `${fromUser ? "_user" : ""}.png`;
+    imgUrl += `_${markerType}.png`;
     var icon = {
       url: imgUrl, 
-      scaledSize: new google.maps.Size(58, 50), 
+      scaledSize: new google.maps.Size(87, 75), 
       origin: new google.maps.Point(0, 0), 
-      anchor: new google.maps.Point(29, 25)
+      anchor: new google.maps.Point(43.5, 37.5)
   };
 
   let marker = new google.maps.Marker({

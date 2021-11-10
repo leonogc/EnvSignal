@@ -21,4 +21,6 @@ class Marker < ApplicationRecord
 
     scope :general, ->(userId) { where('user_id != ?', userId) }
     scope :own_user, ->(userId) { where('user_id = ?', userId) }
+    scope :pending_marker, ->() { where('verified != ?', true) }
+    scope :verified_marker, ->() { where('verified = ?', true) }
 end
