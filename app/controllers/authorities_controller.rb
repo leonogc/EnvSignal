@@ -1,5 +1,5 @@
 class AuthoritiesController < ApplicationController
-    before_action :authority_block_access, except: [:destroy, :index]
+    before_action :authority_block_access, except: [:destroy, :index, :list_disasters]
     before_action :authority_authorize, except: [:new, :create]
 
     def new

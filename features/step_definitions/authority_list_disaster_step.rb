@@ -7,8 +7,8 @@ Dado('que estou logado como autoridade') do
 end
 
 Quando('acesso a listagem de desastres') do
+    visit '/'
     visit 'authorities/list'
-
 end
 
 Então('os desastres devem ser exibidos') do
@@ -17,3 +17,4 @@ Então('os desastres devem ser exibidos') do
     expect(page).to have_content('vazamento')  
     expect(page).to have_content('6052.83 Km')
     expect(page).to have_content('6196.82 Km')
+end

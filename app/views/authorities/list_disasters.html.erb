@@ -1,4 +1,3 @@
-<%= javascript_include_tag "auth_list" %>
 <h1>Disaster List</h1>
 <p id="coord"></p>
 
@@ -20,7 +19,7 @@
     <% @markers.each do |marker| %>
       <tr>
         <td><%= marker.verified %></td>
-        <td><%= marker.type %></td>
+        <td><%= marker.disaster_type %></td>
         <td><%= marker.obs %></td>
         <td><%= marker.user_id %></td>
         <td><script>document.write(calculateDistance(<%= marker.latitude %>, <%= marker.longitude %>, <%= session[:latitude] %>, <%= session[:longitude] %>))</script> Km</td>
@@ -35,3 +34,4 @@
 </table>
 
 <br>
+<%= javascript_include_tag "auth_list" %>
