@@ -22,7 +22,7 @@
         <td><%= marker.disaster_type %></td>
         <td><%= marker.obs %></td>
         <td><%= marker.user_id %></td>
-        <td><script>document.write(calculateDistance(<%= marker.latitude %>, <%= marker.longitude %>, <%= session[:latitude] %>, <%= session[:longitude] %>))</script> Km</td>
+        <td><script>calculateDistance(<%= marker.latitude %>, <%= marker.longitude %>, <%= session[:latitude] %>, <%= session[:longitude] %>);</script> Km</td>
         <td><%= marker.upvotes %></td>
         <td><%= marker.downvotes %></td>
         <td><%= link_to 'Show', marker %></td>
