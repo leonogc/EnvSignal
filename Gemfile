@@ -46,6 +46,7 @@ group :development, :test do
   gem 'rspec-rails', '>= 3.7'
   gem 'rspec-mocks', '~> 3.10', '>= 3.10.2'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
+  gem 'factory_bot_rails'
 end
 
 group :development do
