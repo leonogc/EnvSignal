@@ -20,6 +20,12 @@ class ApplicationController < ActionController::Base
             redirect_to '/authorities/login'
         end
     end
+
+    def admin_authorize
+        unless admin_logged_in?
+            redirect_to '/admin/login'
+        end
+    end
   
     def block_access
         if logged_in?
