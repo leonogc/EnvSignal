@@ -51,7 +51,7 @@ class MarkersController < ApplicationController
   end
 
   def upvote
-    @voter ||= Voter.find_by(user_id: session[:user_id], marker_id: @marker.id)
+    @voter ||= Voter.find_by(user_id: current_user.id, marker_id: @marker.id)
     if @voter
       if @voter.upvote?
         @voter.destroy
@@ -61,7 +61,7 @@ class MarkersController < ApplicationController
         redirect_to @marker, notice: "Upvoted succesfully (de-downvoted)"
       end
     else
-      if Voter.new(user_id: session[:user_id], marker_id: @marker.id, vote: :upvote).save
+      if Voter.new(user_id: current_user.id, marker_id: @marker.id, vote: :upvote).save
         redirect_to @marker, notice: "Upvoted succesfully"
       else
         redirect_to @marker, alert: "Failed to vote"
@@ -70,7 +70,7 @@ class MarkersController < ApplicationController
   end
 
   def downvote
-    @voter ||= Voter.find_by(user_id: session[:user_id], marker_id: @marker.id)
+    @voter ||= Voter.find_by(user_id: current_user.id, marker_id: @marker.id)
     if @voter
       if @voter.downvote?
         @voter.destroy
@@ -80,7 +80,7 @@ class MarkersController < ApplicationController
         redirect_to @marker, notice: "Downvoted succesfully (de-upvoted)"
       end
     else
-      if Voter.new(user_id: session[:user_id], marker_id: @marker.id, vote: :downvote).save
+      if Voter.new(user_id: current_user.id, marker_id: @marker.id, vote: :downvote).save
         redirect_to @marker, notice: "Downvoted succesfully"
       else
         redirect_to @marker, alert: "Failed to vote"
