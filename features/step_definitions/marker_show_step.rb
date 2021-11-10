@@ -22,3 +22,27 @@ end
 Então('os markers de usuário devem ser exibidos') do
   expect(page).not_to have_css("#data_self", text: "[]")
 end
+
+Quando('não executo nenhuma ação') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então('todos os markers devem ser exibidos') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Quando('clico em listar markers não verificados') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então('os markers não verificados devem ser exibidos') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Quando('clico em listar markers verificados') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então('os markers verificados devem ser exibidos') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
