@@ -3,6 +3,7 @@ let creating = false;
 let timerInterval;
 let mapRef;
 let mapObject;
+let markersArray = [];
 
 function initMap() {
   mapRef = document.getElementById("map");
@@ -61,22 +62,26 @@ function initMap() {
     mouseCoords = mapsMouseEvent.latLng.toJSON();
   });
 
-  let generalData = document.getElementById("data");
-  createAllMarkers(mapObject, generalData, false);
+
 
   let userData = document.getElementById("data_self");
-  createAllMarkers(mapObject, userData, true);
+  createAllMarkers(mapObject, userData, "user");
+
+  let pendingData = document.getElementById("data_pending");
+  createAllMarkers(mapObject, pendingData, "pending");
+
+  let verifiedData = document.getElementById("data_verified");
+  createAllMarkers(mapObject, verifiedData, "verified");
+
 
   setUpMouseHold();
 }
 
-function createAllMarkers(mapObject, dataDiv, fromUser) {
-  console.log(dataDiv);
+function createAllMarkers(mapObject, dataDiv, markerType) {
   if(dataDiv) {
     dataDiv = JSON.parse(dataDiv.innerHTML);
   }
   dataDiv.forEach((markerData) => {
-    console.log(markerData);
     let imgUrl = "/";
     switch(markerData.disaster_type) {
       case "esgoto":
@@ -93,21 +98,23 @@ function createAllMarkers(mapObject, dataDiv, fromUser) {
         break;
     }
 
-    imgUrl += `${fromUser ? "_user" : ""}.png`;
-    console.log(imgUrl);
+    imgUrl += `_${markerType}.png`;
     var icon = {
       url: imgUrl, 
-      scaledSize: new google.maps.Size(58, 50), 
+      scaledSize: new google.maps.Size(87, 75), 
       origin: new google.maps.Point(0, 0), 
-      anchor: new google.maps.Point(29, 25)
+      anchor: new google.maps.Point(43.5, 37.5)
   };
 
-    let marker = new google.maps.Marker({
+  let marker = new google.maps.Marker({
       position: { lat: parseFloat(markerData.latitude), lng: parseFloat(markerData.longitude) },
       icon: icon,
       map: mapObject,
     });
-    marker.setMap(mapObject);
+
+  google.maps.event.addListener(marker, 'click', () => window.location.assign(window.location.origin + `/markers/${markerData.id}`))
+
+  marker.setMap(mapObject);
   })  
 }
 

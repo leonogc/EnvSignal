@@ -1,6 +1,3 @@
-Então('os markers devem ser exibidos') do
-  expect(page).not_to have_css("#data", text: "[]")
-end
 
 Dado('que estou logado na tela de home') do
   user1 = User.new(name: "Rogerio Satrah Ka",username: "rogerio_satrah", email: "rogerio_satrah1@gmail.com",birth_date: Date.parse("17/10/1990"),password: "senhasecretaK").save
@@ -21,4 +18,12 @@ end
 
 Então('os markers de usuário devem ser exibidos') do
   expect(page).not_to have_css("#data_self", text: "[]")
+end
+
+Então('os markers não verificados devem ser exibidos') do
+  expect(page).not_to have_css("#data_pending", text: "[]")
+end
+
+Então('os markers verificados devem ser exibidos') do
+  expect(page).not_to have_css("#data_verified", text: "[]")
 end

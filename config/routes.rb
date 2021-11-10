@@ -20,4 +20,9 @@ Rails.application.routes.draw do
   post "authorities/login" => 'authorities#create'
   get "authorities" => 'authorities#index'
   delete '/authorities/sign_out' => 'authorities#destroy'
+
+  get "admin/login" => 'admins#new'
+  post "admin/login" => 'admins#create'
+  get "admin" => 'admins#index'
+  delete '/admin/sign_out' => 'admins#destroy'
 end

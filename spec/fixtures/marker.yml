@@ -1,0 +1,27 @@
+
+marker_verified:
+  disaster_type: 'incendio'
+  latitude: 26.1232
+  longitude: -23.3323
+  user_id: 1
+  upvotes: 0
+  downvotes: 0
+  verified: false
+
+marker_not_verified:
+  disaster_type: 'vazamento'
+  latitude: 26.1232
+  longitude: -23.3323
+  user_id: 1
+  upvotes: 0
+  downvotes: 0
+  verified: false
+
+marker:
+  disaster_type: 'vazamento'
+  latitude: 26.1232
+  longitude: -23.3323
+  user_id: 1
+  upvotes: 0
+  downvotes: 0
+  verified: false
