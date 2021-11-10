@@ -17,3 +17,21 @@ E que sou um usuário
 E que eu criei markers com meu usuário
 Quando a página é carregada
 Então os markers de usuário devem ser exibidos
+
+Cenário: Listagem de Markers
+Dado que estou logado na tela de home
+Quando a página é carregada
+E não executo nenhuma ação
+Então todos os markers devem ser exibidos
+
+Cenário: Listagem de Markers não verificados
+Dado que estou logado na tela de home
+Quando a página é carregada
+E clico em listar markers não verificados
+Então os markers não verificados devem ser exibidos
+
+Cenário: Listagem de Markers verificados
+Dado que estou logado na tela de home
+Quando a página é carregada
+E clico em listar markers verificados
+Então os markers verificados devem ser exibidos
