@@ -1,3 +1,5 @@
+<%= javascript_include_tag "auth_list" %>
+
 <h1>Disaster List</h1>
 <p id="coord"></p>
 
@@ -22,7 +24,7 @@
         <td><%= marker.disaster_type %></td>
         <td><%= marker.obs %></td>
         <td><%= marker.user_id %></td>
-        <td><script>calculateDistance(<%= marker.latitude %>, <%= marker.longitude %>, <%= session[:latitude] %>, <%= session[:longitude] %>);</script> Km</td>
+        <td><%=<script>calculateDistance(<%= marker.latitude %>, <%= marker.longitude %>, <%= session[:latitude] %>, <%= session[:longitude] %>);</script> Km</td>
         <td><%= marker.upvotes %></td>
         <td><%= marker.downvotes %></td>
         <td><%= link_to 'Show', marker %></td>
@@ -34,4 +36,3 @@
 </table>
 
 <br>
-<%= javascript_include_tag "auth_list" %>
