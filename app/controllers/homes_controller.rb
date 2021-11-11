@@ -7,7 +7,8 @@ class HomesController < ApplicationController
   end
   
   def user
-    @markers = Marker.general(session[:user_id])
+    @markers_pending = Marker.pending_marker()
+    @markers_verified = Marker.verified_marker()
     @markers_own_user = Marker.own_user(session[:user_id])
   end
 end
