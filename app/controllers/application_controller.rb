@@ -9,9 +9,15 @@ class ApplicationController < ActionController::Base
         !current_user.nil?
     end
 
-    def authorize
+    def user_authorize
         unless logged_in?
             redirect_to login_path
+        end
+    end
+
+    def authorize
+        unless logged_in? || authority_logged_in?
+            redirect_to '/login'
         end
     end
 
@@ -31,5 +37,13 @@ class ApplicationController < ActionController::Base
         if logged_in?
           redirect_to '/users/profile'
         end
+    end
+
+    def current_authority
+        @current_authority ||= Authority.find_by(id: session[:authority_id])
+    end
+
+    def authority_logged_in?
+        !current_authority.nil?
     end
 end

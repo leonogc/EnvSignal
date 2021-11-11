@@ -1,5 +1,5 @@
 class MarkersController < ApplicationController
-  before_action :set_marker, only: %i[ show edit update upvote downvote destroy ]
+  before_action :set_marker, only: %i[ show edit update upvote downvote destroy verify]
   before_action :authorize
   
   # GET /markers or /markers.json
@@ -84,6 +84,16 @@ class MarkersController < ApplicationController
         redirect_to @marker, notice: "Downvoted succesfully"
       else
         redirect_to @marker, alert: "Failed to vote"
+      end
+    end
+  end
+
+  def verify
+    if authority_logged_in?
+      if @marker.update(verified: true) 
+        redirect_to @marker, notice: "Verified succesfully"
+      else
+        redirect_to @marker, alert: "Failed to verify"
       end
     end
   end

@@ -39,12 +39,4 @@ class AuthoritiesController < ApplicationController
             redirect_to '/authorities'
         end
     end
-
-    def current_authority
-        @current_authority ||= Authority.find_by(id: session[:authority_id])
-    end
-
-    def authority_logged_in?
-        !current_authority.nil?
-    end
 end
