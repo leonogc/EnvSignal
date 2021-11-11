@@ -1,0 +1,16 @@
+<h1> Página de Gerenciamento de Autoridades</h1>
+
+<table>
+  <tr>
+    <th>Identificador</th>
+    <th>Nome</th>
+  </tr>
+  <% @authorities.each do |aut| %>
+    <tr>
+        <td><%= aut.identifier%></td>
+        <td><%= aut.name%></td>
+    </tr>
+    <%end%>
+</table>
+
+<p><%= link_to "Log out", '/admin/sign_out', method: :delete %></p>
