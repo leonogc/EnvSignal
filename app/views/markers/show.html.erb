@@ -40,6 +40,10 @@
   <%= @marker.verified %>
 </p>
 
+<% if session[:authority_id] %>
+  <%= link_to 'Verify', '/markers/' + @marker.id.to_s + '/verify' %> |
+  <%= link_to 'Remove', '/markers/' + @marker.id.to_s, method: 'delete' %>
+<% end %>
 <% if @marker.user_id == session[:user_id] %>
   <%= link_to 'Edit', edit_marker_path(@marker) %> 
 <% else %>

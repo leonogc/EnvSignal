@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :markers
   get '/markers/:id/up' => "markers#upvote"
   get '/markers/:id/down' => "markers#downvote"
+  get '/markers/:id/verify' => "markers#verify"
 
   root to: 'homes#index'
   get "homes" => "homes#index"

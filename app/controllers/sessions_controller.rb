@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_action :block_access, except: [:destroy]
-  before_action :authorize, except: [:new, :create, :show]
+  before_action :user_authorize, except: [:new, :create, :show]
 
   def new
 
