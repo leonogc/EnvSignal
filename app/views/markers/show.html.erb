@@ -40,5 +40,10 @@
   <%= @marker.verified %>
 </p>
 
-<%= link_to 'Edit', edit_marker_path(@marker) %> |
+<% if @marker.user_id == session[:user_id] %>
+  <%= link_to 'Edit', edit_marker_path(@marker) %> 
+<% else %>
+  <%= link_to 'Upvote', '/markers/' + @marker.id.to_s + '/up' %> | 
+  <%= link_to 'Downvote', '/markers/' + @marker.id.to_s + '/down' %>
+<% end %> |
 <%= link_to 'Back', root_path, method: 'get' %>
