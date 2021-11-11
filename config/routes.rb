@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   get "authorities" => 'authorities#index'
   delete '/authorities/sign_out' => 'authorities#destroy'
   get "authorities/list" => 'authorities#list_disasters'
-  post "authorities/setLocation" => 'authorities#setLocation'
+  get "authorities/setLocation" => 'authorities#setLocation'
 end

@@ -53,7 +53,8 @@ class AuthoritiesController < ApplicationController
     end
 
     def setLocation
-        session[:latitude] = params[:latitude]
-        session[:longitude] = params[:longitude]
+        session[:latitude] = -23.4823919
+        session[:longitude] = -46.5004498
+        redirect_to '/authorities/list'
     end
 end

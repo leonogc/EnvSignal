@@ -7,8 +7,7 @@ Dado('que estou logado como autoridade') do
 end
 
 Quando('acesso a listagem de desastres') do
-    visit '/'
-    visit 'authorities/list'
+    visit '/authorities/setLocation'
 end
 
 Então('os desastres devem ser exibidos') do
