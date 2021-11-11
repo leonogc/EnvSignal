@@ -25,9 +25,9 @@ Before('@someMarkersBefore') do
 
     user2 = User.new(name: "Rogerio Satrah Ka Junior",username: "rogerio_satrah_junior", email: "rogerio_satrah1@gmail.com",birth_date: Date.parse("17/10/2000"),password: "senhasecretaK").save
 
-    marker2 = Marker.new(disaster_type: 'vazamento', latitude: 27.1232, longitude: -22.3323, user_id: (User.order("id").last).id, upvotes: 0, downvotes: 0, verified: true).save
+    marker2 = Marker.new(disaster_type: 'vazamento', latitude: 27.1232, longitude: -22.3323, user_id: (User.order("id").last).id, verified: true).save
     
-    marker3 = Marker.new(disaster_type: 'vazamento', latitude: 37.1232, longitude: -32.3323, user_id: (User.order("id").last).id, upvotes: 0, downvotes: 0, verified: false).save
+    marker3 = Marker.new(disaster_type: 'vazamento', latitude: 37.1232, longitude: -32.3323, user_id: (User.order("id").last).id, verified: false).save
 end
 
 Before('@otherUserMarkerBefore') do

@@ -29,7 +29,7 @@ Então devo ver a página de detalhes do marker
 E devo ver "Downvoted succesfully"
 E devo ver "Downvotes: 1"
 
-@someMarkersBefore
+@markersBeforeForConfirm
 Cenário: Confirmar desastre marcado pelo próprio usuário
 Dado que estou logado na página do marker
 E sou o usuário que criou o marker
