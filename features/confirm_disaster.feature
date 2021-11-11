@@ -1,5 +1,5 @@
 #language: pt
-
+@oneUserBefore
 Funcionalidade: Confirmar desastres (upvote e downvote)
 Como usuário
 Eu quero poder confirmar ou negar a ocorrência de um desastre marcado
@@ -7,7 +7,7 @@ Para que mais pessoas saibam que se trata de um problema real
 
 Cenário: Verificar um desastre no mapa
 Dado que estou logado na tela de home
-E há markes criados por outros usuários no mapa
+E há markers criados por outros usuários no mapa
 Quando clico no marker
 Então devo ver os detalhes do marker
 
