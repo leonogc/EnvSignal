@@ -8,8 +8,9 @@ class HomesController < ApplicationController
     if(@authority != nil)
       redirect_to '/authority'
     end
-
-    redirect_to '/users/login'
+    if(@user == nil && @authority == nil)
+      redirect_to '/login'
+    end
   end
   
   def user
