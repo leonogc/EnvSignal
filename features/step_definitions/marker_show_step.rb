@@ -1,9 +1,9 @@
 Dado('que estou logado na tela de home') do
-  visit 'login'
+  visit '/users/login'
   fill_in "Username", :with => "rogerio_satrah"
   fill_in "Password", :with => "senhasecretaK"
   click_on 'Login' 
-  visit '/'
+  visit '/user'
 end
 
 Dado('que eu criei markers com meu usuário') do 
@@ -11,7 +11,7 @@ Dado('que eu criei markers com meu usuário') do
 end
 
 Dado('que sou um usuário') do
-  expect(page).to have_current_path("/index/user")
+  expect(page).to have_current_path("/user")
 end
 
 Então('os markers de usuário devem ser exibidos') do

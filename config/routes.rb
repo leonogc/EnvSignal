@@ -6,20 +6,21 @@ Rails.application.routes.draw do
 
   root to: 'homes#index'
   get "homes" => "homes#index"
-  get "index/user" => "homes#user"
+  get "user" => "homes#user"
+  get "authority" => "homes#authority"
+  get "login" => "homes#login"
 
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'sign_out'  => 'sessions#destroy'
+  get    '/users/login'   => 'sessions#new'
+  post   '/users/login'   => 'sessions#create'
+  delete '/users/sign_out'  => 'sessions#destroy'
   
   get '/users/profile' => 'users#show'
   get '/users/edit' => 'users#edit'
   patch '/users/edit' => 'users#update'  
   resources :users
 
-  get "authorities/login" => 'authorities#login'
-  post "authorities/login" => 'authorities#check_login'
-  get "authorities" => 'authorities#index'
+  get "/authorities/login" => 'authorities#login'
+  post "/authorities/login" => 'authorities#check_login'
   delete '/authorities/sign_out' => 'authorities#destroy'
 
   get "admin/login" => 'admins#new'

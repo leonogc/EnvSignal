@@ -1,5 +1,5 @@
 Dado('que estou na página de login') do
-    visit 'login'
+    visit '/users/login'
   end
   
   Quando('clico em Login') do
@@ -12,5 +12,5 @@ Dado('que estou na página de login') do
   end
   
   Então('deverei ver a página home') do
-    expect(page).to have_current_path('/index/user')
+    expect(page).to have_current_path('/user')
   end

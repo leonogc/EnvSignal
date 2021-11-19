@@ -6,7 +6,7 @@
 </div>
 <% end %>
 
-<%= form_for :session, url: login_path do |form| %>
+<%= form_for :session, url: '/users/login' do |form| %>
     <div class="field">
         <%= form.label :username %> <br />
         <%= form.text_field :username, autofocus: true %>
