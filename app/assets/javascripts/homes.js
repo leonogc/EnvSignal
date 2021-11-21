@@ -35,7 +35,6 @@ function initMap() {
         title: "You are here!",
       });
     }
-
   },
     function (err) {
       mapObject.setCenter(LatLng);
@@ -44,9 +43,21 @@ function initMap() {
         mapObject,
         title: "Each!",
       });
+      
     }
   )
 
+  $.ajax({
+    method: "POST",
+    url: "/setLocation",
+    data: {latitude: LatLng.lat, longitude: LatLng.lng}
+  })
+  .done(function(response){
+    console.log("Set location OK!");
+  })
+  .fail(function(error){
+    console.log("Set location failed!");
+  });
 
   let infoWindow = new google.maps.InfoWindow({
     content: "Click the map to get Lat/Lng!",

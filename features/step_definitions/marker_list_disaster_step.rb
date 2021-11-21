@@ -7,11 +7,11 @@ Dado('que estou logado como autoridade') do
 end
 
 Quando('acesso a listagem de desastres') do
-    visit '/authorities/setLocation'
+    visit '/markers'
 end
 
 Então('os desastres devem ser exibidos') do
-    expect(page).to have_current_path('/authorities/list')
+    expect(page).to have_current_path('/markers')
     expect(page).to have_content('incendio')  
     expect(page).to have_content('vazamento')  
     expect(page).to have_content('6052.83 Km')

@@ -1,5 +1,5 @@
 class AuthoritiesController < ApplicationController
-    before_action :authority_block_access, except: [:destroy, :index, :list_disasters]
+    before_action :authority_block_access, except: [:destroy, :index]
     before_action :authority_authorize, except: [:new, :create]
 
     def new
@@ -46,15 +46,5 @@ class AuthoritiesController < ApplicationController
 
     def authority_logged_in?
         !current_authority.nil?
-    end
-
-    def list_disasters
-        @markers = Marker.all
-    end
-
-    def setLocation
-        session[:latitude] = -23.4823919
-        session[:longitude] = -46.5004498
-        redirect_to '/authorities/list'
     end
 end

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :block_access, except: [:destroy]
+  before_action :block_access, except: [:destroy, :setLocation]
   before_action :authorize, except: [:new, :create, :show]
 
   def new
@@ -39,4 +39,8 @@ class SessionsController < ApplicationController
     @current_user = nil
   end
 
+  def setLocation
+    session[:latitude] = params[:latitude]
+    session[:longitude] = params[:longitude]
+  end
 end
