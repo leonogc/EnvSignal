@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'sign_out'  => 'sessions#destroy'  
   post "setLocation" => 'sessions#setLocation'
-
-  
-  get "markers/list" => 'markers#list_disasters'
   
   get '/users/profile' => 'users#show'
   get '/users/edit' => 'users#edit'
