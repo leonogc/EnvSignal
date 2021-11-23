@@ -18,8 +18,8 @@ Então('ele deve ter sido salvo no banco de dados') do
     expect(user.email).to eq("rogerio_satrah@gmail.com")
 end
 
-Então('deverei ser redirecionado para a página de login') do
-    expect(page).to have_current_path("/login")
+Então('deverei ser redirecionado para a página de login de usuário') do
+    expect(page).to have_current_path("/users/login")
 end
 
 Quando('deixo o campo {string} vazio') do |string|

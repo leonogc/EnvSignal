@@ -16,7 +16,7 @@ Quando preencho o campo "Password" com "senhasecretaK"
 Quando preencho o campo "Confirm Password" com "senhasecretaK"
 E clico em create
 Então ele deve ter sido salvo no banco de dados
-E deverei ser redirecionado para a página de login
+E deverei ser redirecionado para a página de login de usuário
 
 Cenário: Cadastro de usuário com erro - sem nome
 Dado que estou na página de cadastro de usuário

@@ -19,6 +19,7 @@ class AuthoritiesController < ApplicationController
     end
 
     def index
+
     end
 
     def login
@@ -32,7 +33,7 @@ class AuthoritiesController < ApplicationController
             @authority = Authority.find_by(identifier: params[:identifier])
             if @authority.present? && @authority.authenticate(params[:password])
                 session[:authority_id] = @authority.id
-                redirect_to :action => "index"
+                redirect_to "/authority"
             else
                 flash.alert = 'Incorrect identifier or password'
                 render 'login'

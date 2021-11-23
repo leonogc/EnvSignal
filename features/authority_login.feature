@@ -11,7 +11,7 @@ Dado que estou na página de login de autoridades
 Quando preencho o campo "Identifier" com "193"
 Quando preencho o campo "Password" com "SenhaDosBombeirosTeste"
 E clico em Login
-Então deverei ver a página de listagem de desastres
+Então deverei ver a página com o mapa de desastres
 
 Cenário: Login de autoridade com erro - senha incorreta
 Dado que estou na página de login de autoridades

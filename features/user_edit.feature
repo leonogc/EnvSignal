@@ -39,4 +39,4 @@ Então deverei ver a mensagem de erro "É obrigatório informar o email!"
 Cenário: Editar dados do usuário com erro - usuário não logado
 Dado que não estou logado
 Quando acesso a tela de edição de perfil
-Então deverei ser redirecionado para a página de login
+Então deverei ser redirecionado para a página de login de usuário
