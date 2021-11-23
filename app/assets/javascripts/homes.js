@@ -47,10 +47,10 @@ function initMap() {
     }
   )
 
+  var data = "?latitude=" + position.lat + "&longitude=" + position.lng;
   $.ajax({
-    method: "POST",
-    url: "/setLocation",
-    data: {latitude: LatLng.lat, longitude: LatLng.lng}
+    method: "GET",
+    url: "/setLocation?" + data
   })
   .done(function(response){
     console.log("Set location OK!");

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'sign_out'  => 'sessions#destroy'  
-  post "setLocation" => 'sessions#setLocation'
+  get "setLocation" => 'sessions#setLocation'
   
   get '/users/profile' => 'users#show'
   get '/users/edit' => 'users#edit'
