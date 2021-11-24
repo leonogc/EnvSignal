@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     before_action :user_authorize, except: [:new, :create]
     before_action :block_access, except: [:show, :edit, :update]
+    before_action :validate_user_login, only: [:login]
 
     def new
         @user = User.new
@@ -33,6 +34,16 @@ class UsersController < ApplicationController
             redirect_to '/users/profile'
         else
             render action: :edit
+        end
+    end
+
+    def current_authority
+        @current_authority ||= Authority.find_by(id: session[:authority_id])
+    end
+
+    def validate_user_login
+        if !current_authority.nil?
+            redirect_to '/authority'
         end
     end
 

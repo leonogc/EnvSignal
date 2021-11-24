@@ -2,6 +2,7 @@ class AuthoritiesController < ApplicationController
     before_action :authority_block_access, except: [:destroy, :index]
     before_action :authority_authorize, except: [:new, :create, :list, :login, :check_login]
     before_action :admin_authorize, only: [:new, :create, :list]
+    before_action :validate_authority_login, only: [:login]
 
     def new
         @authority = Authority.new
@@ -67,6 +68,16 @@ class AuthoritiesController < ApplicationController
 
     def authority_logged_in?
         !current_authority.nil?
+    end
+    
+    def current_user
+        @current_user ||= User.find_by(id: session[:user_id])
+    end
+
+    def validate_authority_login
+        if !current_user.nil?
+            redirect_to '/users/profile'
+        end
     end
 
 
