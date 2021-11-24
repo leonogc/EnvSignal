@@ -1,16 +1,24 @@
-<h1> Página de Gerenciamento de Autoridades</h1>
+<div class="default-container">
+    <div class="sidebar"></div>
+    <div class="hero">
+    <h1 class="title"> Página de Gerenciamento de Autoridades</h1>
 
-<table>
-  <tr>
-    <th>Identificador</th>
-    <th>Nome</th>
-  </tr>
-  <% @authorities.each do |aut| %>
-    <tr>
-        <td><%= aut.identifier%></td>
-        <td><%= aut.name%></td>
-    </tr>
-    <%end%>
-</table>
+    <table>
+      <tr>
+        <th>Identificador</th>
+        <th>Nome</th>
+      </tr>
+      <% @authorities.each do |aut| %>
+        <tr>
+            <td><%= aut.identifier%></td>
+            <td><%= aut.name%></td>
+        </tr>
+        <%end%>
+    </table>
 
-<p><%= link_to "Log out", '/admin/sign_out', method: :delete %></p>
+    <div class="buttons-container">
+      <%= link_to "Log out", '/admin/sign_out', method: :delete, class:"button" %>
+    </div>
+  </div>
+  <div class="sidebar"></div>
+</div>

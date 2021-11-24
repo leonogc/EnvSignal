@@ -1,21 +1,27 @@
-<h1>Authority Login</h1>
+<div class="default-container">
+    <div class="sidebar"></div>
+    <div class="hero">
+        <img class="logo" src="/logo.png" alt="EnvSignal"/>
+        <h1 class="title">Authorities</h1>
+            <% flash.each do |type, msg| %>
+                <div id="error_explanation">    
+                    <%= msg %>
+                </div>
+                <% end %>
 
-<% flash.each do |type, msg| %>
-    <div id="error_explanation">    
-        <%= msg %>
+            <%= form_with url: authorities_login_path do |form| %>
+                <div class="field">
+                    <%= form.label :identifier %>
+                    <%= form.text_field :identifier, placeholder: "write your identifier..."  %>
+                </div>
+                <div class="field">
+                    <%= form.label :password %>
+                    <%= form.password_field :password, placeholder: "write your password..."  %>
+                </div>
+                <div class="buttons-container">
+                    <%= form.submit 'Login', class:"button"%>
+                </div>
+        <% end %>
     </div>
-    <% end %>
-
-<%= form_with url: authorities_login_path do |form| %>
-    <p>
-        <%= form.label :identifier %>
-        <%= form.text_field :identifier %>
-    </p>
-    <p>
-        <%= form.label :password %>
-        <%= form.password_field :password %>
-    </p>
-    <p>
-        <%= form.submit 'Login'%>
-    </p>
-<% end %>
+    <div class="sidebar"></div>
+    </div>
