@@ -1,3 +1,3 @@
 Quando('acesso a tela de edição de perfil de autoridade') do
-    visit 'authorities/edit'
+    visit '/authorities/edit'
 end
