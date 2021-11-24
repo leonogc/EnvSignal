@@ -30,3 +30,7 @@ Before('@otherUserMarkerBefore') do
     user2 = User.new(name: "Aleatory", username:"ale",email:"ale@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy").save
     marker1 = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false).save
 end
+
+Before('@otherAuthorityBefore') do
+    authority2 = Authority.new(identifier: 190, name: "Policia", password: "SenhaDaPoliciaTeste").save
+end
