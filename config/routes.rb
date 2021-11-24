@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get    '/users/login'   => 'sessions#new'
   post   '/users/login'   => 'sessions#create'
   delete '/users/sign_out'  => 'sessions#destroy'
+  get "setLocation" => 'sessions#setLocation'
   
   get '/users/profile' => 'users#show'
   get '/users/edit' => 'users#edit'
