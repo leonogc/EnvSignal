@@ -1,0 +1,13 @@
+<h1> Página de Autoridade</h1>
+
+<% flash.each do |type, msg| %>
+    <div id="success_explanation">    
+        <%= msg %>
+    </div>
+<% end %>
+
+<h3><%= @authority.name %>'s Profile </h3>
+<p>Identifier: <%= @authority.identifier %> </p>
+<p>Username: <%= @authority.name %> </p>
+<p><%= link_to "Edit Authority Profile", '/authorities/edit' %></p>
+<p><%= link_to "Log out", '/authorities/sign_out', method: :delete %></p>

@@ -40,3 +40,7 @@ Before('@listMarkerBefore') do
 
     authority3 = Authority.new(identifier: 193, name: "Corpo de Bombeiros", password: "SenhaDosBombeirosTeste").save
 end
+
+Before('@otherAuthorityBefore') do
+    authority2 = Authority.new(identifier: 190, name: "Policia", password: "SenhaDaPoliciaTeste").save
+end

@@ -1,7 +1,8 @@
 class AuthoritiesController < ApplicationController
-    before_action :authority_block_access, except: [:destroy, :index]
+    before_action :authority_block_access, except: [:destroy, :show, :edit, :update]
     before_action :authority_authorize, except: [:new, :create, :list, :login, :check_login]
     before_action :admin_authorize, only: [:new, :create, :list]
+    before_action :validate_authority_login, only: [:login, :check_login, :show]
 
     def new
         @authority = Authority.new
@@ -18,8 +19,8 @@ class AuthoritiesController < ApplicationController
         end
     end
 
-    def index
-
+    def show
+        @authority = Authority.find_by(id: session[:authority_id])
     end
 
     def login
@@ -50,6 +51,20 @@ class AuthoritiesController < ApplicationController
         @authorities = Authority.select(:identifier, :name)
     end
 
+    def edit
+        @authority = Authority.find_by(id: session[:authority_id])
+    end
+    
+    def update
+        @authority = Authority.find_by(id: session[:authority_id])
+        if @authority.update(edit_params)
+            flash.alert = 'Profile updated!'
+            redirect_to '/authorities/profile'
+        else
+            render action: :edit
+        end
+    end
+
     def authority_sign_out
         session.delete(:authority_id)
         @current_authority = nil
@@ -57,22 +72,25 @@ class AuthoritiesController < ApplicationController
 
     def authority_block_access
         if authority_logged_in?
-            redirect_to '/authorities'
+            redirect_to '/authority'
         end
     end
 
-    def current_authority
-        @current_authority ||= Authority.find_by(id: session[:authority_id])
-    end
-
-    def authority_logged_in?
-        !current_authority.nil?
+    def validate_authority_login
+        if logged_in?
+            redirect_to '/users/profile'
+        end
     end
 
 
     private
     def authorities_params
         params.require(:authorities).permit(:identifier, :name, :password)
+    end
+
+    private
+    def edit_params
+        params.require(:authority).permit(:identifier, :name)
     end
 
 end

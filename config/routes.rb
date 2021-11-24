@@ -22,6 +22,9 @@ Rails.application.routes.draw do
 
   get "/authorities/login" => 'authorities#login'
   post "/authorities/login" => 'authorities#check_login'
+  get "/authorities/profile" => 'authorities#show'
+  get "/authorities/edit" => 'authorities#edit'
+  patch "/authorities/edit" => 'authorities#update'
   delete '/authorities/sign_out' => 'authorities#destroy'
 
   get "admin/login" => 'admins#new'

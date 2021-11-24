@@ -1,53 +1,61 @@
-<p id="notice"><%= notice %></p>
-<%= puts(@marker) %>
-<p>
-  <strong>Disaster_type:</strong>
-  <%= @marker.disaster_type %>
-</p>
+<div class="default-container">
+    <div class="sidebar"></div>
+    <div class="hero">
+    <h1 class="title">View Marker</h1>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @marker.latitude %>
-</p>
+    <p id="notice"><%= notice %></p>
+    
+    <h3>
+      <strong>Disaster_type:</strong>   <%= @marker.disaster_type %>
+    </h3>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @marker.longitude %>
-</p>
+    <h3>
+      <strong>Latitude:</strong>    <%= @marker.latitude %>
+    </h3>
 
-<p>
-  <strong>Obs:</strong>
-  <%= @marker.obs %>
-</p>
+    <h3>
+      <strong>Longitude:</strong>   <%= @marker.longitude %>
+    </h3>
 
-<p>
-  <strong>User:</strong>
-  <%= @marker.user_id %>
-</p>
+    <h3>
+      <strong>Obs:</strong>   <%= @marker.obs %>
+    </h3>
 
-<p>
-  <strong>Upvotes:</strong>
-  <%= @marker.upvotes %>
-</p>
+    <h3>
+      <strong>User:</strong>    <%= @marker.user_id %>
+    </h3>
 
-<p>
-  <strong>Downvotes:</strong>
-  <%= @marker.downvotes %>
-</p>
+    <h3>
+      <strong>Upvotes:</strong>   <%= @marker.upvotes %>
+    </h3>
 
-<p>
-  <strong>Verified:</strong>
-  <%= @marker.verified %>
-</p>
+    <h3>
+      <strong>Downvotes:</strong>   <%= @marker.downvotes %>
+    </h3>
 
-<% if session[:authority_id] %>
-  <%= link_to 'Verify', '/markers/' + @marker.id.to_s + '/verify' %> |
-  <%= link_to 'Remove', '/markers/' + @marker.id.to_s, method: 'delete' %>
+    <h3>
+      <strong>Verified:</strong>    <%= @marker.verified %>
+    </h3>
+
+    <div class="buttons-container">
+    <% if session[:authority_id] %>
+      <%= link_to 'Verify', '/markers/' + @marker.id.to_s + '/verify', class:"button" %>
+      <%= link_to 'Remove', '/markers/' + @marker.id.to_s, method: 'delete', class:"button" %>
+    <% end %>
+    <% if @marker.user_id == session[:user_id] %>
+      <%= link_to 'Edit', edit_marker_path(@marker) %> 
+    <% else %>
+      <%= link_to '/markers/' + @marker.id.to_s + '/up', class:"button" do %>
+        Upvote<img src="/thumb-up.png" alt="Upvote">
+      <% end %> 
+      <%= link_to '/markers/' + @marker.id.to_s + '/down', class:"button" do %>
+        Downvote<img src="/thumb-down.png" alt="Downvote">
+      <% end %> 
+    </div>
+    <div class="buttons-container">
+      <%= link_to 'Back', root_path, method: 'get', class:"button" %>
+    </div>
 <% end %>
-<% if @marker.user_id == session[:user_id] %>
-  <%= link_to 'Edit', edit_marker_path(@marker) %> 
-<% else %>
-  <%= link_to 'Upvote', '/markers/' + @marker.id.to_s + '/up' %> | 
-  <%= link_to 'Downvote', '/markers/' + @marker.id.to_s + '/down' %>
-<% end %> |
-<%= link_to 'Back', root_path, method: 'get' %>
+</div>
+<div class="sidebar"></div>
+</div>
