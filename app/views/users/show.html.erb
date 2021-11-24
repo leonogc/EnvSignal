@@ -1,14 +1,22 @@
-<h1> Profile </h1>
+<div class="default-container">
+    <div class="sidebar"></div>
+    <div class="hero">
+        <h1 class="title"> Profile </h1>
 
-<% flash.each do |type, msg| %>
-    <div id="success_explanation">    
-        <%= msg %>
+        <% flash.each do |type, msg| %>
+            <div id="success_explanation">    
+                <%= msg %>
+            </div>
+        <% end %>
+
+        <h3><strong><%= @user.name %>'s Profile</strong></h3>
+        <h3><strong>Username:    </strong> <%= @user.username %> </h3>
+        <h3><strong>Birth Date:     </strong> <%= @user.birth_date %> </h3>
+        <h3><strong>Email:   </strong><%= @user.email %> </h3>
+        <div class="buttons-container">
+            <%= link_to "Edit your Profile", '/users/edit', class:"button" %>
+            <%= link_to "Log out", '/users/sign_out', method: :delete, class:"button" %>
+        </div>    
     </div>
-<% end %>
-
-<h3><%= @user.name %>'s Profile </h3>
-<p>Username: <%= @user.username %> </p>
-<p>Birth Date: <%= @user.birth_date %> </p>
-<p>Email: <%= @user.email %> </p>
-<p><%= link_to "Edit your Profile", '/users/edit' %></p>
-<p><%= link_to "Log out", '/users/sign_out', method: :delete %></p>
+    <div class="sidebar"></div>
+</div>

@@ -1,22 +1,28 @@
-<h1>Login</h1>
-
-<% flash.each do |type, msg| %>
-<div id="error_explanation">    
-    <%= msg %>
+<div class="default-container">
+    <div class="sidebar"></div>
+    <div class="hero">
+    <img class="logo" src="/logo.png" alt="EnvSignal"/>
+    <h1 class="title">Users</h1>
+    <% flash.each do |type, msg| %>
+        <div id="error_explanation">    
+        <%= msg %>
+        </div>
+        <% end %>
+        
+        <%= form_for :session, url: '/users/login' do |form| %>
+            <div class="field">
+            <%= form.label :username %>
+            <%= form.text_field :username, autofocus: true, placeholder: "write your username..." %>
+            </div>
+            <div class="field">
+            <%= form.label :password %>
+            <%= form.password_field :password, autocomplete: "off", placeholder: "write your password..." %>
+            </div> 
+            <span>New user? <%= link_to "Sign up now!", new_user_path, class: "link"%></span>
+            <div class="buttons-container">
+                <%= form.submit 'Login', class: "button"%>
+            </div>
+            <% end %>
+        </div>
+    <div class="sidebar"></div>
 </div>
-<% end %>
-
-<%= form_for :session, url: '/users/login' do |form| %>
-    <div class="field">
-        <%= form.label :username %> <br />
-        <%= form.text_field :username, autofocus: true %>
-    </div>
-    <div class="field">
-        <%= form.label :password %> <br />
-        <%= form.password_field :password, autocomplete: "off" %>
-    </div> 
-    <p>New user? <%= link_to "Sign up now!", new_user_path %></p>
-    <div class="actions">
-        <%= form.submit 'Login' %>
-    </div>
-<% end %>
