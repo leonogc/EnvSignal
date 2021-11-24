@@ -12,8 +12,9 @@ class Marker < ApplicationRecord
         Voter.where(marker_id: self.id, vote: :downvote).length()
     end
 
-    scope :general, -> (userId) { where('user_id != ?', userId) }
     scope :own_user, -> (userId) { where('user_id = ?', userId) }
     scope :pending_marker, -> (userId) { where('verified != ? AND user_id != ?', true, userId)  }
     scope :verified_marker, -> (userId) { where('verified = ? AND user_id != ?', true, userId) }
+    scope :pending_marker_nouser, -> () { where('verified != ?', true)  }
+    scope :verified_marker_nouser, -> () { where('verified = ?', true) }
 end

@@ -7,10 +7,6 @@ Dado('que estou na página de login') do
     click_on 'Login'    
   end
   
-  Então('devo logar na minha conta') do
-    expect(session[:user_id]).to eql(user1.id)
-  end
-  
   Então('deverei ver a página home') do
     expect(page).to have_current_path('/user')
   end

@@ -14,3 +14,15 @@ Cenário: Ir para Login de autoridade
 Dado que estou na página de login da home
 Quando eu clico em Ir para Login de Autoridade
 Então deverei ser redirecionado para a página de login de autoridade
+
+@oneUserBefore
+Cenário: Tentativa de Acesso a Página de Login da Home Logado como Usuário
+Dado que estou logado na tela de home
+E que estou na página de login da home
+Então deverei ser redirecionado para a página principal dos usuários
+
+@oneAuthorityBefore
+Cenário: Tentativa de Acesso a Página de Login da Home Logado como Autoridade
+Dado que estou logado como autoridade na página home
+E que estou na página de login da home
+Então deverei ser redirecionado para a página principal das autoridades
