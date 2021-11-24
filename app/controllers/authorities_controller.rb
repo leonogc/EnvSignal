@@ -58,7 +58,7 @@ class AuthoritiesController < ApplicationController
 
     def authority_block_access
         if authority_logged_in?
-            redirect_to '/authorities'
+            redirect_to '/authority'
         end
     end
 
