@@ -21,12 +21,26 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def validate_user_login
+        if authority_logged_in?
+            redirect_to '/authorities/profile'
+        end
+    end
+
     def authority_authorize
         unless authority_logged_in?
             redirect_to '/authorities/login'
         end
     end
+    
+    def current_authority
+        @current_authority ||= Authority.find_by(id: session[:authority_id])
+    end
 
+    def authority_logged_in?
+        !current_authority.nil?
+    end
+    
     def admin_authorize
         unless admin_logged_in?
             redirect_to '/admin/login'
@@ -47,11 +61,4 @@ class ApplicationController < ActionController::Base
         end
     end
 
-    def current_authority
-        @current_authority ||= Authority.find_by(id: session[:authority_id])
-    end
-
-    def authority_logged_in?
-        !current_authority.nil?
-    end
 end

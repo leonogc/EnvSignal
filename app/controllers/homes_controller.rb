@@ -8,9 +8,9 @@ class HomesController < ApplicationController
     if(@authority != nil)
       redirect_to '/authority'
     end
-    if(@user == nil && @authority == nil)
-      redirect_to '/login'
-    end
+    
+    @markers_pending_nouser = Marker.pending_marker_nouser()
+    @markers_verified_nouser = Marker.verified_marker_nouser()
   end
   
   def user
@@ -26,5 +26,13 @@ class HomesController < ApplicationController
   end
 
   def login
+    @user = User.find_by(id: session[:user_id])
+    if(@user != nil)
+      redirect_to '/user'
+    end
+    @authority = Authority.find_by(id: session[:authority_id])
+    if(@authority != nil)
+      redirect_to '/authority'
+    end
   end
 end
