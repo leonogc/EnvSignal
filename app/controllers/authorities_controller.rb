@@ -2,7 +2,7 @@ class AuthoritiesController < ApplicationController
     before_action :authority_block_access, except: [:destroy, :index]
     before_action :authority_authorize, except: [:new, :create, :list, :login, :check_login]
     before_action :admin_authorize, only: [:new, :create, :list]
-    before_action :validate_authority_login, only: [:login]
+    before_action :validate_authority_login, only: [:login, :check_login, :show]
 
     def new
         @authority = Authority.new
