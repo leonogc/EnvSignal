@@ -121,7 +121,5 @@ RSpec.describe "Authorities", type: :request do
         expect(response).to redirect_to('/authorities/login')
       end
     end
-
   end
-
 end

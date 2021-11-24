@@ -1,15 +1,30 @@
+<%= javascript_include_tag "marker_list" %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Markers</h1>
 
-<table>
+<div id="coord_indication">
+  <% if session[:latitude] == -23.4823919 && session[:longitude] == -46.5004498 %>
+    <h2>
+      Localização da EACH sendo utilizada 
+    </h2>
+  <% else %>
+    <h2>
+      Localização pessoal sendo utilizada
+    </h2>
+  <% end %>
+</div>
+
+<table class="sortable">
   <thead>
     <tr>
       <th>Type</th>
       <th>Latitude</th>
       <th>Longitude</th>
       <th>Obs</th>
-      <th>User</th>
+      <th>User</th>      
+      <th>Distance</th>
       <th>Upvotes</th>
       <th>Downvotes</th>
       <th>Verified</th>
@@ -25,6 +40,7 @@
         <td><%= marker.longitude %></td>
         <td><%= marker.obs %></td>
         <td><%= marker.user_id %></td>
+        <td><%= calculateDistance(marker.latitude, marker.longitude, session[:latitude], session[:longitude]) %> Km</td>
         <td><%= marker.upvotes %></td>
         <td><%= marker.downvotes %></td>
         <td><%= marker.verified %></td>

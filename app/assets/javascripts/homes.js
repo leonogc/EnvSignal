@@ -25,6 +25,20 @@ function getAndSetMap() {
   });
 }
 
+function asyncSetLocation(position){
+  var data = "?latitude=" + position.lat + "&longitude=" + position.lng;
+  $.ajax({
+    method: "GET",
+    url: "/setLocation" + data
+  })
+  .done(function(response){
+    console.log("Set location OK!" + data);
+  })
+  .fail(function(error){
+    console.log("Set location failed!" + data);
+  });
+}
+
 function setMiddleMapLocation() {
   navigator.geolocation.getCurrentPosition(function (pos) {
     if (mapObject) {
@@ -35,6 +49,7 @@ function setMiddleMapLocation() {
         mapObject,
         title: "You are here!",
       });
+      asyncSetLocation(position);
     }
   
   },
@@ -45,6 +60,8 @@ function setMiddleMapLocation() {
         mapObject,
         title: "Each!",
       });
+      asyncSetLocation(LatLng);
+      
     }
   )
 }
