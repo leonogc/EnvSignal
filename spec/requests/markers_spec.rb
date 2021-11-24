@@ -33,6 +33,11 @@ RSpec.describe "/markers", type: :request do
       expect( Voter.find_by(marker_id: @m.id) ).not_to be_nil 
       expect( Voter.find_by(marker_id: @m.id).upvote? ).to be_truthy
     end
+    it "error - error when upvotes the  marker" do
+      allow(Voter).to receive(:new).and_return(double('new', :save => false))
+      get '/markers/1/up'
+      expect( Voter.find_by(marker_id: @m.id) ).to be_nil 
+    end
 
     context "already upvoted" do
       before :each do
@@ -74,6 +79,11 @@ RSpec.describe "/markers", type: :request do
       expect( Voter.find_by(marker_id: @m.id) ).not_to be_nil 
       expect( Voter.find_by(marker_id: @m.id).downvote? ).to be_truthy
     end
+    it "error - error when downvotes the  marker" do
+      allow(Voter).to receive(:new).and_return(double('new', :save => false))
+      get '/markers/1/down'
+      expect( Voter.find_by(marker_id: @m.id) ).to be_nil 
+    end
 
     context "already upvoted" do
       before :each do
@@ -95,6 +105,31 @@ RSpec.describe "/markers", type: :request do
         get '/markers/1/down'
         expect( Voter.find_by(marker_id: @m.id) ).to be_nil
       end
+    end
+  end
+
+  describe "GET /markers/:id/verify" do
+    before :each do
+      @u = User.new(name: "Rog", username:"roger",email:"roger@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")
+      @u.save
+      @m = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false)
+      @m.save
+
+      allow(Marker).to receive(:find).with("1").and_return(@m)
+      allow_any_instance_of(MarkersController).to receive(:current_user).and_return(@u)
+    end
+    it "verify the marker" do
+      allow_any_instance_of(MarkersController).to receive(:authority_logged_in?).and_return(true)
+      get '/markers/1/verify'
+      expect( Marker.find_by(id: @m.id) ).not_to be_nil 
+      expect( Marker.find_by(id: @m.id).verified? ).to be_truthy
+    end
+    it "error - error verifing the marker" do
+      allow_any_instance_of(MarkersController).to receive(:authority_logged_in?).and_return(true)
+      allow(@m).to receive(:update).and_return(false)
+      get '/markers/1/verify'
+      expect( Marker.find_by(id: @m.id) ).not_to be_nil 
+      expect( Marker.find_by(id: @m.id).verified? ).to be_falsey
     end
   end
   

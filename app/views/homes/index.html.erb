@@ -3,13 +3,17 @@
   document.addEventListener("DOMContentLoaded", function(){
     initMap(-23.4823919, -46.5026385)
     });
-    </script>
-    <div id="data">
+  </script>
+    <div id="data_pending">
       <%=
       require 'json'
-      @markers.to_json %>
-    <% end %>
+      @markers_pending_nouser.to_json %>
     </div>
-<div id="map"></div>
-
-<%= javascript_include_tag "homes" %>
+    <div id="data_verified">
+      <%=
+      require 'json'
+      @markers_verified_nouser.to_json %>
+    </div>
+    <div id="map"></div>    
+    <%= javascript_include_tag "homes" %>
+<% end %>
