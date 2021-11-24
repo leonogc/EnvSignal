@@ -1,6 +1,6 @@
 Dado('o marker está verificado') do
-    (Marker.order("id").last).update(verified: true)
-    visit '/markers/' + (Marker.order("id").last).id.to_s
+    (Marker.order("id").first).update(verified: true)
+    visit '/markers/' + (Marker.order("id").first).id.to_s
     expect(page).to have_content("Verified: true")
 end
   

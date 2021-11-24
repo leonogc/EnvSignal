@@ -55,6 +55,7 @@ Dado que não estou logado
 Quando acesso a tela de edição de perfil de autoridade
 Então deverei ser redirecionado para a página de login de autoridade
 
+@oneUserBefore
 Cenário: Editar dados da Autoridade com erro - logado como usuário
 Dado que estou logado como usuário
 Quando acesso a tela de edição de perfil de autoridade

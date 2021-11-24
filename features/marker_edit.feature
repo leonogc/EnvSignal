@@ -5,16 +5,19 @@ Como usuário
 Eu quero editar características de marcadores que eu criei
 Para que eu possa atualizar ou corrigir informações
 
+@markersBeforeForConfirm
 Cenário: Editando tipo de desastre
-Dado que estou logado como usuário na página de detalhes do marker
+Dado que estou logado como usuário 
+E estou na página de detalhes do marker
 Quando clico em "Edit"
-E preencho o select "Disaster_type" com "Despejo Irregular de Esgoto"
+E preencho o select "Disaster type" com "Despejo Irregular de Esgoto"
 E clico em "Save"
-Então deverei ver a página de detalhes do marker
-E deverei ver "Disaster_type: Despejo Irregular de Esgoto"
+Então deverei ver "Disaster_type: esgoto"
 
+@markersBeforeForConfirm
 Cenário: Editando latitude e longitude do desastre
-Dado que estou logado como usuário na página de detalhes do marker
+Dado que estou logado como usuário 
+E estou na página de detalhes do marker
 Quando clico em "Edit"
 E preencho o campo "Latitude" com "20"
 E preencho o campo "Longitude" com "20"
@@ -23,10 +26,16 @@ Então deverei ver a página de detalhes do marker
 E deverei ver "Latitude: 20"
 E deverei ver "Longitude: 20"
 
+@oneUserBefore
+@otherUserMarkerBefore
 Cenário: Tentando editar desastre de outro usuário
-Dado que estou logado como usuário na página de detalhes do marker
+Dado que estou logado como usuário 
+E estou na página de detalhes do marker
 Então não deverei ver "Edit"
 
+@oneUserBefore
+@otherUserMarkerBefore
 Cenário: Tentando verificar desastre como usuário
-Dado que estou logado como usuário na página de detalhes do marker
+Dado que estou logado como usuário 
+E estou na página de detalhes do marker
 Então não deverei ver "Verify"
