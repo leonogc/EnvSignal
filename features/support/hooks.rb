@@ -32,7 +32,7 @@ Before('@otherUserMarkerBefore') do
 end
 
 Before('@listMarkerBefore') do 
-    user4 = User.new(name: "Rogerio Satrah Ka",username: "rogerio_satrah", email: "rogerio_satrah1@gmail.com",birth_date: Date.parse("17/10/1990"),password: "senhasecretaK").save
+    user4 = User.new(name: "Rogerio Satrah Ka",username: "rogerio_satrah4", email: "rogerio_satrah1@gmail.com",birth_date: Date.parse("17/10/1990"),password: "senhasecretaK").save
 
     marker3 = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false).save
 
