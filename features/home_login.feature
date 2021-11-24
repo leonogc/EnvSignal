@@ -23,6 +23,6 @@ Então deverei ser redirecionado para a página principal dos usuários
 
 @oneAuthorityBefore
 Cenário: Tentativa de Acesso a Página de Login da Home Logado como Autoridade
-Dado que estou logado como autoridade na página home
+Dado que estou logado como autoridade
 E que estou na página de login da home
 Então deverei ser redirecionado para a página principal das autoridades

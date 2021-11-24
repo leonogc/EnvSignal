@@ -1,4 +1,4 @@
-Dado('que estou na página de login') do
+Dado('que estou na página de login de usuário') do
     visit '/users/login'
   end
   
@@ -9,4 +9,8 @@ Dado('que estou na página de login') do
   
   Então('deverei ver a página home') do
     expect(page).to have_current_path('/user')
+  end
+
+  Então('deverei ser redirecionado para a página de perfil de autoridade') do
+    expect(page).to have_current_path('/authorities/profile')
   end
