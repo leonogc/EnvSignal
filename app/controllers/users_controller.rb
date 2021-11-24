@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     before_action :user_authorize, except: [:new, :create]
     before_action :block_access, except: [:show, :edit, :update]
+    before_action :validate_user_login, only: [:login, :show]
 
     def new
         @user = User.new
@@ -33,6 +34,12 @@ class UsersController < ApplicationController
             redirect_to '/users/profile'
         else
             render action: :edit
+        end
+    end
+
+    def validate_user_login
+        if authority_logged_in?
+            redirect_to '/authorities/profile'
         end
     end
 
