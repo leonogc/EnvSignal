@@ -12,6 +12,6 @@ Quando acesso a listagem de desastres
 Então os desastres devem ser exibidos
 
 Cenário: Carregamento da lista - authority
-Dado que estou logado como autoridade na página home
+Dado que estou logado como autoridade
 Quando acesso a listagem de desastres
 Então os desastres devem ser exibidos
