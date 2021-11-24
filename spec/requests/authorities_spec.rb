@@ -10,7 +10,7 @@ RSpec.describe "Authorities", type: :request do
       it 'block access to login' do
         allow_any_instance_of(AuthoritiesController).to receive(:authority_logged_in?).and_return(true)
         get '/authorities/login'
-        expect(response).to redirect_to('/authorities')
+        expect(response).to redirect_to('/authority')
       end
     end
   end
