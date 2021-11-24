@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   before_action :block_access, except: [:destroy, :setLocation]
   before_action :user_authorize, except: [:new, :create, :show]
+  before_action :validate_user_login, only: [:new, :create]
 
   def new
 

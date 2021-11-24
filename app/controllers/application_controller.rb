@@ -21,6 +21,12 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def validate_user_login
+        if authority_logged_in?
+            redirect_to '/authorities/profile'
+        end
+    end
+
     def authority_authorize
         unless authority_logged_in?
             redirect_to '/authorities/login'

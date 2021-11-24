@@ -76,19 +76,21 @@ function initMap() {
   });
 
   infoWindow.open(mapObject);
-  console.log(mapObject)
   mapObject.addListener("click", (mapsMouseEvent) => {
     mouseCoords = mapsMouseEvent.latLng.toJSON();
   });
 
   let userData = document.getElementById("data_self");
-  createAllMarkers(mapObject, userData, "user");
+  if(userData)
+    createAllMarkers(mapObject, userData, "user");
 
   let pendingData = document.getElementById("data_pending");
-  createAllMarkers(mapObject, pendingData, "pending");
+  if(pendingData)
+    createAllMarkers(mapObject, pendingData, "pending");
 
   let verifiedData = document.getElementById("data_verified");
-  createAllMarkers(mapObject, verifiedData, "verified");
+  if(verifiedData)
+    createAllMarkers(mapObject, verifiedData, "verified");
 
   setUpMouseHold();
 }

@@ -19,10 +19,6 @@ Quando('clico em Save') do
     click_on 'Save'
 end
 
-Quando('tento acessar a tela de edição') do
-    visit '/users/edit'
-end
-
 Então('deverei ver a mensagem {string}') do |string|
     expect(page).to have_content(string)
 end
