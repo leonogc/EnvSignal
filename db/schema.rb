@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_27_000732) do
+ActiveRecord::Schema.define(version: 2021_11_09_221547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "authorities", force: :cascade do |t|
     t.integer "identifier"
@@ -29,8 +36,6 @@ ActiveRecord::Schema.define(version: 2021_10_27_000732) do
     t.decimal "longitude"
     t.string "obs"
     t.bigint "user_id", null: false
-    t.integer "upvotes", default: 0
-    t.integer "downvotes", default: 0
     t.boolean "verified", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -48,5 +53,17 @@ ActiveRecord::Schema.define(version: 2021_10_27_000732) do
     t.string "password_digest"
   end
 
+  create_table "voters", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "marker_id", null: false
+    t.integer "vote"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["marker_id"], name: "index_voters_on_marker_id"
+    t.index ["user_id"], name: "index_voters_on_user_id"
+  end
+
   add_foreign_key "markers", "users"
+  add_foreign_key "voters", "markers"
+  add_foreign_key "voters", "users"
 end

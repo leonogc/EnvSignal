@@ -4,7 +4,7 @@ end
 
 Dado('que estou logado na tela de cadastro de marker') do
   user1 = User.new(name: "Rogerio Satrah Ka",username: "rogerio_satrah", email: "rogerio_satrah1@gmail.com",birth_date: Date.parse("17/10/1990"),password: "senhasecretaK").save
-  visit 'login'
+  visit '/users/login'
   fill_in "Username", :with => "rogerio_satrah"
   fill_in "Password", :with => "senhasecretaK"
   click_on 'Login' 

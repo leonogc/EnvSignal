@@ -1,5 +1,5 @@
 class MarkersController < ApplicationController
-  before_action :set_marker, only: %i[ show edit update destroy ]
+  before_action :set_marker, only: %i[ show edit update upvote downvote destroy verify]
   before_action :authorize
   
   # GET /markers or /markers.json
@@ -23,7 +23,7 @@ class MarkersController < ApplicationController
   # POST /markers or /markers.json
   def create
     @userId = session[:user_id]
-    newParams = marker_params.merge!(:user_id => @userId, :upvotes => 0, :downvotes => 0, :verified => false)
+    newParams = marker_params.merge!(:user_id => @userId, :verified => false)
     @marker = Marker.new(newParams)
 
     respond_to do |format|
@@ -50,6 +50,54 @@ class MarkersController < ApplicationController
     end
   end
 
+  def upvote
+    @voter ||= Voter.find_by(user_id: current_user.id, marker_id: @marker.id)
+    if @voter
+      if @voter.upvote?
+        @voter.destroy
+        redirect_to @marker, notice: "Upvote removed"
+      else
+        @voter.upvote!
+        redirect_to @marker, notice: "Upvoted succesfully (de-downvoted)"
+      end
+    else
+      if Voter.new(user_id: current_user.id, marker_id: @marker.id, vote: :upvote).save
+        redirect_to @marker, notice: "Upvoted succesfully"
+      else
+        redirect_to @marker, alert: "Failed to vote"
+      end
+    end
+  end
+
+  def downvote
+    @voter ||= Voter.find_by(user_id: current_user.id, marker_id: @marker.id)
+    if @voter
+      if @voter.downvote?
+        @voter.destroy
+        redirect_to @marker, notice: "Downvote removed"
+      else
+        @voter.downvote!
+        redirect_to @marker, notice: "Downvoted succesfully (de-upvoted)"
+      end
+    else
+      if Voter.new(user_id: current_user.id, marker_id: @marker.id, vote: :downvote).save
+        redirect_to @marker, notice: "Downvoted succesfully"
+      else
+        redirect_to @marker, alert: "Failed to vote"
+      end
+    end
+  end
+
+  def verify
+    if authority_logged_in?
+      if @marker.update(verified: true) 
+        redirect_to @marker, notice: "Verified succesfully"
+      else
+        redirect_to @marker, alert: "Failed to verify"
+      end
+    end
+  end
+
   # DELETE /markers/1 or /markers/1.json
   def destroy
     @marker.destroy
@@ -67,6 +115,6 @@ class MarkersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def marker_params
-      params.require(:markers).permit(:disaster_type, :latitude, :longitude, :obs, :user_id, :upvotes, :downvotes, :verified)
+      params.require(:markers).permit(:disaster_type, :latitude, :longitude, :obs, :user_id, :verified)
     end
 end

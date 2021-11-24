@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_action :block_access, except: [:destroy, :setLocation]
-  before_action :authorize, except: [:new, :create, :show]
+  before_action :user_authorize, except: [:new, :create, :show]
 
   def new
 
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         render 'new'
       elsif @user.authenticate(params[:session][:password])
         sign_in(@user)
-        redirect_to '/'
+        redirect_to '/user'
       else
         flash.alert = 'Incorrect username or password not found!'
         render 'new'
@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    redirect_to '/login'
+    redirect_to '/users/login'
   end
 
   def sign_in (user)

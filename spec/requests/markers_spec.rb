@@ -16,5 +16,86 @@ RSpec.describe "/markers", type: :request do
   
   # Marker. As you add validations to Marker, be sure to
   # adjust the attributes here as well.
+  describe "GET /markers/:id/up" do
+    before :each do
+      @u = User.new(name: "Rog", username:"roger",email:"roger@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")
+      @u.save
+      @u2 = User.new(name: "Aleatory", username:"ale",email:"ale@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")
+      @u2.save
+      @m = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false)
+      @m.save
+
+      allow(Marker).to receive(:find).with("1").and_return(@m)
+      allow_any_instance_of(MarkersController).to receive(:current_user).and_return(@u)
+    end
+    it "upvotes the marker" do
+      get '/markers/1/up'
+      expect( Voter.find_by(marker_id: @m.id) ).not_to be_nil 
+      expect( Voter.find_by(marker_id: @m.id).upvote? ).to be_truthy
+    end
+
+    context "already upvoted" do
+      before :each do
+        get '/markers/1/up'
+        expect( Voter.find_by(marker_id: @m.id) ).not_to be_nil
+      end
+      it "removes the upvote" do
+        get '/markers/1/up'
+        expect( Voter.find_by(marker_id: @m.id) ).to be_nil
+      end
+    end
+
+    context "already downvoted" do
+      before :each do
+        get '/markers/1/down'
+        expect( Voter.find_by(marker_id: @m.id).downvote? ).to be_truthy
+      end
+      it "changes the downvote to a upvote" do
+        get '/markers/1/up'
+        expect( Voter.find_by(marker_id: @m.id).upvote? ).to be_truthy
+      end
+    end
+  end
+
+  describe "GET /markers/:id/down" do
+    before :each do
+      @u = User.new(name: "Rog", username:"roger",email:"roger@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")
+      @u.save
+      @u2 = User.new(name: "Aleatory", username:"ale",email:"ale@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")
+      @u2.save
+      @m = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false)
+      @m.save
+
+      allow(Marker).to receive(:find).with("1").and_return(@m)
+      allow_any_instance_of(MarkersController).to receive(:current_user).and_return(@u)
+    end
+    it "downvotes the marker" do
+      get '/markers/1/down'
+      expect( Voter.find_by(marker_id: @m.id) ).not_to be_nil 
+      expect( Voter.find_by(marker_id: @m.id).downvote? ).to be_truthy
+    end
+
+    context "already upvoted" do
+      before :each do
+        get '/markers/1/up'
+        expect( Voter.find_by(marker_id: @m.id).upvote? ).to be_truthy
+      end
+      it "changes the upvote to a downvote" do
+        get '/markers/1/down'
+        expect( Voter.find_by(marker_id: @m.id).downvote? ).to be_truthy
+      end
+    end
+
+    context "already downvoted" do
+      before :each do
+        get '/markers/1/down'
+        expect( Voter.find_by(marker_id: @m.id) ).not_to be_nil
+      end
+      it "removes the downvote" do
+        get '/markers/1/down'
+        expect( Voter.find_by(marker_id: @m.id) ).to be_nil
+      end
+    end
+  end
   
 end

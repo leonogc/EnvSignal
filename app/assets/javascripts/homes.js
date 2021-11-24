@@ -3,12 +3,12 @@ let creating = false;
 let timerInterval;
 let mapRef;
 let mapObject;
+let markersArray = [];
+const LatLng = { lat: -23.4823919, lng: -46.5004498 };
 
-function initMap() {
+function getAndSetMap() {
   mapRef = document.getElementById("map");
   if(!mapRef) return;
-
-  const LatLng = { lat: -23.4823919, lng: -46.5004498 };
 
   mapObject = new google.maps.Map(mapRef, {
     zoom: 15,
@@ -23,8 +23,23 @@ function initMap() {
     rotateControl: false,
     fullscreenControl: false,
   });
-  window.a = mapObject;
+}
 
+function asyncSetLocation(position){
+  var data = "?latitude=" + position.lat + "&longitude=" + position.lng;
+  $.ajax({
+    method: "GET",
+    url: "/setLocation" + data
+  })
+  .done(function(response){
+    console.log("Set location OK!" + data);
+  })
+  .fail(function(error){
+    console.log("Set location failed!" + data);
+  });
+}
+
+function setMiddleMapLocation() {
   navigator.geolocation.getCurrentPosition(function (pos) {
     if (mapObject) {
       position = { lat: pos.coords.latitude, lng: pos.coords.longitude }
@@ -34,7 +49,9 @@ function initMap() {
         mapObject,
         title: "You are here!",
       });
+      asyncSetLocation(position);
     }
+  
   },
     function (err) {
       mapObject.setCenter(LatLng);
@@ -43,52 +60,63 @@ function initMap() {
         mapObject,
         title: "Each!",
       });
+      asyncSetLocation(LatLng);
       
     }
   )
+}
 
-  var data = "?latitude=" + position.lat + "&longitude=" + position.lng;
-  $.ajax({
-    method: "GET",
-    url: "/setLocation?" + data
-  })
-  .done(function(response){
-    console.log("Set location OK!");
-  })
-  .fail(function(error){
-    console.log("Set location failed!");
-  });
-
+function initMap() {
+  getAndSetMap();
+  setMiddleMapLocation();
+  
   let infoWindow = new google.maps.InfoWindow({
     content: "Click the map to get Lat/Lng!",
     position: LatLng,
   });
 
   infoWindow.open(mapObject);
-  // Configure the click listener.
+  console.log(mapObject)
   mapObject.addListener("click", (mapsMouseEvent) => {
-    // Close the current InfoWindow.
-    
-    
     mouseCoords = mapsMouseEvent.latLng.toJSON();
   });
 
-  let generalData = document.getElementById("data");
-  createAllMarkers(mapObject, generalData, false);
-
   let userData = document.getElementById("data_self");
-  createAllMarkers(mapObject, userData, true);
+  createAllMarkers(mapObject, userData, "user");
+
+  let pendingData = document.getElementById("data_pending");
+  createAllMarkers(mapObject, pendingData, "pending");
+
+  let verifiedData = document.getElementById("data_verified");
+  createAllMarkers(mapObject, verifiedData, "verified");
 
   setUpMouseHold();
 }
 
-function createAllMarkers(mapObject, dataDiv, fromUser) {
-  console.log(dataDiv);
+function createMarkerAndSetOnClick(mapObject, imgUrl, markerData) {
+  var icon = {
+    url: imgUrl, 
+    scaledSize: new google.maps.Size(87, 75), 
+    origin: new google.maps.Point(0, 0), 
+    anchor: new google.maps.Point(43.5, 37.5)
+  };
+
+  let marker = new google.maps.Marker({
+    position: { lat: parseFloat(markerData.latitude), lng: parseFloat(markerData.longitude) },
+    icon: icon,
+    map: mapObject,
+  });
+
+  google.maps.event.addListener(marker, 'click', () => window.location.assign(window.location.origin + `/markers/${markerData.id}`))
+
+  marker.setMap(mapObject);
+}
+
+function createAllMarkers(mapObject, dataDiv, markerType) {
   if(dataDiv) {
     dataDiv = JSON.parse(dataDiv.innerHTML);
   }
   dataDiv.forEach((markerData) => {
-    console.log(markerData);
     let imgUrl = "/";
     switch(markerData.disaster_type) {
       case "esgoto":
@@ -104,22 +132,9 @@ function createAllMarkers(mapObject, dataDiv, fromUser) {
         imgUrl += "trash";
         break;
     }
+    imgUrl += `_${markerType}.png`;
 
-    imgUrl += `${fromUser ? "_user" : ""}.png`;
-    console.log(imgUrl);
-    var icon = {
-      url: imgUrl, 
-      scaledSize: new google.maps.Size(58, 50), 
-      origin: new google.maps.Point(0, 0), 
-      anchor: new google.maps.Point(29, 25)
-  };
-
-    let marker = new google.maps.Marker({
-      position: { lat: parseFloat(markerData.latitude), lng: parseFloat(markerData.longitude) },
-      icon: icon,
-      map: mapObject,
-    });
-    marker.setMap(mapObject);
+    createMarkerAndSetOnClick(mapObject, imgUrl, markerData)
   })  
 }
 
