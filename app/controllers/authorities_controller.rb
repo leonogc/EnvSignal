@@ -62,20 +62,8 @@ class AuthoritiesController < ApplicationController
         end
     end
 
-    def current_authority
-        @current_authority ||= Authority.find_by(id: session[:authority_id])
-    end
-
-    def authority_logged_in?
-        !current_authority.nil?
-    end
-    
-    def current_user
-        @current_user ||= User.find_by(id: session[:user_id])
-    end
-
     def validate_authority_login
-        if !current_user.nil?
+        if logged_in?
             redirect_to '/users/profile'
         end
     end

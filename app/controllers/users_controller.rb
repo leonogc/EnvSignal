@@ -37,12 +37,8 @@ class UsersController < ApplicationController
         end
     end
 
-    def current_authority
-        @current_authority ||= Authority.find_by(id: session[:authority_id])
-    end
-
     def validate_user_login
-        if !current_authority.nil?
+        if authority_logged_in?
             redirect_to '/authorities/profile'
         end
     end
