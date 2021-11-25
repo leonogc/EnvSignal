@@ -22,6 +22,8 @@
       @markers_own_user.to_json %>
     </div>
     <div id="map"></div>  
-  <%= link_to 'Meu perfil', 'users/profile', class: 'icon-profile' %>
+   <%= link_to 'users/profile', class:"button-home" do %>
+        <img src="/icon-profile.png" alt="Meu perfil">
+    <% end %> 
     <%= javascript_include_tag "homes" %>
     <% end %>

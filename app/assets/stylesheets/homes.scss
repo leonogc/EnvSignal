@@ -10,58 +10,22 @@
   display: none;
 }
 
-.icon-profile {
-  /* gg:profile */
-
+.button-home {
   position: absolute;
-  width: 83px;
-  height: 83px;
-  left: 27px;
-  top: 95px;
+  width: 64px;
+  height: 64px;
+  left: 5%;
+  top: 10%;
+  border-radius: 50%;
+  background-color: #53b332;
+  transition: background-color 1s;
 
+  &:hover {
+    background-color: #dbffce;
+  }
 
-
-  /* Group */
-
-  position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
-
-
-
-  /* Ellipse 5 */
-
-  position: absolute;
-  width: 83px;
-  height: 83px;
-  left: 0px;
-  top: 0px;
-
-  background: #53B332;
-
-
-  /* Vector */
-
-  position: absolute;
-  left: 33.33%;
-  right: 33.33%;
-  top: 20.83%;
-  bottom: 45.83%;
-
-  background: #FFFFFF;
-
-
-  /* Vector */
-
-  position: absolute;
-  left: 4.17%;
-  right: 4.17%;
-  top: 4.17%;
-  bottom: 4.17%;
-
-  background: #FFFFFF;
-
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
-
