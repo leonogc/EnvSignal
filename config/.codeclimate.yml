@@ -1,0 +1,3 @@
+exclude_patterns:
+- "app/assets/javascripts/jquery.js"
+- "app/assets/javascripts/marker_list.js"

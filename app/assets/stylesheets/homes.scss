@@ -11,6 +11,9 @@
 }
 
 .button-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   width: 64px;
   height: 64px;
@@ -28,4 +31,13 @@
     width: 100%;
     height: auto;
   }
+}
+
+.button-disasters-list {
+  img {
+    width: 30px;
+    
+  }
+  right: 5%;
+  left: initial;
 }
