@@ -5,6 +5,7 @@
     initMap(-23.4823919, -46.5026385)
     });
   </script>
+
     <div id="data_pending">
       <%=
       require 'json'
@@ -20,6 +21,9 @@
       require 'json'
       @markers_own_user.to_json %>
     </div>
-    <div id="map"></div>    
+    <div id="map"></div>
+    <%= link_to 'users/profile', id: "Meu perfil", class:"button-home" do %>
+      <img src="/icon-profile.png" alt="Meu perfil">
+    <% end %>
     <%= javascript_include_tag "homes" %>
     <% end %>

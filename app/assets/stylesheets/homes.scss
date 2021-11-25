@@ -9,3 +9,23 @@
 #data_pending, #data_verified, #data_self {
   display: none;
 }
+
+.button-home {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  left: 5%;
+  top: 10%;
+  border-radius: 50%;
+  background-color: #53b332;
+  transition: background-color 1s;
+
+  &:hover {
+    background-color: #dbffce;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

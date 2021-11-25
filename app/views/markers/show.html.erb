@@ -47,7 +47,7 @@
       <%= link_to 'Remove', '/markers/' + @marker.id.to_s, method: 'delete', class:"button" %>
     <% end %>
     <% if @marker.user_id == session[:user_id] or session[:authority_id] %>
-      <%= link_to 'Edit', edit_marker_path(@marker) %> 
+      <%= link_to 'Edit', edit_marker_path(@marker), class: "button" %> 
     <% else %>
       <%= link_to '/markers/' + @marker.id.to_s + '/up', class:"button" do %>
         Upvote<img src="/thumb-up.png" alt="Upvote">
@@ -58,8 +58,8 @@
     </div>
     <div class="buttons-container">
       <%= link_to 'Back', root_path, method: 'get', class:"button" %>
-    </div>
 <% end %>
-</div>
-<div class="sidebar"></div>
+    </div>
+  </div>
+  <div class="sidebar"></div>
 </div>
