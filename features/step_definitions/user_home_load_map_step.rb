@@ -12,3 +12,7 @@ Então('o mapa deve ser exibido') do
   response = Net::HTTP.get_response(uri)
   expect(response).to be_kind_of(Net::HTTPSuccess)
 end
+
+Então('deverei ver um botão de {string}') do |string|
+  expect(page).to have_content(string)
+end
