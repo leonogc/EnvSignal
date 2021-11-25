@@ -16,6 +16,38 @@ RSpec.describe "/markers", type: :request do
   
   # Marker. As you add validations to Marker, be sure to
   # adjust the attributes here as well.
+  describe "GET /markers/:id" do
+    before :each do
+      @u = User.new(name: "Rog", username:"roger",email:"roger@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")
+      @u.save
+      @m = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: 1, verified: false)
+      @m.save
+
+      allow_any_instance_of(MarkersController).to receive(:session).and_return({user_id: 1})
+    end
+    it "shows marker info" do
+      get "/markers/" + @m.id.to_s
+      expect(response).to have_http_status(:success)
+    end
+  end 
+
+  describe "PATCH /markers/:id" do
+    before :each do
+      @u = User.new(name: "Rog", username:"roger",email:"roger@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")
+      @u.save
+      @m = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: 1, verified: false)
+      @m.save
+
+      allow_any_instance_of(MarkersController).to receive(:session).and_return({user_id: 1})
+    end
+    it "update the marker" do
+      expect(Marker.order("id").last.latitude).not_to eq(20)
+      patch '/markers/' + @m.id.to_s, params: { id: @m.id , marker: { latitude: '20' } }
+      expect(response).to redirect_to '/markers/' + @m.id.to_s
+      expect(Marker.order("id").last.latitude).to eq(20)
+    end
+  end
+
   describe "GET /markers/:id/up" do
     before :each do
       @u = User.new(name: "Rog", username:"roger",email:"roger@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")

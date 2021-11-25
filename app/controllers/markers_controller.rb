@@ -40,7 +40,10 @@ class MarkersController < ApplicationController
   # PATCH/PUT /markers/1 or /markers/1.json
   def update
     respond_to do |format|
-      if @marker.update(marker_params)
+      if (params[:marker][:severity])
+        params[:marker][:severity] = params[:marker][:severity].to_i
+      end
+      if @marker.update(marker_edit_params)
         format.html { redirect_to @marker, notice: "Marker was successfully updated." }
         format.json { render :show, status: :ok, location: @marker }
       else
@@ -115,6 +118,10 @@ class MarkersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def marker_params
-      params.require(:markers).permit(:disaster_type, :latitude, :longitude, :obs, :user_id, :verified)
+      params.require(:markers).permit(:disaster_type, :latitude, :longitude, :obs, :verified, :severity)
+    end
+
+    def marker_edit_params
+      params.require(:marker).permit(:disaster_type, :latitude, :longitude, :obs, :verified, :severity)
     end
 end

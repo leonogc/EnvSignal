@@ -1,7 +1,9 @@
 class AdminsController < ApplicationController
     before_action :admin_block_access, except: [:destroy, :index]
     before_action :admin_authorize, except: [:new, :create]
+    
     def new
+        admin1 = Admin.new(username: 'admin', password: "admin123").save
     end
 
     def create

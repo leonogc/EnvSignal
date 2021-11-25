@@ -19,6 +19,7 @@ Dado que não estou logado
 Quando clico em um marker
 Então deverei ser redirecionado para a página de login de usuário
 
+@oneUserBefore
 Cenário: Verificação de desastre ocultada - logado como usuário
 Dado que estou logado como usuário
 Quando clico em um marker

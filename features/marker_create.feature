@@ -10,6 +10,7 @@ Dado que não estou logado
 Quando tento acessar a tela de cadastro de marker
 Então deverei ser redirecionado para a página de login de usuário
 
+@oneUserBefore
 Cenário: Cadastro de marker com sucesso
 Dado que estou logado como usuário
 E estou na tela de cadastro de marker
@@ -21,6 +22,7 @@ E clico em create
 Então o marker deve ter sido salvo no banco de dados
 E deverei ser redirecionado para a página do marker
 
+@oneUserBefore
 Cenário: Cadastro de marker com erro - sem latitude
 Dado que estou logado como usuário
 E estou na tela de cadastro de marker
@@ -31,6 +33,7 @@ E deixo o campo "Latitude" vazio
 E clico em create
 Então deverei ver a mensagem de erro "É obrigatório informar a Latitude!"
 
+@oneUserBefore
 Cenário: Cadastro de marker com erro - sem longitude
 Dado que estou logado como usuário
 E estou na tela de cadastro de marker
