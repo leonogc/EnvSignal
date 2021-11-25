@@ -10,10 +10,18 @@ Dado que estou na página home
 Quando a página é carregada
 Então o mapa deve ser exibido
 
-Cenário: Botão para o perfil
+@oneUserBefore
+Cenário: Botão para o perfil Usuário
 Dado que estou logado como usuário
 E que estou na página home
 Quando a página é carregada
-Então deverei ver um botão de "Meu perfil"
 E clico em "Meu perfil"
 Então deverei ser redirecionado para a página de perfil de usuário
+
+@oneAuthorityBefore
+Cenário: Botão para o perfil Autoridade
+Dado que estou logado como autoridade
+E que estou na página home de autoridade
+Quando a página é carregada
+E clico em "Meu perfil"
+Então deverei ser redirecionado para a página de perfil de autoridade

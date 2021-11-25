@@ -1,5 +1,5 @@
 Dado('que estou na página home') do
-  visit '/homes'
+  visit '/user'
 end
 
 Quando('a página é carregada') do
@@ -13,6 +13,6 @@ Então('o mapa deve ser exibido') do
   expect(response).to be_kind_of(Net::HTTPSuccess)
 end
 
-Então('deverei ver um botão de {string}') do |string|
-  expect(page).to have_content(string)
+Dado('que estou na página home de autoridade') do
+  visit '/authority'
 end
