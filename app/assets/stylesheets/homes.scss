@@ -9,3 +9,59 @@
 #data_pending, #data_verified, #data_self {
   display: none;
 }
+
+.icon-profile {
+  /* gg:profile */
+
+  position: absolute;
+  width: 83px;
+  height: 83px;
+  left: 27px;
+  top: 95px;
+
+
+
+  /* Group */
+
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+
+
+
+  /* Ellipse 5 */
+
+  position: absolute;
+  width: 83px;
+  height: 83px;
+  left: 0px;
+  top: 0px;
+
+  background: #53B332;
+
+
+  /* Vector */
+
+  position: absolute;
+  left: 33.33%;
+  right: 33.33%;
+  top: 20.83%;
+  bottom: 45.83%;
+
+  background: #FFFFFF;
+
+
+  /* Vector */
+
+  position: absolute;
+  left: 4.17%;
+  right: 4.17%;
+  top: 4.17%;
+  bottom: 4.17%;
+
+  background: #FFFFFF;
+
+}
+
