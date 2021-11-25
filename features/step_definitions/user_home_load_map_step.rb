@@ -16,3 +16,7 @@ end
 Dado('que estou na página home de autoridade') do
   visit '/authority'
 end
+
+Então('deverei ser redirecionado para a página de listagem de disastres') do
+  expect(page).to have_current_path("/markers")
+end
