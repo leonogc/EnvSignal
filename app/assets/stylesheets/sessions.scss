@@ -117,7 +117,7 @@
         padding: 15px 0px;
       }
       
-      input {
+      select, input {
         font-family: "Roboto", sans-serif;
         font-size: 1rem;
         background-color: #53B332;
@@ -140,6 +140,15 @@
           color:#53B332;
         }
       }
+    }
+
+    .overflow-container {
+      overflow-x: auto;
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     table, th, td {

@@ -1,10 +1,5 @@
-<%= javascript_include_tag "jquery" %>
 <% provide :head_tags do %>
-  <script>
-  document.addEventListener("DOMContentLoaded", function(){
-    initMap(-23.4823919, -46.5026385)
-    });
-  </script>
+ 
     <div id="data_pending">
       <%=
       require 'json'
@@ -16,5 +11,6 @@
       @markers_verified_nouser.to_json %>
     </div>
     <div id="map"></div>    
-    <%= javascript_include_tag "homes" %>
 <% end %>
+<%= javascript_include_tag "jquery" %>
+<%= javascript_include_tag "homes" %>
