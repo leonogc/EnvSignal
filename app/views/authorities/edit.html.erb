@@ -1,25 +1,31 @@
-<h1> Editar Dados de Autoridade</h1>
+<div class="default-container">
+    <div class="sidebar"></div>
+    <div class="hero">
+        <h1 class="title"> Editar Dados de Autoridade</h1>
 
-<% if @authority.errors.any? %>
-<div id="error_explanation">    
-    <ul>
-        <% @authority.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+        <% if @authority.errors.any? %>
+        <div id="error_explanation">    
+            <ul>
+                <% @authority.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
         <% end %>
-    </ul>
-</div>
-<% end %>
 
-<%= form_with model: @authority, url: '/authorities/edit' do |form| %>
-    <p>
-        <%= form.label :identifier %><br />
-        <%= form.text_field :identifier %>
-    </p>
-    <p>
-        <%= form.label :name %><br />
-        <%= form.text_field :name %>
-    </p>
-    <p>
-        <%= form.submit 'Save' %>
-    </p>
-<% end %>
+        <%= form_with model: @authority, url: '/authorities/edit' do |form| %>
+            <div class="field">
+                <%= form.label :identifier %><br />
+                <%= form.text_field :identifier %>
+            </div>
+            <div class="field">
+                <%= form.label :name %><br />
+                <%= form.text_field :name %>
+            </div>
+            <div class="buttons-container">
+                <%= form.submit 'Save', class:"button" %>
+            </div>
+        <% end %>
+    </div>
+    <div class="sidebar"></div>
+</div>

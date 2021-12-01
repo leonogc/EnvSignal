@@ -1,9 +1,4 @@
 <% provide :head_tags do %>
-  <script>
-  document.addEventListener("DOMContentLoaded", function(){
-    initMap(-23.4823919, -46.5026385)
-    });
-  </script>
     <div id="data_pending">
       <%=
       require 'json'
@@ -26,5 +21,6 @@
     <%= link_to 'markers', id: "Lista de desastres", class: 'button-home button-disasters-list' do%>
       <img src="/disasters-list.png" alt="Lista de desastres">
     <% end %>  
-    <%= javascript_include_tag "homes" %>
     <% end %>
+<%= javascript_include_tag "jquery" %>
+<%= javascript_include_tag "homes" %>

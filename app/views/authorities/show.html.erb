@@ -1,13 +1,21 @@
-<h1> Página de Autoridade</h1>
+<div class="default-container">
+    <div class="sidebar"></div>
+    <div class="hero">
+        <h1 class="title"> Página de Autoridade</h1>
 
-<% flash.each do |type, msg| %>
-    <div id="success_explanation">    
-        <%= msg %>
+        <% flash.each do |type, msg| %>
+            <div id="success_explanation">    
+                <%= msg %>
+            </div>
+        <% end %>
+
+        <h3><strong><%= @authority.name %>'s Profile </strong></h3>
+        <h3><strong>Identifier:</strong> <%= @authority.identifier %> </h3>
+        <h3><strong>Username:</strong> <%= @authority.name %> </h3>
+        <div class="buttons-container">
+            <%= link_to "Edit Authority Profile", '/authorities/edit', class:"button" %>
+            <%= link_to "Log out", '/authorities/sign_out', method: :delete, class:"button" %>
+        </div>
     </div>
-<% end %>
-
-<h3><%= @authority.name %>'s Profile </h3>
-<p>Identifier: <%= @authority.identifier %> </p>
-<p>Username: <%= @authority.name %> </p>
-<p><%= link_to "Edit Authority Profile", '/authorities/edit' %></p>
-<p><%= link_to "Log out", '/authorities/sign_out', method: :delete %></p>
+    <div class="sidebar"></div>
+</div>
