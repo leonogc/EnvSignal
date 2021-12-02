@@ -6,6 +6,13 @@ let mapObject;
 let markersArray = [];
 const LatLng = { lat: -23.4823919, lng: -46.5004498 };
 
+if(document.getElementById("map"))
+  initMap()
+else
+  document.addEventListener("DOMContentLoaded", function(){
+  initMap()
+});
+
 function getAndSetMap() {
   mapRef = document.getElementById("map");
   if(!mapRef) return;
