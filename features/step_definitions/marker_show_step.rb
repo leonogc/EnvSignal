@@ -1,13 +1,9 @@
-Dado('que estou logado na tela de home') do
-  visit '/users/login'
-  fill_in "Username", :with => "rogerio_satrah"
-  fill_in "Password", :with => "senhasecretaK"
-  click_on 'Login' 
+Dado('que estou na página home do usuário') do
   visit '/user'
 end
 
 Dado('que eu criei markers com meu usuário') do 
-  marker1 = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.find_by(username: "rogerio_satrah")).id, verified: false).save
+  marker1 = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.find_by(username: "rogerio_satrah")).id, verified: false, user_type: 0).save
 end
 
 Dado('que sou um usuário') do

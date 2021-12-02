@@ -23,7 +23,14 @@ class MarkersController < ApplicationController
   # POST /markers or /markers.json
   def create
     @userId = session[:user_id]
-    newParams = marker_params.merge!(:user_id => @userId, :verified => false)
+    @authorityId = session[:authority_id]
+
+    if @userId
+      newParams = marker_params.merge!(:user_id => @userId, :verified => false, :user_type => 0)
+    elsif 
+      newParams = marker_params.merge!(:user_id => @authorityId, :verified => false, :user_type => 1)
+    end
+
     @marker = Marker.new(newParams)
 
     respond_to do |format|
