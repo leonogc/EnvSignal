@@ -1,7 +1,3 @@
-Dado('que estou na página home de usuário') do
-  visit '/user'
-end
-
 Dado('que estou na página home') do
   visit '/'
 end

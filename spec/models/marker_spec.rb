@@ -22,7 +22,7 @@ RSpec.describe Marker, type: :model do
     it 'Funciona - Autoridade' do
       @authority = Authority.order("id").last
       marker = Marker.new
-      marker.user_id = @authority.identifier
+      marker.user_id = @authority.id
       marker.disaster_type = "vazamento"
       marker.latitude = 25.2362
       marker.longitude = -27.8883

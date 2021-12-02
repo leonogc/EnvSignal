@@ -14,11 +14,13 @@ class Marker < ApplicationRecord
         if (self.user_id == nil)
             errors.add(:user_id, 'É obrigatório ter um autor valido!')
         elsif (self.user_type == 'userType')
-            if ((User.find_by(id: self.user_id)) == nil)
+            @res = User.find_by(id: self.user_id)
+            if (@res == nil)
                 errors.add(:user_id, 'É obrigatório ter um autor valido!')
             end
         elsif (self.user_type == 'authorityType')
-            if ((Authority.find_by(identifier: self.user_id)) == nil)
+            @res = Authority.find_by(id: self.user_id)
+            if (@res == nil)
                 errors.add(:user_id, 'É obrigatório ter um autor valido!')
             end
         end

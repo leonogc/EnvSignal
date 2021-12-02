@@ -1,8 +1,3 @@
-Dado('há markers criados por outros usuários no mapa') do
-    user2 = User.new(name: "Aleatory", username:"ale",email:"ale@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy").save
-    marker1 = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false, user_type: 0).save
-  end
-  
   Quando('clico no marker') do
     visit '/markers/' + (Marker.order("id").last).id.to_s
   end

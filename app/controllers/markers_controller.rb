@@ -28,9 +28,9 @@ class MarkersController < ApplicationController
     if @userId
       newParams = marker_params.merge!(:user_id => @userId, :verified => false, :user_type => 0)
     elsif 
-      newParams = marker_params.merge!(:user_id => @authorityId, :verified => false, :user_type => 1)
+      newParams = marker_params.merge!(:user_id => @authorityId, :verified => true, :user_type => 1)
     end
-
+    puts newParams
     @marker = Marker.new(newParams)
 
     respond_to do |format|
