@@ -1,5 +1,5 @@
 Dado('que estou na página home') do
-  visit '/user'
+  visit '/'
 end
 
 Quando('a página é carregada') do

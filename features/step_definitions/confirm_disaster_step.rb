@@ -1,8 +1,3 @@
-Dado('há markers criados por outros usuários no mapa') do
-    user2 = User.new(name: "Aleatory", username:"ale",email:"ale@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy").save
-    marker1 = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false).save
-  end
-  
   Quando('clico no marker') do
     visit '/markers/' + (Marker.order("id").last).id.to_s
   end
@@ -11,12 +6,7 @@ Dado('há markers criados por outros usuários no mapa') do
     expect(page).to have_content('incendio')
   end
   
-  Dado('que estou logado na página do marker') do
-    user1 = User.new(name: "Rogerio Satrah Ka",username: "rogerio_satrah", email: "rogerio_satrah1@gmail.com",birth_date: Date.parse("17/10/1990"),password: "senhasecretaK").save
-    visit '/users/login'
-    fill_in "Username", :with => "rogerio_satrah"
-    fill_in "Password", :with => "senhasecretaK"
-    click_on 'Login' 
+  Dado('estou na página do marker') do
     visit '/markers/' + (Marker.order("id").last).id.to_s
   end
   

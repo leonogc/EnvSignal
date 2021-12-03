@@ -17,7 +17,7 @@ Então deverei ser redirecionado para a página de login de autoridade
 
 @oneUserBefore
 Cenário: Tentativa de Acesso a Página de Login da Home Logado como Usuário
-Dado que estou logado na tela de home
+Dado que estou logado como usuário
 E que estou na página de login da home
 Então deverei ser redirecionado para a página principal dos usuários
 

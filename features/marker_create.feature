@@ -11,8 +11,20 @@ Quando tento acessar a tela de cadastro de marker
 Então deverei ser redirecionado para a página de login de usuário
 
 @oneUserBefore
-Cenário: Cadastro de marker com sucesso
+Cenário: Cadastro de marker com sucesso - Usuário
 Dado que estou logado como usuário
+E estou na tela de cadastro de marker
+Quando seleciono a opção "Vazamento de Água" no select "Disaster type"
+Quando preencho o campo "Latitude" com 27.323222
+Quando preencho o campo "Longitude" com -25.323283
+Quando preencho o campo "Obs" com "Está pegando fogo!"
+E clico em create
+Então o marker deve ter sido salvo no banco de dados
+E deverei ser redirecionado para a página do marker
+
+@oneAuthorityBefore
+Cenário: Cadastro de marker com sucesso - Autoridade
+Dado que estou logado como autoridade
 E estou na tela de cadastro de marker
 Quando seleciono a opção "Vazamento de Água" no select "Disaster type"
 Quando preencho o campo "Latitude" com 27.323222

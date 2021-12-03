@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_164237) do
+ActiveRecord::Schema.define(version: 2021_12_02_010641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_11_23_164237) do
   end
 
   create_table "authorities", force: :cascade do |t|
-    t.integer "identifier"
+    t.bigint "identifier"
     t.string "password_digest"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_11_23_164237) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "severity"
+    t.integer "user_type"
     t.index ["user_id"], name: "index_markers_on_user_id"
   end
 
@@ -64,7 +65,6 @@ ActiveRecord::Schema.define(version: 2021_11_23_164237) do
     t.index ["user_id"], name: "index_voters_on_user_id"
   end
 
-  add_foreign_key "markers", "users"
   add_foreign_key "voters", "markers"
   add_foreign_key "voters", "users"
 end
