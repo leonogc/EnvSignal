@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get '/markers/self' => "markers#self"
   resources :markers
   get '/markers/:id/up' => "markers#upvote"
   get '/markers/:id/down' => "markers#downvote"
   get '/markers/:id/verify' => "markers#verify"
+  
 
   root to: 'homes#index'
   get "homes" => "homes#index"
