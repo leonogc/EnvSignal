@@ -23,14 +23,15 @@
         <thead>
           <tr>
             <th>Type</th>
+            <th>Severity</th>
+            <th>Verified</th>
+            <th>Obs</th>
             <th>Latitude</th>
             <th>Longitude</th>
-            <th>Obs</th>
-            <th>User</th>      
             <th>Distance</th>
+            <th>User</th>           
             <th>Upvotes</th>
-            <th>Downvotes</th>
-            <th>Verified</th>
+            <th>Downvotes</th>            
             <th colspan="3"></th>
           </tr>
         </thead>
@@ -38,18 +39,19 @@
         <tbody>
           <% @markers.each do |marker| %>
             <tr>
-              <td><%= marker.disaster_type %></td>
-              <td><%= marker.latitude %></td>
-              <td><%= marker.longitude %></td>
-              <td><%= marker.obs %></td>
-              <td><%= marker.user_id %></td>
-              <td><%= calculateDistance(marker.latitude, marker.longitude, session[:latitude], session[:longitude]) %> Km</td>
-              <td><%= marker.upvotes %></td>
-              <td><%= marker.downvotes %></td>
-              <td><%= marker.verified %></td>
-              <td><%= link_to 'Show', marker %></td>
-              <td><%= link_to 'Edit', edit_marker_path(marker) %></td>
-              <td><%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= marker.disaster_type %></td>
+            <td><%= marker.severity %> </td>
+            <td><%= marker.verified %></td>
+            <td><%= marker.obs %></td>
+            <td><%= marker.latitude %></td>
+            <td><%= marker.longitude %></td>
+            <td><%= calculateDistance(marker.latitude, marker.longitude, session[:latitude], session[:longitude]) %> Km</td>
+            <td><%= marker.user_id %></td>              
+            <td><%= marker.upvotes %></td>
+            <td><%= marker.downvotes %></td>
+            <td><%= link_to 'Show', marker %></td>
+            <td><%= link_to 'Edit', edit_marker_path(marker) %></td>
+            <td><%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
