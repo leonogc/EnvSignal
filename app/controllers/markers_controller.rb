@@ -20,6 +20,22 @@ class MarkersController < ApplicationController
   def edit
   end
 
+  # GET /markers/self
+  def self
+    @user = User.find_by(id: session[:user_id])
+
+    if(@user != nil)
+      @name = @user.name
+      @markers = Marker.own_user(session[:user_id], 0)
+    end
+    @authority = Authority.find_by(id: session[:authority_id])
+    if(@authority != nil)
+      @name = @authority.name
+      @markers = Marker.own_user(session[:authority_id], 1)
+    end
+    return render 'index'
+  end
+
   # POST /markers or /markers.json
   def create
     @userId = session[:user_id]
@@ -120,7 +136,7 @@ class MarkersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_marker
-      @marker = Marker.find(params[:id])
+        @marker = Marker.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
