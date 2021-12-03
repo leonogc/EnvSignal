@@ -13,10 +13,14 @@ Então('o mapa deve ser exibido') do
   expect(response).to be_kind_of(Net::HTTPSuccess)
 end
 
-Dado('que estou na página home de autoridade') do
+Dado('que estou na página home da autoridade') do
   visit '/authority'
 end
 
 Então('deverei ser redirecionado para a página de listagem de disastres') do
   expect(page).to have_current_path("/markers")
+end
+
+Então('deverei ser redirecionado para a página de listagem de disastres próprios') do
+  expect(page).to have_current_path("/markers/self")
 end

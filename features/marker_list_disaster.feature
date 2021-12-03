@@ -15,3 +15,27 @@ Cenário: Carregamento da lista - authority
 Dado que estou logado como autoridade
 Quando acesso a listagem de desastres
 Então os desastres devem ser exibidos
+
+@otherUserMarkerBefore
+@oneUserBefore
+@oneMarkerFromUser
+Cenário: Listagem de Markers do próprio Usuário - lista
+Dado que estou logado como usuário
+E que estou na página home do usuário
+Quando a página é carregada
+E clico em "Lista de desastres próprios"
+Então deverei ser redirecionado para a página de listagem de disastres próprios
+E deverei ver "23.4292" 
+E não deverei ver "26.1232" 
+
+@otherAuthorityMarkerBefore
+@oneAuthorityBefore
+@oneMarkerFromAuthority
+Cenário: Listagem de Markers da própria Autoridade - lista
+Dado que estou logado como autoridade
+E que estou na página home do usuário
+Quando a página é carregada
+E clico em "Lista de desastres próprios"
+Então deverei ser redirecionado para a página de listagem de disastres próprios
+E deverei ver "23.4292" 
+E não deverei ver "26.1232" 
