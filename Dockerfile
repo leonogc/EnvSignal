@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM ruby:2.7
+FROM ruby:2.7.4
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 
 ADD https://dl.yarnpkg.com/debian/pubkey.gpg /tmp/yarn-pubkey.gpg
