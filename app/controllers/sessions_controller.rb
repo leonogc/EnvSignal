@@ -9,18 +9,18 @@ class SessionsController < ApplicationController
 
   def create
     if !params[:session][:username] or params[:session][:username] == '' or !params[:session][:password] or params[:session][:password] == ''
-      flash.alert = 'Username or Password not entered'
+      flash.now.alert = 'Username or Password not entered'
       render 'new'
     else
       @user = User.find_by(username: params[:session][:username])
       if !@user
-        flash.alert = 'Incorrect username or password not found!'
+        flash.now.alert = 'Incorrect username or password not found!'
         render 'new'
       elsif @user.authenticate(params[:session][:password])
         sign_in(@user)
         redirect_to '/user'
       else
-        flash.alert = 'Incorrect username or password not found!'
+        flash.now.alert = 'Incorrect username or password not found!'
         render 'new'
       end
     end

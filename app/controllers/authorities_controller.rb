@@ -27,8 +27,9 @@ class AuthoritiesController < ApplicationController
     end
 
     def check_login
-        if params[:identifier] == '' or params[:password] == ''
-            flash.alert = 'Identifier or Password not entered'
+        if params[:identifier] == '' or params[:password] == '' or !params[:identifier] or !params[:password]
+            puts "aqui"
+            flash.now.alert = 'Identifier or Password not entered'
             render 'login'
         else
             @authority = Authority.find_by(identifier: params[:identifier])
@@ -36,7 +37,8 @@ class AuthoritiesController < ApplicationController
                 session[:authority_id] = @authority.id
                 redirect_to "/authority"
             else
-                flash.alert = 'Incorrect identifier or password'
+                flash.now.alert = 'Incorrect identifier or password'
+                puts "aqui2"
                 render 'login'
             end
         end
@@ -58,7 +60,7 @@ class AuthoritiesController < ApplicationController
     def update
         @authority = Authority.find_by(id: session[:authority_id])
         if @authority.update(edit_params)
-            flash.alert = 'Profile updated!'
+            flash.now.alert = 'Profile updated!'
             redirect_to '/authorities/profile'
         else
             render action: :edit
