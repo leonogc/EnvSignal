@@ -12,7 +12,10 @@ E que estou na página home do usuário
 Quando a página é carregada
 E clico em "Lista de desastres"
 Então deverei ser redirecionado para a página de listagem de disastres
-E os desastres e suas distâncias devem ser exibidas
+E deverei ver a lista de desastres da seguinte forma:
+| Type      | Severity | Verified | Observation | Distance   | ID  | Creator | Upvotes | Downvotes | Actions               |
+| incendio  | 0        | false    |             | 3832.85 Km | 1   | User    |0        | 0         | Show | Edit | Destroy |
+| vazamento | 0        | false    |             | 3845.82 Km | 1   | User    |0        | 0         | Show | Edit | Destroy |
 
 Cenário: Carregamento da lista com distância - authority
 Dado que estou logado como autoridade
@@ -20,7 +23,10 @@ E que estou na página home do usuário
 Quando a página é carregada
 E clico em "Lista de desastres"
 Então deverei ser redirecionado para a página de listagem de disastres
-E os desastres e suas distâncias devem ser exibidas
+E deverei ver a lista de desastres da seguinte forma:
+| Type      | Severity | Verified | Observation | Distance   | ID  | Creator | Upvotes | Downvotes | Actions               |
+| incendio  | 0        | false    |             | 3832.85 Km | 1   | User    |0        | 0         | Show | Edit | Destroy |
+| vazamento | 0        | false    |             | 3845.82 Km | 1   | User    |0        | 0         | Show | Edit | Destroy |
 
 @otherUserMarkerBefore
 @oneUserBefore
@@ -53,7 +59,11 @@ E que estou na página home do usuário
 Quando a página é carregada
 E clico em "Lista de desastres"
 Então deverei ser redirecionado para a página de listagem de disastres
-E deverei ver a lista de desastres com todos os botões liberados
+E deverei ver a lista de desastres da seguinte forma:
+| Type      | Severity | Verified | Observation | Distance   | ID  | Creator | Upvotes | Downvotes | Actions               |
+| incendio  | 0        | false    |             | 3832.85 Km | 1   | User    |0        | 0         | Show | Edit | Destroy |
+| vazamento | 0        | false    |             | 3845.82 Km | 1   | User    |0        | 0         | Show | Edit | Destroy |
+| incendio  | 0        | false    |             | 3832.85 Km | 2   | User    |0        | 0         | Show |      |         |
 
 @otherUserMarkerBefore
 @otherAuthorityMarkerBefore
@@ -63,4 +73,8 @@ E que estou na página home do usuário
 Quando a página é carregada
 E clico em "Lista de desastres"
 Então deverei ser redirecionado para a página de listagem de disastres
-E deverei ver a lista de desastres com todos os botões liberados
+E deverei ver a lista de desastres da seguinte forma:
+| Type      | Severity | Verified | Observation | Distance   | ID  | Creator | Upvotes | Downvotes | Actions               |
+| incendio  | 0        | false    |             | 3832.85 Km | 1   | User    |0        | 0         | Show | Edit | Destroy |
+| vazamento | 0        | false    |             | 3845.82 Km | 1   | User    |0        | 0         | Show | Edit | Destroy |
+| incendio  | 0        | false    |             | 3832.85 Km | 192 | Auth    |0        | 0         | Show | Edit | Destroy |
