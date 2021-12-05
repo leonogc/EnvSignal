@@ -30,7 +30,7 @@ class UsersController < ApplicationController
         @user = User.find_by(id: session[:user_id])
         
         if @user.update(edit_params)
-            flash.now.alert = 'Profile updated!'
+            flash.alert = 'Profile updated!'
             redirect_to '/users/profile'
         else
             render action: :edit

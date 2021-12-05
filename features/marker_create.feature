@@ -8,7 +8,7 @@ Para que eu possa avisar sobre os desastres próximos a mim
 Cenário: Cadastro de marker com erro - sem login
 Dado que não estou logado
 Quando tento acessar a tela de cadastro de marker
-Então deverei ser redirecionado para a página de login de usuário
+Então deverei ser redirecionado para a página de login
 
 @oneUserBefore
 Cenário: Cadastro de marker com sucesso - Usuário

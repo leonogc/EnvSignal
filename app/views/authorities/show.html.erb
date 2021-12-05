@@ -8,7 +8,7 @@
                 <%= msg %>
             </div>
         <% end %>
-
+        <% flash.clear %>
         <h3><strong><%= @authority.name %>'s Profile </strong></h3>
         <h3><strong>Identifier:</strong> <%= @authority.identifier %> </h3>
         <h3><strong>Username:</strong> <%= @authority.name %> </h3>
