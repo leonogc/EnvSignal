@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
     def authorize
         unless logged_in? || authority_logged_in?
-            redirect_to '/users/login'
+            redirect_to '/login'
         end
     end
 

@@ -8,7 +8,7 @@
         <%= msg %>
         </div>
         <% end %>
-        
+        <% flash.clear %>
         <%= form_for :session, url: '/users/login' do |form| %>
             <div class="field">
             <%= form.label :username %>
