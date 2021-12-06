@@ -26,8 +26,10 @@
             <th>Severity</th>
             <th>Verified</th>
             <th>Observation</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
             <th>Distance</th>
-            <th>Id</th>
+            <th>ID</th>
             <th>Creator</th>           
             <th>Upvotes</th>
             <th>Downvotes</th>            
@@ -42,23 +44,16 @@
               <td><%= marker.severity %> </td>
               <td><%= marker.verified %></td>
               <td><%= marker.obs %></td>
+              <td><%= marker.latitude %></td>
+              <td><%= marker.longitude %></td>
               <td><%= calculateDistance(marker.latitude, marker.longitude, session[:latitude], session[:longitude]) %> Km</td>
               <td><%= marker.user_id %></td> 
-              <%= if marker.user_type == 0) %>
-                <td>User</td>
-              <%= else %>
-                <td>Auth</td>
-              <%= end %>             
+              <td>User</td>
               <td><%= marker.upvotes %></td>
               <td><%= marker.downvotes %></td>
               <td><%= link_to 'Show', marker %></td>
-              <%= if session[:authority_id] || (session[:user_id] && session[:user_id] == marker.user_id) %>
-                <td><%= link_to 'Edit', edit_marker_path(marker) %></td>
-                <td><%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <%= else %>
-                <td></td>
-                <td></td>
-              <%= end %>
+              <td><%= link_to 'Edit', edit_marker_path(marker) %></td>
+              <td><%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
