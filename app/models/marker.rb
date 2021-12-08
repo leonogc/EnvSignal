@@ -36,12 +36,12 @@ class Marker < ApplicationRecord
 
     enum severity: {I: 1, II: 2, III: 3, IV: 4}
 
-    scope :own_user, -> (userId, userType) { where('user_id = ? AND user_type = ?',userId, userType) }
-    scope :pending_marker, -> (userId, userType) { where('verified != ? AND ((user_id = ? AND user_type != ?) OR user_id != ?)', true, userId, userType, userId)}
-    scope :verified_marker, -> (userId, userType) { where('verified = ? AND ((user_id = ? AND user_type != ?) OR user_id != ?)', true, userId, userType, userId)}
+    scope :own_user, -> (userId, userType) { where('user_id = ? AND user_type = ? AND resolved = ?',userId, userType, false) }
+    scope :pending_marker, -> (userId, userType) { where('verified != ? AND ((user_id = ? AND user_type != ?) OR user_id != ?) AND resolved = ?', true, userId, userType, userId, false)}
+    scope :verified_marker, -> (userId, userType) { where('verified = ? AND ((user_id = ? AND user_type != ?) OR user_id != ?) AND resolved = ?', true, userId, userType, userId, false)}
 
-    scope :pending_marker_nouser, -> () { where('verified != ?', true)  }
-    scope :verified_marker_nouser, -> () { where('verified = ?', true) }
+    scope :pending_marker_nouser, -> () { where('verified != ? AND resolved = ?', true, false)  }
+    scope :verified_marker_nouser, -> () { where('verified = ? AND resolved = ?', true, false) }
 
     enum user_type: {userType: 0, authorityType: 1}
 end

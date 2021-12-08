@@ -164,4 +164,29 @@ RSpec.describe "/markers", type: :request do
     end
   end
   
+  describe "GET /markers/:id/resolve" do
+    before :each do
+      @u = User.new(name: "Rog", username:"roger",email:"roger@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")
+      @u.save
+      @m = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: true, user_type: 0)
+      @m.save
+
+      allow(Marker).to receive(:find).with("1").and_return(@m)
+      allow_any_instance_of(MarkersController).to receive(:current_user).and_return(@u)
+    end
+    it "resolve the marker" do
+      allow_any_instance_of(MarkersController).to receive(:authority_logged_in?).and_return(true)
+      get '/markers/1/resolve'
+      expect( Marker.find_by(id: @m.id) ).not_to be_nil 
+      expect( Marker.find_by(id: @m.id).resolved? ).to be_truthy
+    end
+    it "error - error resolving the marker" do
+      allow_any_instance_of(MarkersController).to receive(:authority_logged_in?).and_return(true)
+      allow(@m).to receive(:update).and_return(false)
+      get '/markers/1/resolve'
+      expect( Marker.find_by(id: @m.id) ).not_to be_nil 
+      expect( Marker.find_by(id: @m.id).resolved? ).to be_falsey
+    end
+  end
+
 end
