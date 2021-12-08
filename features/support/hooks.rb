@@ -18,6 +18,17 @@ Before('@markersBeforeForConfirm') do
 
 end
 
+Before('@markersBeforeForResolve') do
+    user1 = User.new(name: "Rogerio Satrah Ka",username: "rogerio_satrah", email: "rogerio_satrah1@gmail.com",birth_date: Date.parse("17/10/1990"),password: "senhasecretaK").save
+
+    marker1 = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: true, user_type: 0).save
+end
+
+Before('@unverifyMarker') do
+    marker = Marker.last
+    marker.update(verified: false)
+end
+
 Before('@someMarkersBefore') do 
     user2 = User.new(name: "Rogerio Satrah Ka Junior",username: "rogerio_satrah_junior", email: "rogerio_satrah1@gmail.com",birth_date: Date.parse("17/10/2000"),password: "senhasecretaK").save
 
