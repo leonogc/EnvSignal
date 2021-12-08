@@ -14,6 +14,7 @@
         <h3><strong>Birth Date:     </strong> <%= @user.birth_date %> </h3>
         <h3><strong>Email:   </strong><%= @user.email %> </h3>
         <div class="buttons-container">
+            <%= link_to "Back to Map", '/', class:"button" %>
             <%= link_to "Edit your Profile", '/users/edit', class:"button" %>
             <%= link_to "Log out", '/users/sign_out', method: :delete, class:"button" %>
         </div>    
