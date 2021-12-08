@@ -2,9 +2,9 @@ class Marker < ApplicationRecord
     belongs_to :user, optional: true
     belongs_to :authority, optional: true
 
-    validates :disaster_type, presence: {message: "É necessário informar o tipo de desastre corrente!"}
-    validates :latitude, presence: {message: "É obrigatório informar a Latitude!"}
-    validates :longitude, presence: {message: "É obrigatório informar a Longitude!"}
+    validates :disaster_type, presence: {message: "You need to enter the disaster's type!"}
+    validates :latitude, presence: {message: "You need to enter the latitude!"}
+    validates :longitude, presence: {message: "You need to enter the longitude!"}
     validates :severity, absence: {message: "The marker is not verified!"}, unless: -> { verified? }
     validates :user_type, presence: {message: "Marker with no user_type!"}
 
@@ -12,16 +12,16 @@ class Marker < ApplicationRecord
 
     def checkAuthor()
         if (self.user_id == nil)
-            errors.add(:user_id, 'É obrigatório ter um autor valido!')
+            errors.add(:user_id, 'You need a valid creator!')
         elsif (self.user_type == 'userType')
             @res = User.find_by(id: self.user_id)
             if (@res == nil)
-                errors.add(:user_id, 'É obrigatório ter um autor valido!')
+                errors.add(:user_id, 'You need a valid creator!')
             end
         elsif (self.user_type == 'authorityType')
             @res = Authority.find_by(id: self.user_id)
             if (@res == nil)
-                errors.add(:user_id, 'É obrigatório ter um autor valido!')
+                errors.add(:user_id, 'You need a valid creator!')
             end
         end
     end

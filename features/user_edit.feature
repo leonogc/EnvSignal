@@ -20,21 +20,21 @@ Dado que estou logado no meu perfil
 Quando acesso a tela de edição de perfil
 Quando deixo o campo "Name" vazio
 E clico em Save
-Então deverei ver a mensagem de erro "É obrigatório informar o nome!"
+Então deverei ver a mensagem de erro "You need to enter your name!"
 
 Cenário: Editar dados do usuário com erro - sem data de aniversário
 Dado que estou logado no meu perfil
 Quando acesso a tela de edição de perfil
 Quando deixo o campo "Birth Date" vazio
 E clico em Save
-Então deverei ver a mensagem de erro "É obrigatório informar a data de nascimento!"
+Então deverei ver a mensagem de erro "You need to enter your birthdate!"
 
 Cenário: Editar dados do usuário com erro - sem email
 Dado que estou logado no meu perfil
 Quando acesso a tela de edição de perfil
 Quando deixo o campo "Email" vazio
 E clico em Save
-Então deverei ver a mensagem de erro "É obrigatório informar o email!"
+Então deverei ver a mensagem de erro "You need to enter your email!"
 
 Cenário: Editar dados do usuário com erro - usuário não logado
 Dado que não estou logado

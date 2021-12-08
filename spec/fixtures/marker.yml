@@ -1,6 +1,6 @@
 
 marker_verified:
-  disaster_type: 'incendio'
+  disaster_type: 'fire'
   latitude: 26.1232
   longitude: -23.3323
   user_id: 1
@@ -9,7 +9,7 @@ marker_verified:
   verified: false
 
 marker_not_verified:
-  disaster_type: 'vazamento'
+  disaster_type: 'leak'
   latitude: 26.1232
   longitude: -23.3323
   user_id: 1
@@ -18,7 +18,7 @@ marker_not_verified:
   verified: false
 
 marker:
-  disaster_type: 'vazamento'
+  disaster_type: 'leak'
   latitude: 26.1232
   longitude: -23.3323
   user_id: 1

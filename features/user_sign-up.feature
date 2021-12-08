@@ -28,7 +28,7 @@ Quando preencho o campo "Password" com "senhasecretaK"
 Quando preencho o campo "Confirm Password" com "senhasecretaK"
 E deixo o campo "Name" vazio
 E clico em create
-Então deverei ver a mensagem de erro "É obrigatório informar o nome!"
+Então deverei ver a mensagem de erro "You need to enter your name!"
 
 Cenário: Cadastro de usuário com erro - sem data de nascimento
 Dado que estou na página de cadastro de usuário
@@ -40,7 +40,7 @@ Quando preencho o campo "Password" com "senhasecretaK"
 Quando preencho o campo "Confirm Password" com "senhasecretaK"
 E deixo o campo "Birth Date" vazio
 E clico em create
-Então deverei ver a mensagem de erro "É obrigatório informar a data de nascimento!"
+Então deverei ver a mensagem de erro "You need to enter your birthdate!"
 
 Cenário: Cadastro de usuário com erro - usuário menor de 18 anos
 Dado que estou na página de cadastro de usuário
@@ -52,7 +52,7 @@ Quando preencho o campo "Confirm Email" com "rogerio_satrah@gmail.com"
 Quando preencho o campo "Password" com "senhasecretaK"
 Quando preencho o campo "Confirm Password" com "senhasecretaK"
 E clico em create
-Então deverei ver a mensagem de erro "É obrigatório ser maior de idade para usar a plataforma!"
+Então deverei ver a mensagem de erro "You need to be over 18 to use the platform!"
 
 Cenário: Cadastro de usuário com erro - sem nome de usuário
 Dado que estou na página de cadastro de usuário
@@ -64,7 +64,7 @@ Quando preencho o campo "Password" com "senhasecretaK"
 Quando preencho o campo "Confirm Password" com "senhasecretaK"
 E deixo o campo "Username" vazio
 E clico em create
-Então deverei ver a mensagem de erro "É obrigatório informar o nome de usuário!"
+Então deverei ver a mensagem de erro "You need to enter your username!"
 
 @oneUserBefore
 Cenário: Cadastro de usuário com erro - nome de usuário não disponível
@@ -77,7 +77,7 @@ Quando preencho o campo "Confirm Email" com "rogerio_satrah@gmail.com"
 Quando preencho o campo "Password" com "senhasecretaK"
 Quando preencho o campo "Confirm Password" com "senhasecretaK"
 E clico em create
-Então deverei ver a mensagem de erro "Nome de usuário não está disponível!"
+Então deverei ver a mensagem de erro "Username not available!"
 
 Cenário: Cadastro de usuário com erro - sem e-mail
 Dado que estou na página de cadastro de usuário
@@ -89,7 +89,7 @@ Quando preencho o campo "Password" com "senhasecretaK"
 Quando preencho o campo "Confirm Password" com "senhasecretaK"
 E deixo o campo "Email" vazio
 E clico em create
-Então deverei ver a mensagem de erro "É obrigatório informar o email!"
+Então deverei ver a mensagem de erro "You need to enter your email!"
 
 Cenário: Cadastro de usuário com erro - email invalido
 Dado que estou na página de cadastro de usuário
@@ -101,7 +101,7 @@ Quando preencho o campo "Confirm Email" com "rogerio_satrah@gmail.com"
 Quando preencho o campo "Password" com "senhasecretaK"
 Quando preencho o campo "Confirm Password" com "senhasecretaK"
 E clico em create
-Então deverei ver a mensagem de erro "Formato de Email Inválido!"
+Então deverei ver a mensagem de erro "Invalid Email Format!"
 
 Cenário: Cadastro de usuário com erro - email e confirmar email não são iguais
 Dado que estou na página de cadastro de usuário
@@ -113,7 +113,7 @@ Quando preencho o campo "Confirm Email" com "rogerio_satrah11111@gmail.com"
 Quando preencho o campo "Password" com "senhasecretaK"
 Quando preencho o campo "Confirm Password" com "senhasecretaK"
 E clico em create
-Então deverei ver a mensagem de erro "Email e Confirmar Email não correspondem!"
+Então deverei ver a mensagem de erro "Email and Confirmation don't match!"
 
 Cenário: Cadastro de usuário com erro - sem senha
 Dado que estou na página de cadastro de usuário
@@ -125,7 +125,7 @@ Quando preencho o campo "Confirm Email" com "rogerio_satrah@gmail.com"
 Quando preencho o campo "Confirm Password" com "senhasecretaK"
 E deixo o campo "Password" vazio
 E clico em create
-Então deverei ver a mensagem de erro "É obrigatório informar a senha!"
+Então deverei ver a mensagem de erro "You need to enter your password!"
 
 Cenário: Cadastro de usuário com erro - senha e confirmar senha não são iguais
 Dado que estou na página de cadastro de usuário
@@ -137,4 +137,4 @@ Quando preencho o campo "Confirm Email" com "rogerio_satrah@gmail.com"
 Quando preencho o campo "Password" com "senhasecretaK"
 Quando preencho o campo "Confirm Password" com "senhasecreta"
 E clico em create
-Então deverei ver a mensagem de erro "Senha e Confirmar Senha não correspondem!"
+Então deverei ver a mensagem de erro "Password and Confirmation don't match!"

@@ -1,16 +1,16 @@
 class User < ApplicationRecord
     
     has_secure_password
-    validates :name, presence: {message: "É obrigatório informar o nome!"}
-    validates :birth_date, presence: {message: "É obrigatório informar a data de nascimento!"}
-    validates :username, presence: {message: "É obrigatório informar o nome de usuário!"}, uniqueness: {message: "Nome de usuário não está disponível!"}
+    validates :name, presence: {message: "You need to enter your name!"}
+    validates :birth_date, presence: {message: "You need to enter your birthdate!"}
+    validates :username, presence: {message: "You need to enter your username!"}, uniqueness: {message: "Username not available!"}
     validate :dateCheck
-    validates :email, confirmation: { case_sensitive: true, message: "Email e Confirmar Email não correspondem!"}, presence: {message: "É obrigatório informar o email!"},format: { with: URI::MailTo::EMAIL_REGEXP, message: "Formato de Email Inválido!"}
-    validates :password, confirmation: { case_sensitive: true, message: "Senha e Confirmar Senha não correspondem!"}, presence: {message: "É obrigatório informar a senha!"}, on: :create
+    validates :email, confirmation: { case_sensitive: true, message: "Email and Confirmation don't match!"}, presence: {message: "You need to enter your email!"},format: { with: URI::MailTo::EMAIL_REGEXP, message: "Invalid Email Format!"}
+    validates :password, confirmation: { case_sensitive: true, message: "Password and Confirmation don't match!"}, presence: {message: "You need to enter your password!"}, on: :create
 
     def dateCheck()
         if self.birth_date
-            errors.add(:birthdate, 'É obrigatório ser maior de idade para usar a plataforma!') if self.birth_date > (Date.today - 18.years)
+            errors.add(:birthdate, 'You need to be over 18 to use the platform!') if self.birth_date > (Date.today - 18.years)
           end
     end
 

@@ -10,7 +10,7 @@ Dado('que estou logado como autoridade') do
   end
   
   Então('deverei ver a página de detalhes do marker') do
-    expect(page).to have_content('incendio')
+    expect(page).to have_content('fire')
   end
   
   Então('deverei ver um botão de {string} desastre') do |string|

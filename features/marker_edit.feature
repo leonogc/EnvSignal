@@ -10,9 +10,9 @@ Cenário: Editando tipo de desastre
 Dado que estou logado como usuário 
 E estou na página de detalhes do marker
 Quando clico em "Edit"
-E preencho o select "Disaster type" com "Despejo Irregular de Esgoto"
+E preencho o select "Disaster type" com "Irregular Sewage Dump"
 E clico em "Save"
-Então deverei ver "Disaster_type: esgoto"
+Então deverei ver "Disaster_type: sewage"
 
 @markersBeforeForConfirm
 Cenário: Editando latitude e longitude do desastre

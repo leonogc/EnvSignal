@@ -20,7 +20,7 @@ RSpec.describe "/markers", type: :request do
     before :each do
       @u = User.new(name: "Rog", username:"roger",email:"roger@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")
       @u.save
-      @m = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: @u.id, verified: false, user_type: 0)
+      @m = Marker.new(disaster_type: 'fire', latitude: 26.1232, longitude: -23.3323, user_id: @u.id, verified: false, user_type: 0)
       @m.save
       allow_any_instance_of(MarkersController).to receive(:session).and_return({user_id: @u.id})
     end
@@ -34,7 +34,7 @@ RSpec.describe "/markers", type: :request do
     before :each do
       @u = User.new(name: "Rog", username:"roger",email:"roger@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")
       @u.save
-      @m = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: @u.id, verified: false, user_type: 0)
+      @m = Marker.new(disaster_type: 'fire', latitude: 26.1232, longitude: -23.3323, user_id: @u.id, verified: false, user_type: 0)
       @m.save
 
       allow_any_instance_of(MarkersController).to receive(:session).and_return({user_id: @u.id})
@@ -53,7 +53,7 @@ RSpec.describe "/markers", type: :request do
       @u.save
       @u2 = User.new(name: "Aleatory", username:"ale",email:"ale@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")
       @u2.save
-      @m = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false, user_type: 0)
+      @m = Marker.new(disaster_type: 'fire', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false, user_type: 0)
       @m.save
 
       allow(Marker).to receive(:find).with("1").and_return(@m)
@@ -99,7 +99,7 @@ RSpec.describe "/markers", type: :request do
       @u.save
       @u2 = User.new(name: "Aleatory", username:"ale",email:"ale@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")
       @u2.save
-      @m = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false, user_type: 0)
+      @m = Marker.new(disaster_type: 'fire', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false, user_type: 0)
       @m.save
 
       allow(Marker).to receive(:find).with("1").and_return(@m)
@@ -143,7 +143,7 @@ RSpec.describe "/markers", type: :request do
     before :each do
       @u = User.new(name: "Rog", username:"roger",email:"roger@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")
       @u.save
-      @m = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false, user_type: 0)
+      @m = Marker.new(disaster_type: 'fire', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false, user_type: 0)
       @m.save
 
       allow(Marker).to receive(:find).with("1").and_return(@m)
@@ -168,7 +168,7 @@ RSpec.describe "/markers", type: :request do
     before :each do
       @u = User.new(name: "Rog", username:"roger",email:"roger@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy")
       @u.save
-      @m = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: true, user_type: 0)
+      @m = Marker.new(disaster_type: 'fire', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: true, user_type: 0)
       @m.save
 
       allow(Marker).to receive(:find).with("1").and_return(@m)

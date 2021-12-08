@@ -31,7 +31,7 @@ Quando acesso a tela de edição de perfil de autoridade
 Quando deixo o campo "Identifier" vazio
 Quando preencho o campo "Name" com "Policia"
 E clico em Save
-Então deverei ver a mensagem "É obrigatório informar o identificador!"
+Então deverei ver a mensagem "You need to enter your identifier!"
 
 Cenário: Editar dados da Autoridade com erro - sem nome
 Dado que estou logado como autoridade 
@@ -39,7 +39,7 @@ Quando acesso a tela de edição de perfil de autoridade
 Quando preencho o campo "Identifier" com "190"
 Quando deixo o campo "Name" vazio
 E clico em Save
-Então deverei ver a mensagem "É obrigatório informar o nome!"
+Então deverei ver a mensagem "You need to enter your name!"
 
 @otherAuthorityBefore
 Cenário: Editar dados da Autoridade com erro - identificador indisponível
@@ -48,7 +48,7 @@ Quando acesso a tela de edição de perfil de autoridade
 Quando preencho o campo "Identifier" com "190"
 Quando preencho o campo "Name" com "Policia"
 E clico em Save
-Então deverei ver a mensagem "Identificador não está disponível!"
+Então deverei ver a mensagem "Identifier not available!"
 
 Cenário: Editar dados da Autoridade com erro - autoridade não logado
 Dado que não estou logado

@@ -128,16 +128,16 @@ function createAllMarkers(mapObject, dataDiv, markerType) {
   dataDiv.forEach((markerData) => {
     let imgUrl = "/";
     switch(markerData.disaster_type) {
-      case "esgoto":
+      case "sewage":
         imgUrl += `sewer`;
         break;
-      case "incendio":
+      case "fire":
         imgUrl += "fire";
         break;
-      case "vazamento":
+      case "leak":
         imgUrl += "leak";
         break;
-      case "lixo":
+      case "garbage":
         imgUrl += "trash";
         break;
     }

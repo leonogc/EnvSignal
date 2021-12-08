@@ -3,7 +3,7 @@ Dado('que estou na página home do usuário') do
 end
 
 Dado('que eu criei markers com meu usuário') do 
-  marker1 = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.find_by(username: "rogerio_satrah")).id, verified: false, user_type: 0).save
+  marker1 = Marker.new(disaster_type: 'fire', latitude: 26.1232, longitude: -23.3323, user_id: (User.find_by(username: "rogerio_satrah")).id, verified: false, user_type: 0).save
 end
 
 Então('os markers de usuário devem ser exibidos') do
