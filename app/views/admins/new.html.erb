@@ -9,7 +9,7 @@
                 <%= msg %>
             </div>
             <% end %>
-
+        <% flash.clear %>
         <%= form_with url: admin_login_path do |form| %>
             <div class="field">
                 <%= form.label :username %>

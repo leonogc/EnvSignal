@@ -6,9 +6,9 @@ class AdminsController < ApplicationController
     end
 
     def create
-       if params[:username] == '' or params[:password] == ''
+       if params[:username] == '' or params[:password] == '' or !params[:username] or !params[:password] 
             flash.alert = 'Username or Password not entered'
-            render 'new'
+            redirect_to '/admin/login'
         else
             @admin = Admin.find_by(username: params[:username])
             if @admin.present? && @admin.authenticate(params[:password])
@@ -16,7 +16,7 @@ class AdminsController < ApplicationController
                 redirect_to :action => "index"
             else
                 flash.alert = 'Incorrect username or password'
-                render 'new'
+                redirect_to '/admin/login'
             end
         end
     end

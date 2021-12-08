@@ -17,7 +17,7 @@ E deverei ver um botão de "Remove" desastre
 Cenário: Verificação de desastre ocultada - autoridade não logado
 Dado que não estou logado
 Quando clico em um marker
-Então deverei ser redirecionado para a página de login de usuário
+Então deverei ser redirecionado para a página de login
 
 @oneUserBefore
 Cenário: Verificação de desastre ocultada - logado como usuário

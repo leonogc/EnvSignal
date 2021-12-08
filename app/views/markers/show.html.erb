@@ -55,10 +55,10 @@
       <%= link_to '/markers/' + @marker.id.to_s + '/down', class:"button" do %>
         Downvote<img src="/thumb-down.png" alt="Downvote">
       <% end %> 
+    <% end %>
     </div>
     <div class="buttons-container">
       <%= link_to 'Back', root_path, method: 'get', class:"button" %>
-<% end %>
     </div>
   </div>
   <div class="sidebar"></div>

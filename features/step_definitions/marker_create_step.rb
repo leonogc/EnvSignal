@@ -17,6 +17,10 @@ Então('deverei ser redirecionado para a página do marker') do
   expect(page).to have_current_path('/markers/' + (Marker.order("id").last).id.to_s)
 end
 
+Então ('deverei ser redirecionado para a página de login') do
+  expect(page).to have_current_path("/login")
+end
+
 Quando('preencho o campo {string} com {float}') do |string, float|
   fill_in string, :with => float
 end
