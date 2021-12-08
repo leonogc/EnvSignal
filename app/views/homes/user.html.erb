@@ -9,10 +9,15 @@
       require 'json'
       @markers_verified.to_json %>
     </div>
-    <div id="data_self">
+    <div id="data_self_verified">
       <%=
       require 'json'
-      @markers_own_user.to_json %>
+      @markers_own_user_verified.to_json %>
+    </div>
+        <div id="data_self_pending">
+      <%=
+      require 'json'
+      @markers_own_user_pending.to_json %>
     </div>
     <div id="map"></div>
     <%= link_to 'users/profile', id: "Meu perfil", class:"button-home" do %>

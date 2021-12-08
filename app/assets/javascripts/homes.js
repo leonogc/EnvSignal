@@ -87,9 +87,13 @@ function initMap() {
     mouseCoords = mapsMouseEvent.latLng.toJSON();
   });
 
-  let userData = document.getElementById("data_self");
+  let userData = document.getElementById("data_self_verified");
   if(userData)
     createAllMarkers(mapObject, userData, "user");
+
+  let userDataPending = document.getElementById("data_self_pending");
+  if(userData)
+    createAllMarkers(mapObject, userDataPending, "user_pending")
 
   let pendingData = document.getElementById("data_pending");
   if(pendingData)
