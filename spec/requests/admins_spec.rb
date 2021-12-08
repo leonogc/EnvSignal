@@ -60,4 +60,53 @@ RSpec.describe "Admins", type: :request do
 
   end
 
+  describe "GET /admin/list_users" do
+    context "already logged" do
+      before :each do
+        @ad = double('admin1', :id => 1, :username => 'admin', :password => 'admin123')
+        @params = {username: 'admin', password: 'admin123'}
+        
+        allow_any_instance_of(AdminsController).to receive(:admin_block_access)
+        allow(@ad).to receive(:authenticate).with('admin123') {@ad}
+        
+        expect(Admin).to receive(:find_by).with({:username => 'admin'}).and_return(@ad)
+        post '/admin/login', params: @params
+        expect(Admin).to receive(:find_by).with({:id => 1}).and_return(@ad)
+      end
+      
+      it 'access granted' do
+        expect(session).to include(:admin_id)
+        get "/admin/list_users"
+        expect(response).to have_http_status(:success)
+      end
+    end
+  end
+  
+  describe "GET /edit/edit_user" do
+    context "already logged" do
+      before :each do
+        @modelName = double("MName")
+        allow(@modelName).to receive(:param_key).and_return("User")
+        @ad = double('admin1', :id => 1, :username => 'admin', :password => 'admin123')
+        @user = double("user1", id: 1, model_name: @modelName, name: "Rogerio", birth_date: double("1000-10-10", strftime: true), created_at: double("1000-10-10", strftime: true), username: "roger", email: "r@mail.com", errors: double('error'))
+        @params = {username: 'admin', password: 'admin123'}
+        
+        allow_any_instance_of(AdminsController).to receive(:admin_block_access)
+        allow(@ad).to receive(:authenticate).with('admin123') {@ad}
+        allow(User).to receive(:find_by) {@user}
+        allow(@user.errors).to receive(:any?).and_return(false)
+        
+        expect(Admin).to receive(:find_by).with({:username => 'admin'}).and_return(@ad)
+        post '/admin/login', params: @params
+        expect(Admin).to receive(:find_by).with({:id => 1}).and_return(@ad)
+      end
+      
+      it 'returns HTTP Success' do
+        expect(session).to include(:admin_id)
+        get "/admin/edit_user?user=1"
+        expect(response).to have_http_status(:success)
+      end
+    end
+  end
+
 end

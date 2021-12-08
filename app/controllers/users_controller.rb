@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-    before_action :user_authorize, except: [:new, :create]
-    before_action :block_access, except: [:show, :edit, :update]
+    before_action :user_authorize, except: [:new, :create, :delete]
+    before_action :block_access, except: [:show, :edit, :update, :delete]
     before_action :validate_user_login, only: [:show]
+    before_action :admin_authorize, only: [:delete]
 
     def new
         @user = User.new
@@ -34,6 +35,16 @@ class UsersController < ApplicationController
             redirect_to '/users/profile'
         else
             render action: :edit
+        end
+    end
+
+    def delete
+        @id = params.permit(:user)['user']
+        @user = User.find_by(id: @id)
+        @user.destroy
+        respond_to do |format|
+            format.html { redirect_to '/admin/list_users', notice: "User was successfully removed." }
+            format.json { head :no_content }
         end
     end
 

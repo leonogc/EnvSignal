@@ -144,11 +144,8 @@
 
     .overflow-container {
       overflow-x: auto;
-      width: 100%;
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      max-width: 100%;
+      padding: 10px;;
     }
 
     table, th, td {
