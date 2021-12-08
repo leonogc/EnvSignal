@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/users/profile' => 'users#show'
   get '/users/edit' => 'users#edit'
   patch '/users/edit' => 'users#update'  
+  delete '/users' => 'users#delete'
   resources :users
 
   get "/authorities/login" => 'authorities#login'
@@ -37,4 +38,7 @@ Rails.application.routes.draw do
   get "admin/create_authority" => 'authorities#new'
   post "admin/create_authority" => 'authorities#create'
   get "admin/list_authorities" => 'authorities#list'
+  get "admin/list_users" => 'admins#list_users'
+  get "admin/edit_user" => 'admins#edit_user'
+  patch "admin/edit_user" => 'admins#update_user'
 end

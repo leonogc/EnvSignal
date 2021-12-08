@@ -17,11 +17,11 @@ def check_simple_table_data(table_selector, table_data, origin)
         if origin == "geral"
           header_map << 12
           header_map << 13
-        else
-          if origin == "proprio"
-            header_map << 11
-            header_map << 12
-          end
+        elsif origin == "proprio"
+          header_map << 11
+          header_map << 12
+        elsif origin == "user"
+          header_map << 6
         end
     end
   
@@ -43,6 +43,16 @@ def check_simple_table_data(table_selector, table_data, origin)
             @creator = @creator.id.to_s
           
             expect(find(:xpath, xpath_base % [index + 1, header_map[column] + 1])).to have_content(@creator)
+          elsif origin == "user"
+            if (column == 0)
+              @user = User.find_by(username: value).username
+              expect(find(:xpath, xpath_base % [index + 1, header_map[column] + 1])).to have_content(@user)
+            elsif column == 4
+              @user_created_at = User.find_by(username: row[0]).created_at.strftime("%d/%m/%Y")
+              expect(find(:xpath, xpath_base % [index + 1, header_map[column] + 1])).to have_content(@user_created_at)
+            else
+              expect(find(:xpath, xpath_base % [index + 1, header_map[column] + 1])).to have_content(value)
+            end
           else
             expect(find(:xpath, xpath_base % [index + 1, header_map[column] + 1])).to have_content(value)
           end

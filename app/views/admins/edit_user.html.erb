@@ -1,0 +1,42 @@
+<div class="default-container">
+    <div class="sidebar"></div>
+    <div class="hero">
+        <h1 class="title"> Edit User </h1>
+
+        <% if @user.errors.any? %>
+        <div id="error_explanation">            
+            <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+        <% end %>
+
+        <%= form_with model: @user, url: '/admin/edit_user' do |form| %>
+            <div class="field">
+                <%= form.hidden_field :id %>
+            </div>
+            <div class="field">
+                <%= form.label :username %>
+                <%= form.text_field :username %>
+            </div>
+            <div class="field">
+                <%= form.label :email %>
+                <%= form.email_field :email %>
+            </div>
+            <div class="field">
+                <%= form.label :name %>
+                <%= form.text_field :name %>
+            </div>
+            <div class="field">
+                <%= form.label :birth_date, "Birth Date" %>
+                <%= form.date_field :birth_date %>
+            </div>
+            <div class="buttons-container">
+                <%= form.submit 'Save', class:"button" %>
+            </div>
+        <% end %>
+    </div>
+    <div class="sidebar"></div>
+</div>
