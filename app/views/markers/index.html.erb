@@ -18,20 +18,22 @@
         </h2>
       <% end %>
     </div>
-    <div class="overflow-container">
+    <div class="overflow-container" id="disasters">
       <table class="sortable">
         <thead>
           <tr>
             <th>Type</th>
+            <th>Severity</th>
+            <th>Verified</th>
+            <th>Observation</th>
             <th>Latitude</th>
             <th>Longitude</th>
-            <th>Obs</th>
-            <th>User</th>      
             <th>Distance</th>
+            <th>ID</th>
+            <th>Creator</th>           
             <th>Upvotes</th>
-            <th>Downvotes</th>
-            <th>Verified</th>
-            <th colspan="3"></th>
+            <th>Downvotes</th>            
+            <th colspan="3"> Actions</th>
           </tr>
         </thead>
 
@@ -39,17 +41,28 @@
           <% @markers.each do |marker| %>
             <tr>
               <td><%= marker.disaster_type %></td>
+              <td><%= marker.severity %> </td>
+              <td><%= marker.verified %></td>
+              <td><%= marker.obs %></td>
               <td><%= marker.latitude %></td>
               <td><%= marker.longitude %></td>
-              <td><%= marker.obs %></td>
-              <td><%= marker.user_id %></td>
               <td><%= calculateDistance(marker.latitude, marker.longitude, session[:latitude], session[:longitude]) %> Km</td>
+              <td><%= marker.user_id %></td> 
+              <% if marker.user_type == "userType" %>
+                <td>User</td>
+              <% else %>
+                <td>Auth</td>
+              <% end %>
               <td><%= marker.upvotes %></td>
               <td><%= marker.downvotes %></td>
-              <td><%= marker.verified %></td>
               <td><%= link_to 'Show', marker %></td>
-              <td><%= link_to 'Edit', edit_marker_path(marker) %></td>
-              <td><%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% if session[:authority_id] or (session[:user_id] && session[:user_id] == marker.user_id) %>
+                <td><%= link_to 'Edit', edit_marker_path(marker) %></td>
+                <td><%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% else %>
+                <td></td>
+                <td></td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
