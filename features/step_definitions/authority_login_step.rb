@@ -7,7 +7,7 @@ Então('deverei ver a página com o mapa de desastres') do
 end
 
 Quando('clico em logar como usuário') do
-    click_on 'sign in as user'
+    find('.user_login_link').click
 end
   
 Então('deverei ser redirecionado para a tela de login de usuário') do

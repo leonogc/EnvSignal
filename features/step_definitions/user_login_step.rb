@@ -16,7 +16,7 @@ Dado('que estou na página de login de usuário') do
   end
 
   Quando('clico em logar como autoridade') do
-    click_on 'sign in as authority'
+    find('.authority_login_link').click
   end
 
   Então('deverei ser redirecionado para a tela de login de autoridade') do
