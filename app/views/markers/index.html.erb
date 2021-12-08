@@ -48,12 +48,21 @@
               <td><%= marker.longitude %></td>
               <td><%= calculateDistance(marker.latitude, marker.longitude, session[:latitude], session[:longitude]) %> Km</td>
               <td><%= marker.user_id %></td> 
-              <td>User</td>
+              <% if marker.user_type == "userType" %>
+                <td>User</td>
+              <% else %>
+                <td>Auth</td>
+              <% end %>
               <td><%= marker.upvotes %></td>
               <td><%= marker.downvotes %></td>
               <td><%= link_to 'Show', marker %></td>
-              <td><%= link_to 'Edit', edit_marker_path(marker) %></td>
-              <td><%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% if session[:authority_id] or (session[:user_id] && session[:user_id] == marker.user_id) %>
+                <td><%= link_to 'Edit', edit_marker_path(marker) %></td>
+                <td><%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% else %>
+                <td></td>
+                <td></td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>

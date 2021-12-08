@@ -32,28 +32,29 @@ E deverei ver a lista de desastres da seguinte forma:
 | vazamento |          | false    |             | 27.1232  | -22.3323  | 3845.82 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
 
 @otherUserMarkerBefore
-@oneUserBefore
-@oneMarkerFromUser
 Cenário: Listagem de Markers do próprio Usuário - lista
 Dado que estou logado como usuário
 E que estou na página home do usuário
 Quando a página é carregada
 E clico em "Lista de desastres próprios"
 Então deverei ser redirecionado para a página de listagem de disastres próprios
-E deverei ver "23.4292" 
-E não deverei ver "23.4293" 
+E deverei ver a lista de desastres da seguinte forma:
+| Type      | Severity | Verified | Observation | Latitude | Longitude | Distance   | User           | Upvotes | Downvotes | Actions             |||
+| incendio  |          | false    |             | 26.1232  | -23.3323  | 3832.85 Km | rogerio_satrah | 0       | 0         | Show | Edit | Destroy |
+| vazamento |          | false    |             | 27.1232  | -22.3323  | 3845.82 Km | rogerio_satrah | 0       | 0         | Show | Edit | Destroy |
 
-@otherAuthorityMarkerBefore
 @oneAuthorityBefore
 @oneMarkerFromAuthority
+@otherAuthorityMarkerBefore
 Cenário: Listagem de Markers da própria Autoridade - lista
 Dado que estou logado como autoridade
 E que estou na página home do usuário
 Quando a página é carregada
 E clico em "Lista de desastres próprios"
 Então deverei ser redirecionado para a página de listagem de disastres próprios
-E deverei ver "23.4292" 
-E não deverei ver "26.1232" 
+E deverei ver a lista de desastres da seguinte forma:
+| Type      | Severity | Verified | Observation | Latitude | Longitude | Distance   | User               | Upvotes | Downvotes | Actions             |||
+| incendio  |          | false    |             | 23.4292  | -23.3323  | 3624.18 Km | Corpo de Bombeiros |0        | 0         | Show | Edit | Destroy |
 
 @otherUserMarkerBefore
 Cenário: Listagem de Markers de todos usuários com ações - usuário
@@ -70,7 +71,7 @@ E deverei ver a lista de desastres da seguinte forma:
 
 @oneAuthorityBefore
 @otherAuthorityMarkerBefore
-Cenário: Listagem de Markers com ações apenas para os próprios - autoridade
+Cenário: Listagem de Markers com ações - autoridade
 Dado que estou logado como autoridade
 E que estou na página home do usuário
 Quando a página é carregada
