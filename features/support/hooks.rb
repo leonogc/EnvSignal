@@ -46,6 +46,10 @@ Before('@listMarkerBefore') do
     authority3 = Authority.new(identifier: 193, name: "Corpo de Bombeiros", password: "SenhaDosBombeirosTeste").save
 end
 
+Before('@otherUserBefore') do
+    user2 = User.new(name: "Roberto Satrah Ka",username: "ro_satrah", email: "rob_satrah1@gmail.com",birth_date: Date.parse("17/10/1990"),password: "senhasecretaK").save
+end
+
 Before('@otherAuthorityBefore') do
     authority2 = Authority.new(identifier: 190, name: "Policia", password: "SenhaDaPoliciaTeste").save
 end
