@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/markers/:id/up' => "markers#upvote"
   get '/markers/:id/down' => "markers#downvote"
   get '/markers/:id/verify' => "markers#verify"
+  get '/markers/:id/resolve' => "markers#resolve"
   
 
   root to: 'homes#index'

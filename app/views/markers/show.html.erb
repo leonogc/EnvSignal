@@ -41,10 +41,17 @@
       <strong>Severity:</strong>    <%= @marker.severity %>
     </h3>
 
+    <h3>
+      <strong>Solved:</strong>    <%= @marker.resolved %>
+    </h3>
+
     <div class="buttons-container">
     <% if session[:authority_id] %>
       <%= link_to 'Verify', '/markers/' + @marker.id.to_s + '/verify', class:"button" %>
       <%= link_to 'Remove', '/markers/' + @marker.id.to_s, method: 'delete', class:"button" %>
+      <% if @marker.verified? %>
+        <%= link_to 'Resolve', '/markers/' + @marker.id.to_s + '/resolve', class:"button" %>
+      <% end %>
     <% end %>
     <% if @marker.user_id == session[:user_id] or session[:authority_id] %>
       <%= link_to 'Edit', edit_marker_path(@marker), class: "button" %> 
