@@ -49,6 +49,7 @@ Dado que estou logado como autoridade
 E que estou na página de login de usuário
 Então deverei ser redirecionado para a página de perfil de autoridade
 
+Cenário: Link para login de autoridade
 Dado que estou na página de login de usuário
 Quando clico em logar como autoridade
 Então deverei ser redirecionado para a tela de login de autoridade
