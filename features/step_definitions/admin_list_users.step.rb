@@ -3,7 +3,7 @@ Dado('que estou na página de listagem de usuários') do
 end
 
 Então('deverei ver a lista de usuários da seguinte forma:') do |table|
-    pending
+    check_simple_table_data("#users table", table, "user")
 end
 
 Dado('que existe um usuário na lista') do

@@ -4,7 +4,7 @@ require 'spec_helper'
 RSpec.describe Marker, type: :model do
   describe "registro marker" do
 
-    before :all do
+    before :each do
       user3 = User.new(name: "Roge",username: "roge", email: "roge@gmail.com",birth_date: Date.parse("17/11/1990"),password: "senhasecretaK").save
       authority1 = Authority.new(identifier: 194, name: "Corpo de Bombas", password: "SenhaDosBombasTeste").save
     end

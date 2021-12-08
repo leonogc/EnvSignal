@@ -11,8 +11,8 @@ Cenário: Listagem dos Usuários
 Dado que estou logado na conta de administrador
 E que estou na página de listagem de usuários
 Então deverei ver a lista de usuários da seguinte forma:
-| Username        | Email                     | Name              | Birth Date | Created At | Actions             |||
-| rogerio_satrah  | rogerio_satrah1@gmail.com | Rogerio Satrah Ka | 17/10/1990 | Date       | Show | Edit | Destroy |
+| Username        | Email                     | Name              | Birth Date | Created At | Actions       ||
+| rogerio_satrah  | rogerio_satrah1@gmail.com | Rogerio Satrah Ka | 17/10/1990 | Date       | Edit | Destroy |
 
 Cenário: Listagem dos Usuários com erro - Tentativa de acesso sem permissão
 Dado que estou na página de listagem de usuários
