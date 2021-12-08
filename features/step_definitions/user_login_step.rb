@@ -14,3 +14,12 @@ Dado('que estou na página de login de usuário') do
   Então('deverei ser redirecionado para a página de perfil de autoridade') do
     expect(page).to have_current_path('/authorities/profile')
   end
+
+  Quando('clico em logar como autoridade') do
+    click_on 'sign in as authority'
+  end
+
+  Então('deverei ser redirecionado para a tela de login de autoridade') do
+    expect(page).to have_current_path('/authorities/login')
+  end
+  

@@ -39,4 +39,6 @@ Quando preencho o campo "Identifier" com "193"
 E clico em Login
 Então deverei ver a mensagem de erro "Identifier or Password not entered"
 
-
+Dado que estou na página de login de autoridades
+Quando clico em logar como usuário
+Então deverei ser redirecionado para a tela de login de usuário

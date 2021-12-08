@@ -19,6 +19,7 @@
             <%= form.password_field :password, autocomplete: "off", placeholder: "write your password..." %>
             </div> 
             <span>New user? <%= link_to "Sign up now!", new_user_path, class: "link"%></span>
+            <span>or <%= link_to "sign in as authority", authorities_login_path, class: "link"%></span>
             <div class="buttons-container">
                 <%= form.submit 'Login', class: "button"%>
             </div>
