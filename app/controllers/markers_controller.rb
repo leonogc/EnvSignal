@@ -33,7 +33,7 @@ class MarkersController < ApplicationController
       @name = @authority.name
       @markers = Marker.own_user(session[:authority_id], 1)
     end
-    return render 'index'
+    return render 'markers-self'
   end
 
   # POST /markers or /markers.json

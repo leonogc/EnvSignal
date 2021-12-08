@@ -1,3 +1,4 @@
+#Metodo original em https://gist.github.com/chrisbloom7/2911908 
 def check_simple_table_data(table_selector, table_data, origin)
   expect(page).to have_selector(table_selector)
   within(table_selector) do
@@ -13,9 +14,14 @@ def check_simple_table_data(table_selector, table_data, origin)
             header_map << column
           end
         end        
-        if origin == "list"
+        if origin == "geral"
           header_map << 12
           header_map << 13
+        else
+          if origin == "proprio"
+            header_map << 11
+            header_map << 12
+          end
         end
     end
   
@@ -27,18 +33,15 @@ def check_simple_table_data(table_selector, table_data, origin)
       xpath_base = './/tr[%i]/td[%i]';
       table_rows.each_with_index do |row, index|
         row.each_with_index do |value, column|
-          if origin == "list" && column == 7
-            puts value
+          if (origin == "geral" or origin == "proprio") && column == 7
             @creator = User.find_by(username: value)
             
             if !@creator.present?
-              puts "Autoridade"
               @creator = Authority.find_by(name: value)
             end
             
             @creator = @creator.id.to_s
-            
-            puts @creator
+          
             expect(find(:xpath, xpath_base % [index + 1, header_map[column] + 1])).to have_content(@creator)
           else
             expect(find(:xpath, xpath_base % [index + 1, header_map[column] + 1])).to have_content(value)
@@ -49,6 +52,6 @@ def check_simple_table_data(table_selector, table_data, origin)
   end
 end
 
-Então('deverei ver a lista de desastres da seguinte forma:') do |table|
-  check_simple_table_data("#disasters table", table, "list")
+Então('deverei ver a lista de desastres {string} da seguinte forma:') do |string, table|
+  check_simple_table_data("#disasters table", table, string)
 end
