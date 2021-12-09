@@ -16,7 +16,8 @@ class HomesController < ApplicationController
   def user
     @markers_pending = Marker.pending_marker(session[:user_id], 0)
     @markers_verified = Marker.verified_marker(session[:user_id], 0)
-    @markers_own_user = Marker.own_user(session[:user_id], 0)
+    @markers_own_user_verified = Marker.own_user_verified(session[:user_id], 0)
+    @markers_own_user_pending = Marker.own_user_pending(session[:user_id], 0)
   end
 
   def authority

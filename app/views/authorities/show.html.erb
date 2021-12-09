@@ -13,6 +13,7 @@
         <h3><strong>Identifier:</strong> <%= @authority.identifier %> </h3>
         <h3><strong>Username:</strong> <%= @authority.name %> </h3>
         <div class="buttons-container">
+            <%= link_to 'Back to Map', '/', class:"button" %>
             <%= link_to "Edit Authority Profile", '/authorities/edit', class:"button" %>
             <%= link_to "Log out", '/authorities/sign_out', method: :delete, class:"button" %>
         </div>
