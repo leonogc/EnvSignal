@@ -37,6 +37,17 @@ Before('@someMarkersBefore') do
     marker3 = Marker.new(disaster_type: 'vazamento', latitude: 37.1232, longitude: -32.3323, user_id: (User.order("id").last).id, verified: false, user_type: 0).save
 end
 
+Before('@OneMarkerPendingFromUserBefore') do
+    
+    marker = Marker.new(disaster_type: 'vazamento', latitude: 37.1232, longitude: -32.3323, user_id: (User.find_by(username: "rogerio_satrah")).id, verified: false, user_type: 0).save
+end
+
+Before('@OneMarkerVerifiedFromUserBefore') do
+    
+    marker = Marker.new(disaster_type: 'vazamento', latitude: 27.1232, longitude: -22.3323, user_id: (User.find_by(username: "rogerio_satrah")).id, verified: true, user_type: 0).save
+    
+end
+
 Before('@otherUserMarkerBefore') do
     user2 = User.new(name: "Aleatory", username:"ale",email:"ale@mail.com",birth_date: Date.parse("10/10/1000"), password:"holyhowdy").save
     marker1 = Marker.new(disaster_type: 'incendio', latitude: 26.1232, longitude: -23.3323, user_id: (User.order("id").last).id, verified: false, user_type: 0).save
