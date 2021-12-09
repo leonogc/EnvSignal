@@ -95,6 +95,7 @@ if(typeof mouseCoords == 'undefined'){
     
     let pendingData = document.getElementById("data_pending");
     if(pendingData)
+
     createAllMarkers(mapObject, pendingData, "pending");
     
     let verifiedData = document.getElementById("data_verified");
