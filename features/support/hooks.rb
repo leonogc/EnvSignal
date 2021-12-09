@@ -39,12 +39,12 @@ end
 
 Before('@OneMarkerPendingFromUserBefore') do
     
-    marker = Marker.new(disaster_type: 'vazamento', latitude: 37.1232, longitude: -32.3323, user_id: (User.find_by(username: "rogerio_satrah")).id, verified: false, user_type: 0).save
+    marker = Marker.new(disaster_type: 'leak', latitude: 37.1232, longitude: -32.3323, user_id: (User.find_by(username: "rogerio_satrah")).id, verified: false, user_type: 0).save
 end
 
 Before('@OneMarkerVerifiedFromUserBefore') do
     
-    marker = Marker.new(disaster_type: 'vazamento', latitude: 27.1232, longitude: -22.3323, user_id: (User.find_by(username: "rogerio_satrah")).id, verified: true, user_type: 0).save
+    marker = Marker.new(disaster_type: 'leak', latitude: 27.1232, longitude: -22.3323, user_id: (User.find_by(username: "rogerio_satrah")).id, verified: true, user_type: 0).save
     
 end
 
