@@ -89,9 +89,13 @@ if(typeof mouseCoords == 'undefined'){
       mouseCoords = mapsMouseEvent.latLng.toJSON();
     });
     
-    let userData = document.getElementById("data_self");
-    if(userData)
-    createAllMarkers(mapObject, userData, "user");
+    let userDataPending = document.getElementById("data_self_pending");
+    if(userDataPending)
+    createAllMarkers(mapObject, userDataPending, "user_pending");
+
+    let userDataVerified = document.getElementById("data_self_verified");
+    if(userDataVerified)
+    createAllMarkers(mapObject, userDataVerified, "user");
     
     let pendingData = document.getElementById("data_pending");
     if(pendingData)
