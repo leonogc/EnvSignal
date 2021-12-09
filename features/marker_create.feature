@@ -14,7 +14,7 @@ Então deverei ser redirecionado para a página de login
 Cenário: Cadastro de marker com sucesso - Usuário
 Dado que estou logado como usuário
 E estou na tela de cadastro de marker
-Quando seleciono a opção "Vazamento de Água" no select "Disaster type"
+Quando seleciono a opção "Water leak" no select "Disaster type"
 Quando preencho o campo "Latitude" com 27.323222
 Quando preencho o campo "Longitude" com -25.323283
 Quando preencho o campo "Obs" com "Está pegando fogo!"
@@ -26,7 +26,7 @@ E deverei ser redirecionado para a página do marker
 Cenário: Cadastro de marker com sucesso - Autoridade
 Dado que estou logado como autoridade
 E estou na tela de cadastro de marker
-Quando seleciono a opção "Vazamento de Água" no select "Disaster type"
+Quando seleciono a opção "Water leak" no select "Disaster type"
 Quando preencho o campo "Latitude" com 27.323222
 Quando preencho o campo "Longitude" com -25.323283
 Quando preencho o campo "Obs" com "Está pegando fogo!"
@@ -38,23 +38,23 @@ E deverei ser redirecionado para a página do marker
 Cenário: Cadastro de marker com erro - sem latitude
 Dado que estou logado como usuário
 E estou na tela de cadastro de marker
-Quando seleciono a opção "Vazamento de Água" no select "Disaster type"
+Quando seleciono a opção "Water leak" no select "Disaster type"
 Quando preencho o campo "Longitude" com -25.323283
 Quando preencho o campo "Obs" com "Está pegando fogo!"
 E deixo o campo "Latitude" vazio
 E clico em create
-Então deverei ver a mensagem de erro "É obrigatório informar a Latitude!"
+Então deverei ver a mensagem de erro "You need to enter the latitude!"
 
 @oneUserBefore
 Cenário: Cadastro de marker com erro - sem longitude
 Dado que estou logado como usuário
 E estou na tela de cadastro de marker
-Quando seleciono a opção "Vazamento de Água" no select "Disaster type"
+Quando seleciono a opção "Water leak" no select "Disaster type"
 Quando preencho o campo "Latitude" com 27.323222
 Quando preencho o campo "Obs" com "Está pegando fogo!"
 E deixo o campo "Longitude" vazio
 E clico em create
-Então deverei ver a mensagem de erro "É obrigatório informar a Longitude!"
+Então deverei ver a mensagem de erro "You need to enter the longitude!"
 
 
 

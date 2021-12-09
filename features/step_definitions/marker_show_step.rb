@@ -2,7 +2,6 @@ Dado('que estou na página home do usuário') do
   visit '/user'
 end
 
-
 Então('os markers não verificados devem ser exibidos') do
   expect(page).not_to have_css("#data_pending", text: "[]")
 end

@@ -3,7 +3,7 @@
   end
   
   Então('devo ver os detalhes do marker') do
-    expect(page).to have_content('incendio')
+    expect(page).to have_content('fire')
   end
   
   Dado('estou na página do marker') do

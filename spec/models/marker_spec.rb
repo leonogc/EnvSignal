@@ -12,7 +12,7 @@ RSpec.describe Marker, type: :model do
       @user = User.order("id").last
       marker = Marker.new
       marker.user_id = @user.id
-      marker.disaster_type = "vazamento"
+      marker.disaster_type = "leak"
       marker.latitude = 25.2362
       marker.longitude = -27.8883
       marker.obs = "Fogo!"
@@ -23,7 +23,7 @@ RSpec.describe Marker, type: :model do
       @authority = Authority.order("id").last
       marker = Marker.new
       marker.user_id = @authority.id
-      marker.disaster_type = "vazamento"
+      marker.disaster_type = "leak"
       marker.latitude = 25.2362
       marker.longitude = -27.8883
       marker.obs = "Fogo!"
@@ -32,7 +32,7 @@ RSpec.describe Marker, type: :model do
     end
     it 'Sem usuário' do
       marker = Marker.new
-      marker.disaster_type = "vazamento"
+      marker.disaster_type = "leak"
       marker.latitude = 25.2362
       marker.longitude = -27.8883
       marker.obs = "Fogo!"
@@ -52,7 +52,7 @@ RSpec.describe Marker, type: :model do
     it 'Usuário não existe' do
       marker = Marker.new
       marker.user_id = -1
-      marker.disaster_type = "vazamento"
+      marker.disaster_type = "leak"
       marker.latitude = 25.2362
       marker.longitude = -27.8883
       marker.obs = "Fogo!"
@@ -62,7 +62,7 @@ RSpec.describe Marker, type: :model do
     it 'Autoridade não existe' do
       marker = Marker.new
       marker.user_id = -1
-      marker.disaster_type = "vazamento"
+      marker.disaster_type = "leak"
       marker.latitude = 25.2362
       marker.longitude = -27.8883
       marker.obs = "Fogo!"
@@ -73,7 +73,7 @@ RSpec.describe Marker, type: :model do
       @user = User.order("id").last
       marker = Marker.new
       marker.user_id = @user.id
-      marker.disaster_type = "vazamento"
+      marker.disaster_type = "leak"
       marker.longitude = -27.8883
       marker.obs = "Fogo!"
       marker.user_type = 0
@@ -83,7 +83,7 @@ RSpec.describe Marker, type: :model do
       @user = User.order("id").last
       marker = Marker.new
       marker.user_id = @user.id
-      marker.disaster_type = "vazamento"
+      marker.disaster_type = "leak"
       marker.latitude = 25.2362
       marker.obs = "Fogo!"
       marker.user_type = 0
@@ -93,7 +93,7 @@ RSpec.describe Marker, type: :model do
       @user = User.order("id").last
       marker = Marker.new
       marker.user_id = @user.id
-      marker.disaster_type = "vazamento"
+      marker.disaster_type = "leak"
       marker.latitude = 25.2362
       marker.obs = "Fogo!"
       expect(marker).not_to be_valid
@@ -102,7 +102,7 @@ RSpec.describe Marker, type: :model do
       @user = User.order("id").last
       marker = Marker.new
       marker.user_id = @user.id
-      marker.disaster_type = "vazamento"
+      marker.disaster_type = "leak"
       marker.latitude = 25.2362
       marker.longitude = -27.8883
       marker.obs = "Fogo!"

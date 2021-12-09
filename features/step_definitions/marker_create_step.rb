@@ -33,7 +33,7 @@ Então('o marker deve ter sido salvo no banco de dados') do
   marker = Marker.order("id").last
     expect(marker.upvotes).to eq(0)
     expect(marker.downvotes).to eq(0)
-    expect(marker.disaster_type).to eq("vazamento")
+    expect(marker.disaster_type).to eq("leak")
     expect(marker.latitude).to eq(27.323222)
     expect(marker.longitude).to eq(-25.323283)
     expect(marker.obs).to eq("Está pegando fogo!")

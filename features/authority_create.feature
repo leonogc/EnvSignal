@@ -26,7 +26,7 @@ Dado que estou na página de cadastro de autoridade
 Quando preencho o campo "Name" com "Corpo de Bombeiros"
 Quando preencho o campo "Password" com "SenhaDosBombeirosTeste"
 E clico em create
-Então deverei ver a mensagem de erro "É obrigatório informar o identificador!"
+Então deverei ver a mensagem de erro "You need to enter your identifier!"
 
 Cenário: Cadastro de autoridade com erro - sem nome
 Dado que estou logado na conta de administrador
@@ -34,7 +34,7 @@ Dado que estou na página de cadastro de autoridade
 Quando preencho o campo "Identifier" com "193"
 Quando preencho o campo "Password" com "SenhaDosBombeirosTeste"
 E clico em create
-Então deverei ver a mensagem de erro "É obrigatório informar o nome!"
+Então deverei ver a mensagem de erro "You need to enter your name!"
 
 Cenário: Cadastro de autoridade com erro - sem senha
 Dado que estou logado na conta de administrador
@@ -42,7 +42,7 @@ Dado que estou na página de cadastro de autoridade
 Quando preencho o campo "Identifier" com "193"
 Quando preencho o campo "Name" com "Corpo de Bombeiros"
 E clico em create
-Então deverei ver a mensagem de erro "É obrigatório informar a senha!"
+Então deverei ver a mensagem de erro "You need to enter your password!"
 
 @oneAuthorityBefore
 Cenário: Cadastro de autoridade com erro - identificador indisponível
@@ -52,4 +52,4 @@ Quando preencho o campo "Identifier" com "193"
 Quando preencho o campo "Name" com "Corpo de Bombeiros"
 Quando preencho o campo "Password" com "SenhaDosBombeirosTeste"
 E clico em create
-Então deverei ver a mensagem de erro "Identificador não está disponível!"
+Então deverei ver a mensagem de erro "Identifier not available!"

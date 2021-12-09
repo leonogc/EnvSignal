@@ -16,8 +16,8 @@ E clico em "Lista de desastres"
 Então deverei ser redirecionado para a página de listagem de disastres
 E deverei ver a lista de desastres "geral" da seguinte forma:
 | Type      | Severity | Verified | Observation | Latitude | Longitude | Distance   | ID             | Creator | Upvotes | Downvotes | Actions             |||
-| incendio  |          | false    |             | 26.1232  | -23.3323  | 3832.85 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
-| vazamento |          | false    |             | 27.1232  | -22.3323  | 3845.82 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
+| fire      |          | false    |             | 26.1232  | -23.3323  | 3832.85 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
+| leak      |          | false    |             | 27.1232  | -22.3323  | 3845.82 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
 
 @oneAuthorityBefore
 Cenário: Carregamento da lista com distância - authority
@@ -28,8 +28,8 @@ E clico em "Lista de desastres"
 Então deverei ser redirecionado para a página de listagem de disastres
 E deverei ver a lista de desastres "geral" da seguinte forma:
 | Type      | Severity | Verified | Observation | Latitude | Longitude | Distance   | ID             | Creator | Upvotes | Downvotes | Actions             |||
-| incendio  |          | false    |             | 26.1232  | -23.3323  | 3832.85 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
-| vazamento |          | false    |             | 27.1232  | -22.3323  | 3845.82 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
+| fire      |          | false    |             | 26.1232  | -23.3323  | 3832.85 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
+| leak      |          | false    |             | 27.1232  | -22.3323  | 3845.82 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
 
 @otherUserMarkerBefore
 Cenário: Listagem de Markers do próprio Usuário - lista
@@ -40,8 +40,8 @@ E clico em "Lista de desastres próprios"
 Então deverei ser redirecionado para a página de listagem de disastres próprios
 E deverei ver a lista de desastres "proprio" da seguinte forma:
 | Type      | Severity | Verified | Obs | Latitude | Longitude | Distance   | User           | Upvotes | Downvotes | Actions             |||
-| incendio  |          | false    |     | 26.1232  | -23.3323  | 3832.85 Km | rogerio_satrah | 0       | 0         | Show | Edit | Destroy |
-| vazamento |          | false    |     | 27.1232  | -22.3323  | 3845.82 Km | rogerio_satrah | 0       | 0         | Show | Edit | Destroy |
+| fire      |          | false    |     | 26.1232  | -23.3323  | 3832.85 Km | rogerio_satrah | 0       | 0         | Show | Edit | Destroy |
+| leak      |          | false    |     | 27.1232  | -22.3323  | 3845.82 Km | rogerio_satrah | 0       | 0         | Show | Edit | Destroy |
 
 @oneMarkerFromAuthority
 @otherAuthorityMarkerBefore
@@ -53,7 +53,7 @@ E clico em "Lista de desastres próprios"
 Então deverei ser redirecionado para a página de listagem de disastres próprios
 E deverei ver a lista de desastres "proprio" da seguinte forma:
 | Type      | Severity | Verified | Obs | Latitude | Longitude | Distance   | User               | Upvotes | Downvotes | Actions             |||
-| incendio  |          | false    |     | 23.4292  | -23.3323  | 3624.18 Km | Corpo de Bombeiros |0        | 0         | Show | Edit | Destroy |
+| fire      |          | false    |     | 23.4292  | -23.3323  | 3624.18 Km | Corpo de Bombeiros |0        | 0         | Show | Edit | Destroy |
 
 @otherUserMarkerBefore
 Cenário: Listagem de Markers de todos usuários com ações - usuário
@@ -64,9 +64,9 @@ E clico em "Lista de desastres"
 Então deverei ser redirecionado para a página de listagem de disastres
 E deverei ver a lista de desastres "geral" da seguinte forma:
 | Type      | Severity | Verified | Observation | Latitude | Longitude | Distance   | ID             | Creator | Upvotes | Downvotes | Actions             |||
-| incendio  |          | false    |             | 26.1232  | -23.3323  | 3832.85 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
-| vazamento |          | false    |             | 27.1232  | -22.3323  | 3845.82 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
-| incendio  |          | false    |             | 26.1232  | -23.3323  | 3832.85 Km | ale            | User    |0        | 0         | Show |      |         |
+| fire      |          | false    |             | 26.1232  | -23.3323  | 3832.85 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
+| leak      |          | false    |             | 27.1232  | -22.3323  | 3845.82 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
+| fire      |          | false    |             | 26.1232  | -23.3323  | 3832.85 Km | ale            | User    |0        | 0         | Show |      |         |
 
 @oneAuthorityBefore
 @otherAuthorityMarkerBefore
@@ -78,6 +78,6 @@ E clico em "Lista de desastres"
 Então deverei ser redirecionado para a página de listagem de disastres
 E deverei ver a lista de desastres "geral" da seguinte forma:
 | Type      | Severity | Verified | Observation | Latitude | Longitude | Distance   | ID             | Creator | Upvotes | Downvotes | Actions             |||
-| incendio  |          | false    |             | 26.1232  | -23.3323  | 3832.85 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
-| vazamento |          | false    |             | 27.1232  | -22.3323  | 3845.82 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
-| incendio  |          | false    |             | 26.1232  | -23.3323  | 3832.85 Km | Samu           | Auth    |0        | 0         | Show | Edit | Destroy |
+| fire      |          | false    |             | 26.1232  | -23.3323  | 3832.85 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
+| leak      |          | false    |             | 27.1232  | -22.3323  | 3845.82 Km | rogerio_satrah | User    |0        | 0         | Show | Edit | Destroy |
+| fire      |          | false    |             | 26.1232  | -23.3323  | 3832.85 Km | Samu           | Auth    |0        | 0         | Show | Edit | Destroy |
